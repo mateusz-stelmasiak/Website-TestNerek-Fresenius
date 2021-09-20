@@ -1,0 +1,14 @@
+.BloodParameterRange .MuiSlider-root{
+    width: 80vw;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/*hide in survey*/
+.SurveyContainer .BloodParameterRange{
+    display: none;
+}
+
+.patientValue{
+    font-size: 1.1rem;
+}

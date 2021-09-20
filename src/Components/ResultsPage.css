@@ -1,0 +1,41 @@
+.ResultsPage{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    background-color: white;
+    align-content: center;
+    padding: 5rem 0rem;
+}
+.ResultsPage .resultContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+    width: min(80%,80rem);
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.ResultsPage .resultContainer h1{
+    color:var(--primary-color);
+    font-size:2.5rem;
+    margin-bottom: 0;
+}
+
+.ResultsPage .resultContainer h4{
+    margin:2rem 0;
+    font-size:3.5rem;
+    font-weight: bold;
+}
+
+.ResultsPage .resultContainer h3{
+    color:var(--primary-color);
+    font-size:1.5rem;
+    font-weight: normal;
+    text-align: justify;
+    text-align-last: center;
+}
+
+

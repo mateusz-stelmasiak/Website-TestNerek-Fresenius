@@ -1,0 +1,44 @@
+.LandingPage{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem 2rem;
+}
+
+.LandingPage .startTest{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LandingPage .startTest button{
+    background-color: var(--secondary-color);
+}
+
+.LandingPage .startTest .form-check{
+    margin-top:1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.LandingPage .startTest .form-check-label{
+    display: inline-block;
+}
+.LandingPage .startTest a{
+    color: black;
+}
+@media (max-width: 1100px) {
+    .LandingPage{
+        padding: 4rem 2rem;
+    }
+
+}
+@media (max-width: 700px) {
+    .LandingPage .startTest .form-check{
+        align-items: flex-start;
+    }
+}
+
+

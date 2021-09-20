@@ -1,0 +1,20 @@
+.SurveyContainer{
+    margin:7rem 15vw;
+}
+
+.SurveyContainer> div:first-of-type
+{
+    z-index: 100;
+}
+
+.SurveyContainer button{
+    margin:0 auto;
+    margin-top: 2rem;
+    font-weight: bold;
+    background-color: var(--secondary-color);
+}
+.SurveyContainer .Survey-checkbox{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+}

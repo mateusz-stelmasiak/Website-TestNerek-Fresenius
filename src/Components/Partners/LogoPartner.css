@@ -1,0 +1,40 @@
+.LogoPartner{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+.LogoPartner:last-child{
+    margin-right: 0;
+}
+.LogoPartner .img-container{
+    width: 12rem;
+    height: 10rem;
+    margin-bottom: 1.5rem;
+}
+.LogoPartner img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+
+.LogoPartner img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+    .LogoPartner {
+        align-items: center;
+        flex-direction: column;
+        margin-right: 0rem;
+        margin-top: 1rem;
+    }
+
+    .LogoPartner .img-container{
+        margin-bottom: 0rem;
+    }
+
+}

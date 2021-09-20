@@ -1,0 +1,21 @@
+.InfoPage {
+    width: min(90%,90rem);
+    margin: 5rem auto;
+    min-height: 20vh;
+}
+
+.InfoPage h1{
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.InfoPage h4{
+    color: var(--primary-color);
+
+}
+
+.InfoPage p{
+    color:black;
+    text-align: justify;
+    text-justify: inter-word;
+}

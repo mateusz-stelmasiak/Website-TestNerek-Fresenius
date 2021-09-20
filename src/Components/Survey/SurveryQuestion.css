@@ -1,0 +1,65 @@
+.SurveyQuestion{
+    margin-bottom: 8rem;
+}
+
+.SurveyQuestion .SurveyAnswers{
+    display: flex;
+    margin-top: 1rem;
+}
+
+
+.SurveyQuestion .SurveyAnswer{
+    display: flex;
+    align-items: center;
+    margin-right: 4rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    row-gap: 0.5rem;
+    column-gap: 0.8rem;
+}
+.SurveyQuestion .SurveyAnswer .FieldWithUnits{
+    display: flex;
+    column-gap: 0.7rem;
+    align-items: center;
+}
+.SurveyQuestion input[type=radio] {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom checkbox appearance */
+    display: inline-block;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 1px rgba(0,0,0,0.5) solid;
+    border-radius: 100%;
+    background-color: white;
+    transition: 0.1s ease-in;
+    padding:1rem;
+}
+
+input[type=radio]:checked{
+    background-color: var(--primary-color);
+    padding:5px;
+}
+
+input[type=radio]:focus{
+    outline: none !important;
+}
+@media (max-width: 1000px) {
+    .SurveyQuestion .SurveyAnswers{
+        flex-direction: column;
+    }
+    .SurveyQuestion .SurveyAnswer{
+        margin-top:1rem;
+        margin-right: 0;
+    }
+}
+
+
+
+
+

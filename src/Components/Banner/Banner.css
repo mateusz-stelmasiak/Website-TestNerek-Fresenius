@@ -1,0 +1,53 @@
+.Banner{
+    color: var(--primary-color);
+    background-color: var(--section-bg-color);
+    padding: 8vw 10vw;
+    background: url("../../Assets/banner_recolor.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ;
+}
+
+
+.Banner .container{
+    width: 40%;
+}
+
+.Banner img{
+    width: 20rem;
+    height: auto;
+}
+.container h1{
+    color:var(--primary-color);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+
+.container p{
+    color:var(--primary-color);
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 1100px) {
+    .container h1{
+        font-size: 2rem;
+    }
+    .container p{
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+    .container{
+        padding: 10px 5%;
+    }
+    .Banner{
+        height: 20vh;
+        display: flex;
+        align-items: center;
+    }
+    .Banner img{
+        width: 52%;
+    }
+}
+

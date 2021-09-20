@@ -1,0 +1,14 @@
+.kidneyIcon{
+    fill: var(--kidney-color);
+}
+
+.KidneysWidget{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2rem;
+    column-gap: 0.5rem;
+}

@@ -1,0 +1,47 @@
+.BurgerMenu{
+    display: none;
+}
+
+.BurgerButton {
+    cursor: pointer;
+}
+.BurgerButton:hover{
+    transform: scale(1.1);
+    color: var(--primary-color-opaque);
+}
+
+.CheeseburgerMenu-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 3rem 5%;
+}
+
+.CheeseburgerMenu-content a{
+    margin-top: 1.5rem;
+}
+/*First link margin away from button*/
+.CheeseburgerMenu-content a:nth-child(2){
+    margin-top: 3rem;
+}
+
+.CheeseburgerMenu-content a:after{
+    all:unset;
+}
+
+.CheeseburgerMenu-content a:hover{
+    color:var(--primary-color-opaque);
+}
+
+/*Closing button inside the burger menu*/
+.CheeseburgerMenu-content .BurgerButton {
+    align-self: flex-end;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .BurgerMenu {
+        display: block;
+    }
+
+}

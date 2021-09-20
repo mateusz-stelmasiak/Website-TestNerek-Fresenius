@@ -1,0 +1,30 @@
+.QuestionTitle{
+    display: flex;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+.QuestionTitle span{
+   display: inline-block;
+}
+
+.QuestionTitle .qNumber{
+    display: flex;
+    align-items: flex-start;
+}
+
+.QuestionTitle .qNumber span{
+    display: inline-block;
+    background-color: var(--primary-color-lighter);
+    height: 0.2rem;
+    width: 2rem;
+    margin: 1rem 2rem;
+}
+
+@media (max-width: 1000px) {
+    .QuestionTitle{
+        flex-direction: column;
+    }
+    .QuestionTitle .qNumber span{
+        width: 100%;
+    }
+}

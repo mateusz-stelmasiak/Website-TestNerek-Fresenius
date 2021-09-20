@@ -1,0 +1,53 @@
+.Contact button{
+    background-color: var(--primary-color);
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+}
+
+.Contact form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--section-bg-color);
+    padding: 5% 5%;
+    margin-bottom: 5rem;
+}
+
+.Contact .form-group{
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.Contact .form-label{
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+.Contact input[type=text], input[type=email], textarea{
+    width: min(30rem,90%);
+    font-size: 1rem;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-clip: content-box;
+    border: 1px var(--primary-color-opaque) solid;
+    border-radius: 2%;
+    background-color: transparent;
+    text-align: left;
+    padding: 1rem 1rem;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.Contact textarea {
+    width: min(50rem,90%);
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}

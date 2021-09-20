@@ -1,0 +1,12 @@
+.Wielun .img-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 2rem;
+    background-color: var(--section-bg-color);
+}
+
+.Wielun img{
+    width: 35%;
+    height: auto;
+    margin-right: 3rem;
+}

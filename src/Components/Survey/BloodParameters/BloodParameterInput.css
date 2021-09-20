@@ -1,0 +1,27 @@
+.BloodParamenterInput{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    flex-wrap:wrap;
+}
+
+.BloodParamenterInput .SurveyAnswer.form-group{
+    flex-wrap: wrap;
+}
+
+.BloodParamenterInput .form-check{
+    display: flex;
+    align-items: center;
+}
+
+.BloodParamenterInput .form-check-label{
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+@media only screen and (max-width: 450px){
+    .SurveyQuestion .BloodParamenterInput input[type="number"]{
+        width: 100%;
+    }
+}
+

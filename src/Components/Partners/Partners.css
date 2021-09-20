@@ -1,0 +1,35 @@
+:root{
+    --partners-text-color:#A7A39E;
+}
+
+.Partners{
+    padding: 5rem 15%;
+    background-color: var(--section-bg-color);
+}
+
+.Partners h1 {
+    color: var(--partners-text-color);
+    font-size: 2.5rem;
+}
+.Partners h3 {
+    color: var(--partners-text-color);
+    font-size: 1.8rem;
+}
+
+
+.Partners .partners-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 800px) {
+    .Partners .partners-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+
