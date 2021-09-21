@@ -18,7 +18,7 @@ function LabCodeGenerator({zip, code, dispatch}) {
 
     useEffect(() => {
         setEligable(isUserEligableForLab(zip));
-    }, [])
+    }, [zip])
 
     function inputEmail(mail) {
         if (mail.length > 256) return;
@@ -27,7 +27,6 @@ function LabCodeGenerator({zip, code, dispatch}) {
     }
 
     function inputPESEL(p) {
-        let x = p.length
         if (p.length > 11) return;
         setFeedback("");
         setPESEL(p);

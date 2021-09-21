@@ -1,8 +1,8 @@
 export const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-export const inviteScriptPath="http://nefrotest.eu/PhpScripts/sendInvite.php";
-export const codeGenScriptPath="http://nefrotest.eu/PhpScripts/generateLabCode.php"
-export const sendContactMsgPath="http://nefrotest.eu/PhpScripts/sendContactMsg.php"
-export const securityTokenPath="http://nefrotest.eu/PhpScripts/securityToken.php"
+export const inviteScriptPath="http://poradnianefrologiczna.pl/PhpScripts/sendInvite.php";
+export const codeGenScriptPath="http:///poradnianefrologiczna.pl/PhpScripts/generateLabCode.php"
+export const sendContactMsgPath="http:///poradnianefrologiczna.pl/PhpScripts/sendContactMsg.php"
+export const securityTokenPath="http:///poradnianefrologiczna.pl/PhpScripts/securityToken.php"
 
 
 export const fetchOptions={
@@ -10,7 +10,6 @@ export const fetchOptions={
     mode: "same-origin",
     credentials: "same-origin",
 }
-
 
 //user class to convinently store all user data
 export class User{

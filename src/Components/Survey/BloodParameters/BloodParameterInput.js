@@ -3,7 +3,7 @@ import {selectAnswers} from "../../../Redux/Actions/surveyActions";
 import {connect} from "react-redux";
 import "./BloodParameterInput.css"
 import {Form} from "react-bootstrap";
-import useWindowDimensions from "../../useWindowDimensions"
+import useWindowDimensions from "../../Common/useWindowDimensions"
 import BloodParameterRange from "./BloodParameterRange"
 
 function BloodParameterInput({qId, pName, pNorms, pUnits, dispatch}) {

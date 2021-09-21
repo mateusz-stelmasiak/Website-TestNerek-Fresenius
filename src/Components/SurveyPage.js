@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import SurveyQuestion from "./Survey/SurveyQuestion";
 import {choiceQuestions} from "../JSBackend";
-
 import "./SurveyPage.css"
 import {useHistory} from "react-router-dom";
 import {Form} from "react-bootstrap";
@@ -10,7 +9,7 @@ import PersonalInfoQuestion from "./Survey/PersonalInfoQuestion";
 import BloodParametersQuestion from "./Survey/BloodParameters/BloodParametersQuestion";
 import {clearResults} from "../Redux/Actions/surveyActions";
 import ScrollProgressBar from "./Survey/ScrollProgressBar";
-import ScrollToSectionComponent from "./ScrollToSectionComponent"
+import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 
 function SurveyPage({dispatch}) {
     const questions = choiceQuestions;

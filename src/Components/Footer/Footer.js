@@ -1,7 +1,5 @@
 import "./Footer.css"
-import {Link, Route} from "react-router-dom";
-import Privacy from "../InfoPages/Privacy";
-import Cookies from "../InfoPages/Cookies";
+import {Link} from "react-router-dom";
 
 function Banner(){
     return (

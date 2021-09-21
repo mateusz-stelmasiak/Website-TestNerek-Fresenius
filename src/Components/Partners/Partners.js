@@ -1,4 +1,3 @@
-import PersonPartner from "./PersonPartner"
 import "./Partners.css"
 
 function Partners({general,media}){

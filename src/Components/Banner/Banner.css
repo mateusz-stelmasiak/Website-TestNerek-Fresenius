@@ -1,22 +1,25 @@
 .Banner{
     color: var(--primary-color);
-    background-color: var(--section-bg-color);
-    padding: 8vw 10vw;
-    background: url("../../Assets/banner_recolor.png");
-    background-repeat: no-repeat;
+    padding: min(8vw,200px) min(10vw,200px);
     background-size: cover;
-    background-position: center ;
+    background: var(--section-bg-color) url("../../Assets/banner_recolor.png") no-repeat;
+    background-position: 50% -250px;
+    animation-name:slideHands;
+    animation-duration: 1s;
 }
+
+/* slide hands in animation */
+@keyframes slideHands {
+    from {  background-position: 50% -320px;}
+    to {  background-position: 50% -250px;}
+}
+
 
 
 .Banner .container{
     width: 40%;
 }
 
-.Banner img{
-    width: 20rem;
-    height: auto;
-}
 .container h1{
     color:var(--primary-color);
     font-size: 3rem;
@@ -29,8 +32,23 @@
     font-size: 1.2rem;
 }
 
+@keyframes slideHandsMobile {
+    from {  background-position: 65% 60px;}
+    to {  background-position: 65% 70px;}
+}
 
 @media (max-width: 1100px) {
+    .Banner{
+        padding: 0 0;
+        height: 22rem;
+        display: flex;
+        align-items: center;
+        background-size: auto 25rem;
+        background-attachment: fixed;
+        background-position: 65% 70px;
+        animation-name:slideHandsMobile;
+    }
+
     .container h1{
         font-size: 2rem;
     }
@@ -41,13 +59,6 @@
     .container{
         padding: 10px 5%;
     }
-    .Banner{
-        height: 20vh;
-        display: flex;
-        align-items: center;
-    }
-    .Banner img{
-        width: 52%;
-    }
+
 }
 

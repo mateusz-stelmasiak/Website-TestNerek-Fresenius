@@ -3,6 +3,7 @@ import surveyReducer from "./surveyReducer";
 import userReducer from "./userReducer";
 
 //all reducers combined
+//TODO join user ans survey reducers, makes shit easier
 const rootReducer = combineReducers({
     user:userReducer,
     survey: surveyReducer,

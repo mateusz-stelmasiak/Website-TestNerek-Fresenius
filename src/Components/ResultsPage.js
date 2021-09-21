@@ -1,15 +1,11 @@
-import {useHistory} from "react-router-dom";
 import "./ResultsPage.css"
 import {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import {latOrLata} from "../JSBackend";
 import {calculateResult} from "../Redux/Actions/surveyActions";
 import ShareTest from "./ShareTest/ShareTest";
-import CountUp from "react-countup";
-import Reel from 'react-reel'
 import LabCodeGenerator from "./LabCode/LabCodeGenerator";
 import KidneysWidget from "./ResultsPage/KidneysWidget"
-import ScrollToSectionComponent from "./ScrollToSectionComponent"
+import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 
 function ResultsPage({surveyResult,age,dispatch,}){
     const [loading,setLoading]=useState(true)

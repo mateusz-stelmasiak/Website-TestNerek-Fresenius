@@ -1,5 +1,10 @@
 .kidneyIcon{
     fill: var(--kidney-color);
+    width: min(10rem,30vw);
+}
+
+.kidneyIcon path{
+    width: 30vw;
 }
 
 .KidneysWidget{

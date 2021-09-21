@@ -1,9 +1,8 @@
 import Partners from "../Partners/Partners"
-import PersonPartner from "../Partners/PersonPartner"
 import LogoPartner from "../Partners/LogoPartner"
 import burmistrz from '../../Assets/partners/Minsk/burmistrz.png';
 import powiat from '../../Assets/partners/Minsk/powiat.jpg';
-import ScrollToSectionComponent from "../ScrollToSectionComponent"
+import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
 
 export default function Minsk() {
     const general_partners= [
@@ -23,9 +22,9 @@ export default function Minsk() {
         </LogoPartner>
     ]
 
-    const media_parnters = [
-
-    ]
+    // const media_parnters = [
+    //
+    // ]
 
 
     return (

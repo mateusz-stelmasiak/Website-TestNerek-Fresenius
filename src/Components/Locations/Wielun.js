@@ -1,6 +1,5 @@
-import ScrollToSectionComponent from "../ScrollToSectionComponent"
+import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
 import Partners from "../Partners/Partners"
-import PersonPartner from "../Partners/PersonPartner"
 import LogoPartner from "../Partners/LogoPartner"
 import tvWielun from '../../Assets/partners/Wieluń/TV-Wielun.png';
 import dziennikLodzki from '../../Assets/partners/Wieluń/dziennik-lodzki.png';
@@ -9,7 +8,7 @@ import stacjaDializ from '../../Assets/stacja-dializ.jpg'
 import "./Wielun.css"
 
 export default function Wielun() {
-    const general_partners = []
+    // const general_partners = []
 
     const media_parnters = [
         <LogoPartner
@@ -55,8 +54,8 @@ export default function Wielun() {
 
                 </p>
                 <div className="img-container">
-                    <img src={drAndrzej}/>
-                    <img src={stacjaDializ}/>
+                    <img src={drAndrzej} alt="drAndrzej"/>
+                    <img src={stacjaDializ} alt="stacjaDializ"/>
                 </div>
 
                 <p>

@@ -2,7 +2,6 @@ import "./PersonalnfoQuestion.css"
 import QuestionTitle from "./QuestionTitle";
 import React, {useState} from "react";
 import {Form} from "react-bootstrap";
-import {Location} from "../../Utils";
 import {connect} from "react-redux";
 import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/Actions/userActions";
 import {latOrLata} from "../../JSBackend";
@@ -12,7 +11,6 @@ let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/
 
 function PersonalInfoQuestion({qId, userData, dispatch}) {
     const [age, setAge] = useState()
-    const [location, setLocation] = useState()
     const [zipCode, setZipCode] = useState()
     const [isZipValid, setIsZipValid] = useState(false);
     const [height, setHeight] = useState()

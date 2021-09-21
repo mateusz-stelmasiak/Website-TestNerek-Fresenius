@@ -1,29 +1,14 @@
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./NavBar.css"
 import "./BurgerMenu.css"
 import logo from '../../Assets/freseniusLogo.png';
 import {useHistory} from "react-router-dom";
-import useWindowDimensions from "../useWindowDimensions";
-import {useState} from "react";
 import BurgerMenu from "./BurgerMenu";
 
 export default function NavBar() {
     //reroute to main page after click on logo
     const history = useHistory();
     const routeToMain = () => history.push(process.env.REACT_APP_TOKEN + '/');
-    //viewport width and height from hook
-    const {height, width} = useWindowDimensions();
-    const [sideMenuOpen,setSideMenuOpen]=useState(false);
-
-    let closeMenu = ()=>{
-        console.log("test");
-        setSideMenuOpen(false);
-    }
-
-    let openMenu  = ()=>{
-        console.log("test");
-        setSideMenuOpen(true);
-    }
 
     const menuButtons =
         <>

@@ -1,11 +1,8 @@
 import "../Survey/BloodParameters/BloodParametersQuestion.css"
 import QuestionTitle from "../Survey/QuestionTitle";
 import React, {useEffect, useState} from "react";
-import {Form} from "react-bootstrap";
 import {connect} from "react-redux";
-import PersonalInfoQuestion from "../Survey/PersonalInfoQuestion";
-import SurveyQuestion from "../Survey/SurveyQuestion";
-import {choiceQuestions,bloodResults} from "../../JSBackend";
+import {bloodResults} from "../../JSBackend";
 import BloodParameterInput from "../Survey/BloodParameters/BloodParameterInput";
 
 

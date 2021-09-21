@@ -2,10 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-
     background-color: white;
     align-content: center;
-    padding: 5rem 0rem;
 }
 .ResultsPage .resultContainer{
     display: flex;
@@ -13,8 +11,6 @@
     flex-direction: column;
     align-items: center;
     overflow-wrap: break-word;
-    width: min(80%,80rem);
-    margin: 2rem auto;
     text-align: center;
 }
 

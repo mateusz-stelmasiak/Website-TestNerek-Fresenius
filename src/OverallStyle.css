@@ -71,6 +71,7 @@ button:hover {
 
 input[type=checkbox] {
   width: 1.5rem;
+  min-width: 1.5rem;
   height: 1.5rem;
   box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.15);
   margin-right: 0.7rem;
@@ -97,6 +98,13 @@ input[type=checkbox]:checked{
 input[type=checkbox]:focus{
    outline: none !important;
  }
+
+.checkBoxes{
+  row-gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: flex-start;
+  max-width: 55rem;
+}
 
 /* Change color after autocomplete in chrome*/
 input:-webkit-autofill,

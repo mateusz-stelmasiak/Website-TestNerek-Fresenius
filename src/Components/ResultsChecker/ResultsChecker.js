@@ -1,5 +1,5 @@
 import "./ResultsChecker.css"
-import ScrollToSectionComponent from "../ScrollToSectionComponent"
+import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
 import BloodResultsQuestion from "./BloodResultsQuestion"
 import QuestionTitle from "../Survey/QuestionTitle";
 

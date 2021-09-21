@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 import "./BurgerMenu.css"

@@ -24,6 +24,7 @@
 }
 .SurveyQuestion input[type=radio] {
     width: 2.5rem;
+    min-width: 2.5rem;
     height: 2.5rem;
     margin-right: 1rem;
 

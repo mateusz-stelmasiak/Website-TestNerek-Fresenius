@@ -15,7 +15,6 @@ export let bloodResults =[
     new BloodParameter("Cholesterol całkowity",["mmol/l","mg/dl"],[5.2,200])
 ]
 
-
 let standardAnswers=["Tak","Nie","Nie wiem"];
 export let choiceQuestions = [
     new ChoiceQuestion("Czy przeszła Pani/Pan zakażenie koronawirusem?",standardAnswers),
@@ -34,13 +33,13 @@ let LOW_RESULT_BOUNDARY = 0;
 let MODERATE_RESULT_BOUNDARY = 3;
 let HIGH_RESULT_BOUNDARY = 5;
 
-let possibleResultsHeaders={
+let possibleResultHeaders={
     low:'nerki są',
     moderate: 'nerkom potrzebna jest ',
     high:'nerki wymagają '
 }
 
-let possibleResults={
+let possibleResultTitles={
     low:'w dobrej kondycji',
     moderate: 'regularna kontrola',
     high:'szybkiej kontroli'
@@ -66,6 +65,12 @@ let resultColors={
     high:"var(--secondary-color)"
 }
 
+let possibleResults ={
+    low: {header:possibleResultHeaders.low,result:possibleResultTitles.low,verbose:verboseResults.low,color:resultColors.low},
+    moderate: {header:possibleResultHeaders.moderate,result:possibleResultTitles.moderate,verbose:verboseResults.moderate,color:resultColors.moderate},
+    high:{header:possibleResultHeaders.high,result:possibleResultTitles.high,verbose:verboseResults.high,color:resultColors.high}
+}
+
 
 export function calculateSurveyResult(answers){
     if (!answers) return {result:'-',verbose:'nie podano niezbędnych informacji.'}
@@ -84,9 +89,9 @@ export function calculateSurveyResult(answers){
     //Bloodwork impact on the anwser
 
 
-    if (negativeAns>=HIGH_RESULT_BOUNDARY) result={header:possibleResultsHeaders.high,result:possibleResults.high,verbose:verboseResults.high,color:resultColors.high}
-    else if (negativeAns>=MODERATE_RESULT_BOUNDARY) result={header:possibleResultsHeaders.moderate,result:possibleResults.moderate,verbose:verboseResults.moderate,color:resultColors.moderate}
-    else if (negativeAns>=LOW_RESULT_BOUNDARY) result={header:possibleResultsHeaders.low,result:possibleResults.low,verbose:verboseResults.low,color:resultColors.low}
+    if (negativeAns>=HIGH_RESULT_BOUNDARY) result=possibleResults.high
+    else if (negativeAns>=MODERATE_RESULT_BOUNDARY) result=possibleResults.moderate
+    else if (negativeAns>=LOW_RESULT_BOUNDARY) result=possibleResults.low
 
     return result;
 }
@@ -100,10 +105,12 @@ export function isUserEligableForLab(zip){
 //returns appropriate form of 'lat' based on given number
 export function latOrLata(age){
     age= parseInt(age);
+    //exceptions
     if (age===1) return 'rok'
     if (age>5 && age<22) return 'lat'
     if (age>105 && age<122) return 'lat'
 
+    //general rule
     let lastDigit= age%10;
     if (lastDigit<=1) return 'lat'
     return lastDigit<5? 'lata':'lat';

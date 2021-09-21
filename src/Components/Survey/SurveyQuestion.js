@@ -13,7 +13,7 @@ function SurveyQuestion({qId, qText, answers, dispatch, currAnswers}) {
         setChosenAnswer(undefined);
         if (currAnswers[qId] === undefined) return;
         setChosenAnswer(currAnswers[qId]);
-    }, [qId])
+    }, [qId,currAnswers])
 
 
     function toggleAnswer(aIndex) {
@@ -21,8 +21,6 @@ function SurveyQuestion({qId, qText, answers, dispatch, currAnswers}) {
         //save answers to the store
         dispatch(selectAnswers(qId, aIndex));
     }
-
-    var invalidListener = function(){ this.scrollIntoView(true); };
 
     const answersElements = answers.map((ans, index) => {
         return (

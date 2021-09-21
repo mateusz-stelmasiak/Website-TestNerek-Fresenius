@@ -1,5 +1,5 @@
 import "./InfoPages.css"
-import ScrollToSectionComponent from "../ScrollToSectionComponent"
+import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
 
 export default function Privacy() {
     return (

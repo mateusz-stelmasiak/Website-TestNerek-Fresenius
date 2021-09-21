@@ -10,38 +10,22 @@ import Banner from "./Components/Banner/Banner";
 import LandingPage from "./Components/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import ResultsPage from "./Components/ResultsPage";
-import ScrollToTop from "./Components/ScrollToTop";
+import ScrollToTop from "./Components/Common/ScrollToTop";
 import PrivateRoute from "./Components/PrivateRoute";
 import Privacy from "./Components/InfoPages/Privacy";
 import Cookies from "./Components/InfoPages/Cookies";
 import Law from "./Components/InfoPages/Law";
-import UnderConstruction from "./Components/UnderConstruction";
+import UnderConstruction from "./Components/Common/UnderConstruction";
 import NavBar from "./Components/NavBar/NavBar"
 import Minsk from "./Components/Locations/Minsk"
 import Wielun from "./Components/Locations/Wielun"
 import Contact from "./Components/ContactForm/Contact"
 import ResultsChecker from "./Components/ResultsChecker/ResultsChecker"
-import FixedHeaderScrollFixer from "./FixedHeaderScrollFixer";
-import {useEffect} from "react";
-//redux store
 
+//redux store
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
-
 function App() {
-    useEffect(() => {
-        console.log("I have been mounted")
-        let elements = document.querySelectorAll('input,select,textarea');
-        let invalidListener = function(){ this.scrollIntoView(false); };
-        console.log(elements)
-
-        for(let i = elements.length; i--;)
-            elements[i].addEventListener('invalid', invalidListener);
-
-    });
-
-
-
 
   return (
       <Provider store={store}>
@@ -60,7 +44,6 @@ function App() {
                           </Route>
 
                           <PrivateRoute path={process.env.REACT_APP_TOKEN+"/wyniki"} >
-                              <ScrollToTop/>
                               <ResultsPage/>
                           </PrivateRoute>
 
@@ -109,6 +92,5 @@ function App() {
   );
 }
 
-//<Redirect from="*" to="/" />
-//<Partners/>
+//TO DO <Redirect from="*" to="/" />
 export default App;

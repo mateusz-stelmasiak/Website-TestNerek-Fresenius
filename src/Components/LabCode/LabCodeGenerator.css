@@ -1,7 +1,6 @@
 .LabCodeGenerator{
     overflow-wrap: break-word;
-    width: 80%;
-    margin: 5rem auto;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -33,6 +32,8 @@
 /*Email input field*/
 .LabCodeGenerator  input[type=email], .LabCodeGenerator input[type=number], .LabCodeGenerator input[type=tel]{
     all: unset;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
     padding:1rem 1rem;
     width: min(90%,30rem) ;
     margin-top: 1rem;
@@ -42,9 +43,6 @@
     font-size: 1.05rem;
 }
 
-.LabCodeGenerator .checkBoxes{
-    width: 100%;
-}
 
 .LabCodeGenerator .feedback{
     color:var(--secondary-color);
@@ -80,3 +78,15 @@
     border-radius: 3%;
     padding: 0.5rem 8rem;
 }
+
+
+.LabCodeGenerator .form-check{
+    display: flex;
+    align-items: flex-start;
+}
+
+.LabCodeGenerator .form-check-label{
+    display: inline-block;
+    text-align: left;
+}
+

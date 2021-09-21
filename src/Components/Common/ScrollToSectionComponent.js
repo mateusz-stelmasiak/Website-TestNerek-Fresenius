@@ -1,9 +1,8 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import { useLocation } from "react-router-dom";
 
-export default function ScrollToSectionComponent(props: React.PropsWithChildren<MyProps>,height,className) {
+export default function ScrollToSectionComponent(props) {
     const { pathname } = useLocation();
-    const [bannerHeight,setBannerHeight]=useState(-1);
 
     //get banner hight from DOM
     function getBannerHeight(){
