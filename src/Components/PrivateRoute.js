@@ -17,7 +17,7 @@ const PrivateRoute = ({ age,surveyResult,answers,component: Component, ...rest }
 // Map Redux state to React component props
 const mapStateToProps = (state) => {
     return {
-        age: state.user.userData.age,
+        age: state.survey.userData.age,
         answers: state.survey.answers,
         surveyResult: state.survey.surveyResult,
     };

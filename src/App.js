@@ -21,6 +21,7 @@ import Minsk from "./Components/Locations/Minsk"
 import Wielun from "./Components/Locations/Wielun"
 import Contact from "./Components/ContactForm/Contact"
 import ResultsChecker from "./Components/ResultsChecker/ResultsChecker"
+import AdminLogin from "./Components/AdminPanel/AdminLogin";
 
 //redux store
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
@@ -31,61 +32,68 @@ function App() {
       <Provider store={store}>
           <Router>
                   <div className="App">
+                    <Switch>
+                        <Route path={process.env.REACT_APP_TOKEN}>
+                            <NavBar/>
+                            <Banner/>
+                            <Switch>
+                                <Route path={process.env.REACT_APP_TOKEN+"/test"}>
+                                    <SurveyContainer/>
+                                </Route>
 
-                      <Route path={process.env.REACT_APP_TOKEN}>
-                          <NavBar/>
-                          <Banner/>
-                      </Route>
+                                <PrivateRoute path={process.env.REACT_APP_TOKEN+"/wyniki"} >
+                                    <ResultsPage/>
+                                </PrivateRoute>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/polityka-prywatnosci"}>
+                                    <Privacy/>
+                                </Route>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/pliki-cookie"}>
+                                    <Cookies/>
+                                </Route>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/informacje-prawne"}>
+                                    <Law/>
+                                </Route>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/minsk-mazowiecki"}>
+                                    <Minsk/>
+                                </Route>
+                                <Route path={process.env.REACT_APP_TOKEN+"/wielun"}>
+                                    <Wielun/>
+                                </Route>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/sprawdz-wyniki"}>
+                                    <ResultsChecker/>
+                                </Route>
+
+                                <Route path={process.env.REACT_APP_TOKEN+"/kontakt"}>
+                                    <Contact/>
+                                </Route>
 
 
-                      <Switch>
-                          <Route path={process.env.REACT_APP_TOKEN+"/test"}>
-                              <SurveyContainer/>
-                          </Route>
+                                <Route path={process.env.REACT_APP_TOKEN+"/"}>
+                                    <ScrollToTop/>
+                                    <LandingPage/>
+                                </Route>
 
-                          <PrivateRoute path={process.env.REACT_APP_TOKEN+"/wyniki"} >
-                              <ResultsPage/>
-                          </PrivateRoute>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/polityka-prywatnosci"}>
-                              <Privacy/>
-                          </Route>
+                                <Redirect from="*" to="/" />
+                            </Switch>
+                            <Footer/>
+                        </Route>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/pliki-cookie"}>
-                              <Cookies/>
-                          </Route>
+                        <Route path={"/admin"}>
+                            <AdminLogin/>
+                        </Route>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/informacje-prawne"}>
-                              <Law/>
-                          </Route>
+                    </Switch>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/minsk-mazowiecki"}>
-                              <Minsk/>
-                          </Route>
-                          <Route path={process.env.REACT_APP_TOKEN+"/wielun"}>
-                              <Wielun/>
-                          </Route>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/sprawdz-wyniki"}>
-                              <ResultsChecker/>
-                          </Route>
+                      <Route path="/" exact component={UnderConstruction}/>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/kontakt"}>
-                              <Contact/>
-                          </Route>
 
-                          <Route path={process.env.REACT_APP_TOKEN+"/"}>
-                              <ScrollToTop/>
-                              <LandingPage/>
-                          </Route>
-
-                          <Route path="/" exact component={UnderConstruction}/>
-                          <Redirect from="*" to="/" />
-                      </Switch>
-
-                      <Route path={process.env.REACT_APP_TOKEN}>
-                          <Footer/>
-                      </Route>
                   </div>
           </Router>
       </Provider>

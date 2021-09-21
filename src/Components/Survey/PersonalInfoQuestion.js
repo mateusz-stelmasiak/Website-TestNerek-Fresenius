@@ -3,8 +3,8 @@ import QuestionTitle from "./QuestionTitle";
 import React, {useState} from "react";
 import {Form} from "react-bootstrap";
 import {connect} from "react-redux";
-import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/Actions/userActions";
 import {latOrLata} from "../../JSBackend";
+import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/Actions/surveyActions";
 
 let fullZipRegex = /^[0-9]{2}-[0-9]{3}$/;
 let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/
@@ -129,7 +129,7 @@ function PersonalInfoQuestion({qId, userData, dispatch}) {
 
 const mapStateToProps = (state) => {
     return {
-        userData: state.user.userData
+        userData: state.survey.userData
     };
 };
 export default connect(mapStateToProps)(PersonalInfoQuestion)

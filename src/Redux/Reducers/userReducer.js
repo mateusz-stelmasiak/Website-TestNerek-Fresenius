@@ -1,5 +1,5 @@
-import * as actions from "../Actions/userActions";
 import {User} from "../../Utils";
+import {SET_AGE, SET_HEIGHT, SET_LAB_CODE, SET_WEIGHT, SET_ZIP} from "../Actions/surveyActions";
 
 let defaultUser=new User("","","","","","","","");
 export const userInitialState = {
@@ -11,23 +11,23 @@ export const userInitialState = {
 export default function userReducer(state = userInitialState, action) {
     let currUser= state.userData
     switch (action.type){
-        case actions.SET_AGE:
+        case SET_AGE:
             currUser.age= action.payload;
             sessionStorage.setItem('userData',JSON.stringify(currUser));
             return {...state, userData:currUser};
-        case actions.SET_WEIGHT:
+        case SET_WEIGHT:
             currUser.weight= action.payload;
             sessionStorage.setItem('userData',JSON.stringify(currUser));
             return {...state, userData:currUser};
-        case actions.SET_ZIP:
+        case SET_ZIP:
             currUser.zip= action.payload;
             sessionStorage.setItem('userData',JSON.stringify(currUser));
             return {...state, userData:currUser};
-        case actions.SET_HEIGHT:
+        case SET_HEIGHT:
             currUser.height= action.payload;
             sessionStorage.setItem('userData',JSON.stringify(currUser));
             return {...state, userData:currUser};
-        case actions.SET_LAB_CODE:
+        case SET_LAB_CODE:
             sessionStorage.setItem('labCode',action.payload);
             return {...state,labCode:action.payload};
         default:

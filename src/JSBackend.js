@@ -72,7 +72,7 @@ let possibleResults ={
 }
 
 
-export function calculateSurveyResult(answers){
+export function calculateSurveyResult(answers,weight,height){
     if (!answers) return {result:'-',verbose:'nie podano niezbędnych informacji.'}
     let result;
 
@@ -83,8 +83,10 @@ export function calculateSurveyResult(answers){
     });
 
     //BMI impact on the answer
-    // let BMI = calculateBMI(weight,height);
-    // if (BMI>=30.0) negativeAns+1;
+    console.log(weight+" "+height);
+    let BMI = calculateBMI(weight,height);
+    console.log(BMI)
+    if (BMI>=30.0) negativeAns+=1;
 
     //Bloodwork impact on the anwser
 
@@ -123,7 +125,8 @@ export function latOrLata(age){
 
 export function calculateBMI(weight,height){
     if (weight && height){
-        return weight/height/height * 10.0;
+        let heightInMeters=height/100;
+        return weight/(heightInMeters*heightInMeters);
     }
     return -1;
 }

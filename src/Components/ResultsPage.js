@@ -45,7 +45,7 @@ function ResultsPage({surveyResult,age,dispatch,}){
 
 const mapStateToProps = (state) => {
     return {
-        age: state.user.userData.age,
+        age: state.survey.userData.age,
         surveyResult: state.survey.surveyResult,
     };
 };

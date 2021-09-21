@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
 import "./LabCodeGenerator.css"
-import {setUserLabCode} from "../../Redux/Actions/userActions";
+import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 
 function LabCodeGenerator({zip, code, dispatch}) {
     const [eligable, setEligable] = useState(false)
@@ -183,8 +183,8 @@ function LabCodeGenerator({zip, code, dispatch}) {
 
 const mapStateToProps = (state) => {
         return {
-            zip: state.user.userData.zip,
-            code: state.user.labCode,
+            zip: state.survey.userData.zip,
+            code: state.survey.labCode,
             surveyResult: state.survey.surveyResult,
         };
     }
