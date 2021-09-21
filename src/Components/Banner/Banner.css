@@ -6,6 +6,7 @@
     background-position: 50% -250px;
     animation-name:slideHands;
     animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 /* slide hands in animation */
@@ -34,18 +35,18 @@
 
 @keyframes slideHandsMobile {
     from {  background-position: 65% 60px;}
-    to {  background-position: 65% 70px;}
+    to {  background-position: 65% 80px;}
 }
 
 @media (max-width: 1100px) {
     .Banner{
         padding: 0 0;
-        height: 22rem;
+        height: 300px;
         display: flex;
         align-items: center;
         background-size: auto 25rem;
         background-attachment: fixed;
-        background-position: 65% 70px;
+        background-position: 65% 80px;
         animation-name:slideHandsMobile;
     }
 
@@ -58,6 +59,8 @@
     }
     .container{
         padding: 10px 5%;
+        -webkit-box-shadow: 5px -7px 15px 5px rgba(0,0,0,0.1);
+        box-shadow: 5px -7px 15px 5px rgba(0,0,0,0.1);
     }
 
 }
