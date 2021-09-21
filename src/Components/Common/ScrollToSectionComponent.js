@@ -13,7 +13,7 @@ export default function ScrollToSectionComponent(props) {
     useEffect(() => {
         let scrollTo = getBannerHeight();
         window.scrollTo({ top: scrollTo, behavior: 'smooth' })
-    }, [pathname]);
+    }, []);
 
     return (
         <section className={props.className}>

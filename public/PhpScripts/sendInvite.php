@@ -28,7 +28,7 @@ $headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n
 //generate message with template
 $msg = generateInviteMessage();
 
-//send the actual email messgae
+//send the actual email message
 mail( "$send_to", $mail_title, $msg ,$headers) or die('{"feedback": "Błąd serwera: nie można wysłać maila, spróbuj ponownie!","success":"false"}');
 
 //try to save into database, for spam detection later

@@ -15,8 +15,6 @@
     to {  background-position: 50% -250px;}
 }
 
-
-
 .Banner .container{
     width: 40%;
 }
@@ -26,11 +24,19 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1.2rem;
+    animation: fadeInLeft;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    animation-delay: 0.5s;
 }
 
 .container p{
     color:var(--primary-color);
     font-size: 1.2rem;
+    animation: fadeInLeft;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 0.5s;
 }
 
 @keyframes slideHandsMobile {

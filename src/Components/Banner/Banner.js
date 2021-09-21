@@ -1,4 +1,6 @@
 import "./Banner.css"
+import "animate.css"
+
 import useWindowDimensions from "../Common/useWindowDimensions"
 
 function Banner() {

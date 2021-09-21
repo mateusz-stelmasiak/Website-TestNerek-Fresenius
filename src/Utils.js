@@ -1,8 +1,9 @@
 export const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-export const inviteScriptPath="http://poradnianefrologiczna.pl/PhpScripts/sendInvite.php";
-export const codeGenScriptPath="http:///poradnianefrologiczna.pl/PhpScripts/generateLabCode.php"
-export const sendContactMsgPath="http:///poradnianefrologiczna.pl/PhpScripts/sendContactMsg.php"
-export const securityTokenPath="http:///poradnianefrologiczna.pl/PhpScripts/securityToken.php"
+export const inviteScriptPath= "/PhpScripts/sendInvite.php";
+export const codeGenScriptPath="/PhpScripts/generateLabCode.php"
+export const sendContactMsgPath="/PhpScripts/sendContactMsg.php"
+export const checkZIPPath="/PhpScripts/checkZIP.php"
+export const securityTokenPath="/PhpScripts/securityToken.php"
 
 
 export const fetchOptions={

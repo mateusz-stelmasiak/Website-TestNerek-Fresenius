@@ -1,4 +1,4 @@
-import {BloodParameter, ChoiceQuestion} from "./Utils";
+import {BloodParameter, checkZIPPath, ChoiceQuestion, fetchOptions} from "./Utils";
 
 export let bloodParameters =[
     new BloodParameter("Kreatynina",["umol/l","mg/dl"],[130,1.5]),
@@ -96,9 +96,14 @@ export function calculateSurveyResult(answers){
     return result;
 }
 
-export function isUserEligableForLab(zip){
-    //some logic
-
+export async function isUserEligableForLab(zip){
+    const response = await fetch(checkZIPPath + "?zip="+zip, fetchOptions);
+    const respBody = await response.text();
+    let respObj = JSON.parse(respBody);
+    console.log(respObj)
+    if (respObj.success !== "true") {
+        return false;
+    }
     return true;
 }
 

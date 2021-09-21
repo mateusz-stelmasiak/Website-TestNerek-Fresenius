@@ -16,8 +16,15 @@ function LabCodeGenerator({zip, code, dispatch}) {
     const [phone, setPhone] = useState("")
     const [feedback, setFeedback] = useState("")
 
+    async function determinUserEligable(){
+        console.log(zip);
+        let resp=await isUserEligableForLab(zip);
+        console.log(resp);
+        setEligable(resp);
+    }
+
     useEffect(() => {
-        setEligable(isUserEligableForLab(zip));
+        determinUserEligable();
     }, [zip])
 
     function inputEmail(mail) {
