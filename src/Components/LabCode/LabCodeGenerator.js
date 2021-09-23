@@ -8,18 +8,19 @@ import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
 import "./LabCodeGenerator.css"
 import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 
-function LabCodeGenerator({zip, code, dispatch}) {
+function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
     const [eligable, setEligable] = useState(false)
     const [PESEL, setPESEL] = useState("")
-    const [labCode, setLabCode] = useState(code)
+    const [labCode, setLabCode] = useState(undefined)
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [feedback, setFeedback] = useState("")
 
     async function determinUserEligable(){
-        console.log(zip);
+        if (surveyResult.severity==='low') return;
+
+        //determines if users zip is eligable for a code
         let resp=await isUserEligableForLab(zip);
-        console.log(resp);
         setEligable(resp);
     }
 

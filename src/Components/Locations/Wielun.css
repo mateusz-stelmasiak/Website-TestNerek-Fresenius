@@ -3,10 +3,12 @@
     flex-wrap: wrap;
     padding: 2rem 2rem;
     background-color: var(--section-bg-color);
+    justify-content: space-around;
+    row-gap: 1rem;
+    column-gap: 0.5rem;
 }
 
 .Wielun img{
-    width: 35%;
+    width: min(30rem,100%);
     height: auto;
-    margin-right: 3rem;
 }

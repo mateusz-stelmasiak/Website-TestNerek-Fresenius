@@ -66,9 +66,14 @@ let resultColors={
 }
 
 let possibleResults ={
-    low: {header:possibleResultHeaders.low,result:possibleResultTitles.low,verbose:verboseResults.low,color:resultColors.low},
-    moderate: {header:possibleResultHeaders.moderate,result:possibleResultTitles.moderate,verbose:verboseResults.moderate,color:resultColors.moderate},
-    high:{header:possibleResultHeaders.high,result:possibleResultTitles.high,verbose:verboseResults.high,color:resultColors.high}
+    low: {
+        severity:'low',
+        header:possibleResultHeaders.low,
+        result:possibleResultTitles.low,
+        verbose:verboseResults.low,
+        color:resultColors.low},
+    moderate: {severity:'moderate',header:possibleResultHeaders.moderate,result:possibleResultTitles.moderate,verbose:verboseResults.moderate,color:resultColors.moderate},
+    high:{severity:'high',header:possibleResultHeaders.high,result:possibleResultTitles.high,verbose:verboseResults.high,color:resultColors.high}
 }
 
 
@@ -83,9 +88,7 @@ export function calculateSurveyResult(answers,weight,height){
     });
 
     //BMI impact on the answer
-    console.log(weight+" "+height);
     let BMI = calculateBMI(weight,height);
-    console.log(BMI)
     if (BMI>=30.0) negativeAns+=1;
 
     //Bloodwork impact on the anwser
