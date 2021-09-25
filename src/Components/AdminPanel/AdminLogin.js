@@ -3,6 +3,8 @@ import {Form} from "react-bootstrap";
 import React, {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faLock } from '@fortawesome/free-solid-svg-icons'
+import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
+import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 
 //test
 
@@ -10,18 +12,29 @@ import { faUser,faLock } from '@fortawesome/free-solid-svg-icons'
 export default function AdminLogin() {
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
+    let [feedback,setFeedback] = useState("");
     let userIcon =  <FontAwesomeIcon icon={faUser} />;
     let passIcon =<FontAwesomeIcon icon={faLock} />;
 
-    let logIn = () => {
-
-    }
+    // let logIn = async (event) => {
+    //     event.preventDefault();
+    //
+    //     setFeedback("Próba logowania...")
+    //     const response = await fetch("/PhpScripts/authenticate.php?username=" + username + "&password=" + password, fetchOptions);
+    //     const respBody = await response.text();
+    //     let respObj = JSON.parse(respBody);
+    //     if (respObj.success !== "true") {
+    //         setFeedback(respObj.feedback);
+    //         return
+    //     }
+    //     setFeedback("");
+    // }
 
     return (
         <section className="AdminLogin">
             <div className="login">
                 <h1>Login</h1>
-                <Form onSubmit={logIn}>
+                <Form action="/PhpScripts/authenticate.php" method="post">
                     <div className="inputContainer">
                         <Form.Group >
                             <Form.Label>{userIcon}</Form.Label>
@@ -47,6 +60,7 @@ export default function AdminLogin() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </Form.Group>
+                        {feedback !=="" && feedback}
                         <button type='submit'>Zaloguj</button>
                     </div>
 

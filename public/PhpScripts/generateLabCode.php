@@ -8,22 +8,35 @@ $email = $_REQUEST['email'];
 $zip = $_REQUEST['zip'];
 
 //check if this person has not yet generated a code
-$sql="SELECT code FROM lab_codes WHERE PESEL = ".$PESEL;
-$already_got_code = mysqli_fetch_array(query($sql));
-if ($already_got_code!=""){
-    die('{"code":"'.$already_got_code[0].'","feedback": "Wygenrowano już wcześniej dla Pana/Pani kod!","success":"true"}');
+$sql="SELECT code FROM lab_codes WHERE PESEL = :pesel";
+/* Values array for PDO. */
+$values = [':pesel' => PESEL];
+$result = query_one_row($sql,$values);
+
+if (!is_null($result) || is_array($result)){
+    die('{"code":"'.$result['code'].'","feedback": "Wygenrowano już wcześniej dla Pana/Pani kod!","success":"true"}');
 }
 
 //check if the person qualifies
-//if($zip)
+$sql="SELECT powiat FROM lab_zips z JOIN powiaty p ON z.powiat_id = p.powiat_id WHERE z.zip = :zip";
+/* Values array for PDO. */
+$values = [':zip' => $ZIP];
+$result = query_one_row($sql,$values);
 
+if (is_null($result) || !is_array($result)){
+   die('{"feedback": "Niestety nie prowadzimy badań w Pani/Pana rejonie!","success":"false"}');
+}
 
 //generate pseudo-random 4 digit code
 $new_code=rand(1000,9999);
 
 //save the code in database
-$sql_insert="INSERT INTO lab_codes (PESEL, code, zip) VALUES ('".$PESEL."','".$new_code."','".$zip."')";
-query($sql_insert) or die('{"feedback": "Błąd serwera: nie można dodać do bazy danych, spróbuj ponownie!","success":"false"}');
+$sql= "INSERT INTO lab_codes (PESEL, code, zip) VALUES (:pesel,:code,:zip)";
+$values = [':pesel' => $PESEL,':code' => $new_cod,':zip' => $ZIP];
+$result= query($sql,$values);
+if(is_null($result)){
+    die('{"feedback": "Błąd serwera: nie można dodać do bazy danych, spróbuj ponownie!","success":"false"}');
+}
 
 //send email with code 
 $mail_title="Twój kod na badanie nerek";
@@ -36,7 +49,6 @@ if ($email){
     mail( "$email", $mail_title, $msg ,$headers) or die('{"feedback": "Błąd serwera: nie można wysłać maila, spróbuj ponownie!","success":"false"}');
     die('{"code":"'.$new_code.'","feedback": "Kod do badań wysłano także na Pana/Pani email!","success":"true"}');
 }
-
 
 die ('{"code":"'.$new_code.'","feedback": "","success":"true"}');
 ?>

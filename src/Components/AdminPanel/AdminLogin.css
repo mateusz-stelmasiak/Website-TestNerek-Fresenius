@@ -34,6 +34,7 @@
 }
 .login form .inputContainer{
     display: inline-block;
+    width: 80%;
 }
 
 .login form .form-group{
@@ -49,7 +50,7 @@
     color: #ffffff;
 }
 .login form input[type="password"], .login form input[type="text"] {
-    width: 310px;
+    width: min(100%,310px);
     height: 50px;
     border: 1px solid #dee0e4;
     margin-bottom: 20px;
@@ -75,5 +76,5 @@
     background-color: var(--primary-color);
     align-self: start;
     font-size: 1.3rem;
-    padding: min(0.5rem,1vw) min(4vw,3rem);
+    padding: 0.5rem 3rem;
 }
