@@ -22,7 +22,7 @@ body {
 }
 
 header{
-    padding: 2rem 2rem;
+    padding: 2rem 5%;
     background-color: var(--primary-color);
     display: flex;
     align-items: center;
@@ -36,8 +36,23 @@ header img{
     width: max(10%,10rem);
     height: auto;
 }
+
+header svg{
+    height: 20px;
+    fill: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+header svg:hover{
+    fill: rgba(255,255,255,0.7);
+    transform: scale(1.1);
+}
+
 h1{
     font-size: 2.5rem;
+    margin-bottom: 0;
+}
+h2{
     margin-bottom: 0;
 }
 h1,h2{
@@ -61,6 +76,13 @@ section{
     column-gap: 5rem;
 }
 
+.download-container form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
+
 .download-container button{
     all:unset;
     color:white;
@@ -70,6 +92,8 @@ section{
     background-color: var(--secondary-color);
     margin-top: 2rem;
     box-shadow: 5px 8px 13px 0px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 5rem;
 }
 .download-container button:hover{
     cursor: pointer;

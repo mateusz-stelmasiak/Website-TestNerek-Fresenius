@@ -18,7 +18,7 @@ $sqlResult = query_one_row($sql,$values);
 
 //if no such username exists
 if (is_null($sqlResult) || !is_array($sqlResult)){
-     header('Location: /admin');
+     header('Location: /admin?login=failed');
      die('Niepoprawne hasło/użytkownik!');
 }
 
@@ -31,12 +31,12 @@ if (!password_verify($password, $db_password)) {
 }
 
 // Create sessions so we know the user is logged in,
-$_SESSION['logedIn'] = TRUE;
+$_SESSION['SlOAlgiuDdxidSCDxqeD'] = TRUE;
 $_SESSION['username'] = $username;
 $_SESSION['start'] = time();
 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 //redirect to admin panel
-header('Location: https://poradnianefrologiczna.pl/0Q9SCT0GXR9P7POTL3DQ/index.php');
+header('Location: https://poradnianefrologiczna.pl/0Q9SCT0GXR9P7POTL3DQ/');
 session_write_close();
 exit();
 ?>
