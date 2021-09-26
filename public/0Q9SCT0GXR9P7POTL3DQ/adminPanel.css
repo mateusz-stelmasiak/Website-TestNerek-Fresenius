@@ -1,0 +1,116 @@
+:root{
+    --body-color:#282828;
+
+    --primary-color: #03379a;
+    --primary-color-lighter:#42a2d9 ;
+    --primary-color-opaque: rgba(3,55,154,0.5);
+    --secondary-color: #dc5555;
+    --section-bg-color:#f7f6f6;
+}
+
+html{
+    background-color: #eaeaea;
+    font-family: Arial,sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    max-width: 3000px;
+    background-color: var(--section-bg-color)
+}
+
+header{
+    padding: 2rem 2rem;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-box-shadow: 0px 9px 11px 7px rgba(0,0,0,0.24);
+    box-shadow: 0px 9px 11px 2px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+header img{
+    width: max(10%,10rem);
+    height: auto;
+}
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+h1,h2{
+    color: var(--primary-color);
+}
+
+p{
+    text-align: justify;
+}
+section{
+    background-color: white;
+    padding: 2rem 3%;
+    min-height: 100vh;
+}
+
+.download-container{
+    margin-top: 3rem;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    column-gap: 5rem;
+}
+
+.download-container button{
+    all:unset;
+    color:white;
+    font-weight: bold;
+    padding: 0.7rem 3rem;
+    border-radius: 300000rem;
+    background-color: var(--secondary-color);
+    margin-top: 2rem;
+    box-shadow: 5px 8px 13px 0px rgba(0,0,0,0.15);
+}
+.download-container button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.download-container .input-with-label{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.7rem;
+    row-gap: 1rem;
+}
+
+.download-container .input-with-label label{
+    font-weight: bold;
+}
+.download-container .input-with-label label:after{
+    content: ":";
+}
+
+
+.download-container input[type=text], input[type=number], select{
+    font-size: 1rem;
+    outline: none;
+    /* create custom checkbox appearance */
+    display: inline-block;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 1px var(--primary-color-opaque) solid;
+    border-radius: 2%;
+    background-color: transparent;
+    padding:1rem 1rem;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+@media only screen and (max-width: 450px){
+    .download-container select{
+        width: 100%;
+    }
+}

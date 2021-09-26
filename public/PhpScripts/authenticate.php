@@ -1,9 +1,6 @@
 <?php
 session_start();
-include 'db.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+include '../PhpScripts/db.php';
 
 //check if the data from the login form was submitted
 //if (!isset($_POST['username'], $_POST['password'])) {
@@ -29,13 +26,17 @@ $db_password=$sqlResult['password'];
 
 // Account exists, now we verify the password.
 if (!password_verify($password, $db_password)) {
-    header('Location: /admin');
+    header('Location: /admin?login=failed');
     die('Niepoprawne hasło/użytkownik');
 }
 
 // Create sessions so we know the user is logged in,
-session_regenerate_id();
-$_SESSION['0Q9SCT0GXR9P7POTL3DQ'] = TRUE;
+$_SESSION['logedIn'] = TRUE;
+$_SESSION['username'] = $username;
+$_SESSION['start'] = time();
+$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 //redirect to admin panel
-header('Location: /0Q9SCT0GXR9P7POTL3DQ');
+header('Location: https://poradnianefrologiczna.pl/0Q9SCT0GXR9P7POTL3DQ/index.php');
+session_write_close();
+exit();
 ?>

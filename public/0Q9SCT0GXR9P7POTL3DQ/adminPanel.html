@@ -1,17 +1,3 @@
-<?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include '../PhpScripts/db.php';
-echo($_SESSION['logedIn']);
-// If the user is not logged in redirect to the login page...
-// if (!isset($_SESSION['0Q9SCT0GXR9P7POTL3DQ'])) {
-// 	header('Location: /admin');
-// 	exit;
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +39,7 @@ echo($_SESSION['logedIn']);
                 <label for="powiatS">Wybierz powiat</label>
                 <select name="powiatS" id="powiatS">
                     <?php
+                        include '../PhpScripts/db.php';
                         $REGIONS = query("SELECT powiat_id,powiat FROM powiaty",[]);
                         while ($row = $REGIONS->fetch(PDO::FETCH_ASSOC)) {
                             echo("<option value='".$row['powiat_id']."'>".iconv('iso-8859-2','utf-8',$row['powiat'])."</option>");
@@ -63,8 +50,8 @@ echo($_SESSION['logedIn']);
             </div>
             <div>Ilośc kodów:&nbsp;
                 <?php
+                        include '../PhpScripts/db.php';
                         $row = query_one_row("SELECT COUNT(PESEL) as codes FROM lab_codes",[]);
-                        if(is_null($row) || !is_array($row)){ exit('0');}
                         echo($row['codes']);
                 ?>
             </div>
