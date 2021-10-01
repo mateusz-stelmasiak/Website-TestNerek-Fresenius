@@ -10,39 +10,41 @@ $zip = $_REQUEST['zip'];
 //check if this person has not yet generated a code
 $sql="SELECT code FROM lab_codes WHERE PESEL = :pesel";
 /* Values array for PDO. */
-$values = [':pesel' => PESEL];
+$values = [':pesel' => $PESEL];
 $result = query_one_row($sql,$values);
 
-if (!is_null($result) || is_array($result)){
+if (!is_null($result) && is_array($result)){
     die('{"code":"'.$result['code'].'","feedback": "Wygenrowano już wcześniej dla Pana/Pani kod!","success":"true"}');
 }
 
 //check if the person qualifies
-$sql="SELECT powiat FROM lab_zips z JOIN powiaty p ON z.powiat_id = p.powiat_id WHERE z.zip = :zip";
+$sql="SELECT powiat_id FROM lab_zips WHERE zip = :zip";
 /* Values array for PDO. */
-$values = [':zip' => $ZIP];
-$result = query_one_row($sql,$values);
+$values = [':zip' => $zip];
+$powiat_row = query_one_row($sql,$values);
 
-if (is_null($result) || !is_array($result)){
+if (is_null($powiat_row) || !is_array($powiat_row)){
    die('{"feedback": "Niestety nie prowadzimy badań w Pani/Pana rejonie!","success":"false"}');
 }
+
+$powiat_id=intval($powiat_row['powiat_id']);
 
 //generate pseudo-random 4 digit code
 $new_code=rand(1000,9999);
 
 //save the code in database
-$sql= "INSERT INTO lab_codes (PESEL, code, zip) VALUES (:pesel,:code,:zip)";
-$values = [':pesel' => $PESEL,':code' => $new_cod,':zip' => $ZIP];
+$sql= "INSERT INTO lab_codes (PESEL, code, powiat_id) VALUES (:pesel,:code,:powiat)";
+$values = [':pesel' => $PESEL,':code' => $new_code,':powiat' => $powiat_id];
 $result= query($sql,$values);
 if(is_null($result)){
     die('{"feedback": "Błąd serwera: nie można dodać do bazy danych, spróbuj ponownie!","success":"false"}');
 }
 
-//send email with code 
+//send email with code
 $mail_title="Twój kod na badanie nerek";
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=utf-8\r\n";
-$headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n"; 
+$headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n";
 
 if ($email){
     $msg= generateLabCodeMessage($new_code,"unknown","unknown");
