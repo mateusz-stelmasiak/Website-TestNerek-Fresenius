@@ -11,7 +11,7 @@ import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
     const [eligable, setEligable] = useState(false)
     const [PESEL, setPESEL] = useState("")
-    const [labCode, setLabCode] = useState(undefined)
+    const [labCode, setLabCode] = useState(code)
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [feedback, setFeedback] = useState("")
@@ -39,6 +39,10 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         setFeedback("");
         setPESEL(p);
     }
+    function inputPhone(p) {
+        setFeedback("");
+        setPhone(p);
+    }
 
 
     async function generateCode(event) {
@@ -54,8 +58,14 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
             return
         }
 
+        //valide Phone
+        if (!phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
+            setFeedback("Niepoprawny numer telefonu!");
+            return
+        }
+
         setFeedback("Generowanie kodu..")
-        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip, fetchOptions);
+        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip+ "&phone=" + phone, fetchOptions);
         const respBody = await response.text();
         let respObj = JSON.parse(respBody);
         if (respObj.success !== "true") {
@@ -122,7 +132,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
                         id="tel"
                         type="tel"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => inputPhone(e.target.value)}
                         placeholder="wpisz numer telefonu (opcjonalne)"
                     />
                     {feedback !== "" &&

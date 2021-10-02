@@ -2,10 +2,12 @@
 $WebsiteRoot=$_SERVER['DOCUMENT_ROOT'];
 include 'db.php';
 include 'msgGenerator.php';
+include 'sendSms.php';
 
 $PESEL = $_REQUEST['PESEL'];
 $email = $_REQUEST['email'];
 $zip = $_REQUEST['zip'];
+$phone =$_REQUEST['phone'];
 
 //check if this person has not yet generated a code
 $sql="SELECT code FROM lab_codes WHERE PESEL = :pesel";
@@ -49,7 +51,10 @@ $headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n
 if ($email){
     $msg= generateLabCodeMessage($new_code,"unknown","unknown");
     mail( "$email", $mail_title, $msg ,$headers) or die('{"feedback": "Błąd serwera: nie można wysłać maila, spróbuj ponownie!","success":"false"}');
-    die('{"code":"'.$new_code.'","feedback": "Kod do badań wysłano także na Pana/Pani email!","success":"true"}');
+}
+
+if ($phone){
+    sendLabCodeSms($phone,$new_code);
 }
 
 die ('{"code":"'.$new_code.'","feedback": "","success":"true"}');
