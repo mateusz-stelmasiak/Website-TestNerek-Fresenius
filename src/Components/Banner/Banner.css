@@ -1,12 +1,17 @@
+:root{
+    --hand-animation-state: paused;
+}
 .Banner{
     color: var(--primary-color);
     padding: min(8vw,200px) min(10vw,200px);
-    background-size: cover;
-    background: var(--section-bg-color) url("../../Assets/banner_recolor.png") no-repeat;
+    background-color: var(--section-bg-color);
+    background-repeat: no-repeat;
     background-position: 50% -250px;
     animation-name:slideHands;
+    animation-play-state: var(--hand-animation-state);
     animation-duration: 1s;
     animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
 }
 
 /* slide hands in animation */
