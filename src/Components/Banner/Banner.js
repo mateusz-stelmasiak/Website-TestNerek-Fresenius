@@ -2,14 +2,30 @@ import "./Banner.css"
 import "animate.css"
 
 import useWindowDimensions from "../Common/useWindowDimensions"
+import {useState} from "react";
 
 function Banner() {
     //viewport width and height from hook
     const { height, width } = useWindowDimensions();
 
+    const [backgroundImage,setBackgroundImage]=useState('none');
+    let src = 'https://poradnianefrologiczna.pl/static/media/banner_recolor.f793798f.png';
+    let image = new Image();
+    image.src = src;
+
+    //animates banner only once bg image has been loaded
+    let animateBanner = ()=>{
+        setBackgroundImage('url('+src+')');
+        document.documentElement.style.setProperty('--hand-animation-state', 'running');
+    }
+    image.onload = animateBanner;
+
     return (
         <div className="BannerContainer">
-            <section className="Banner">
+            <section
+                className="Banner"
+                style={{backgroundImage: backgroundImage}}
+            >
                 {width>1100 &&
                     <div className="container">
                         <h1>OGÓLNOPOLSKI <br/> TEST ZDROWIA NEREK</h1>

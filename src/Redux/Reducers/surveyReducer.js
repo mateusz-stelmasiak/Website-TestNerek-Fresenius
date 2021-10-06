@@ -12,7 +12,6 @@ export const surveyInitialState = {
     labCode:sessionStorage.getItem('labCode') ? sessionStorage.getItem('labCode'):undefined,
     answers:sessionStorage.getItem('answersState') ? JSON.parse(sessionStorage.getItem('answersState')):[],
     surveyResult: sessionStorage.getItem('surveyResult') ? JSON.parse(sessionStorage.getItem('surveyResult')):undefined,
-
 };
 
 export default function surveyReducer(state = surveyInitialState, action) {
