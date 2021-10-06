@@ -20,43 +20,62 @@ if(is_null($db_result)){
 }
 
 //add selected quesitons to header list
-$output_headers=array('nr');
+$output_headers=array('nr','wiek','masa ciała','wzrost');
+$additional_headers_amount=count($output_headers);
 foreach($db_result as $header){
        $output_headers[]=iconv('iso-8859-2','utf-8',$header['question']);
 }
-$question_number= count($output_headers)-1;
+$question_number= count($output_headers)-$additional_headers_amount;
 
 //select all responses
 $sql="SELECT DISTINCT
-      	r.responder_id,
+          r.responder_id,
+          re.age,
+          re.weight,
+          re.height,
           r.question_id,
           a.answer
       FROM
           survey_results r
+      INNER JOIN responders re ON
+          re.responder_id = r.responder_id
       INNER JOIN surver_question_answers a ON
           a.answer_id = r.answer_id
-          WHERE r.question_id=a.question_id
-      ORDER BY r.responder_id,r.question_id";
+      WHERE
+          r.question_id = a.question_id
+      ORDER BY
+          r.responder_id,
+          r.question_id";
 $values=[];
 $db_result = query($sql,$values);
 
 $output= array();
-$index=1;
-$counter=0;
-$output_row= array($index);
-
+$index=0;
+$counter=$question_number;
+$output_row=NULL;
 while ($db_row = $db_result->fetch(PDO::FETCH_ASSOC)) {
        if($counter==$question_number){
             $counter=0;
             $index++;
-            $output[]=$output_row;
+            if($output_row!=NULL){
+//                 echo('<br>NOWA LINIA');
+//                 print_r($output_row);
+                $output[]=$output_row;
+            }
             $output_row= array($index);
+            $output_row[]=$db_row['age'];
+            $output_row[]=$db_row['weight'];
+            $output_row[]=$db_row['height'];
        }
 
        $output_row[]=iconv('iso-8859-2','utf-8',$db_row['answer']);
+//        echo('<br>NOWA DANA '.$db_row['answer'].' '.$db_row['responder_id']);
        $counter++;
 }
 $output[]=$output_row;
+//
+// echo('<br>OUTPUT');
+// print_r($output);
 
 
 header('Content-Type: text/csv; charset=iso-8859-2');

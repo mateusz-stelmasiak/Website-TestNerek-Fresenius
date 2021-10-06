@@ -55,8 +55,8 @@ if (!isset($_SESSION['SlOAlgiuDdxidSCDxqeD'])) {
 
 <section>
     <h1>Dane witryny</h1>
-    <p> Wypełnionych ankiet dzisiaj:&nbsp;<span id='todaySurveyCount'></span> </p>
-    <p> Ogólnie wypełnionych ankiet:&nbsp;<span id='allSurveyCount'></span></p>
+    <p> Wypełnionych ankiet dzisiaj:&nbsp;<b><span id='todaySurveyCount'></span></b> </p>
+    <p> Ogólnie wypełnionych ankiet:&nbsp;<b><span id='allSurveyCount'></span></b></p>
 </section>
 
 <section>

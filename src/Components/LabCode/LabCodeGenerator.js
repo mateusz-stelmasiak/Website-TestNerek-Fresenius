@@ -1,5 +1,5 @@
 import Reel from "react-reel";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {connect} from "react-redux";
 import {isUserEligableForLab} from "../../JSBackend";
 import Form from "react-bootstrap/Form";
@@ -15,6 +15,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [feedback, setFeedback] = useState("")
+    const codeFieldRef = useRef(null);
 
     async function determinUserEligable(){
         if (surveyResult.severity==='low') return;
@@ -22,6 +23,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         //determines if users zip is eligable for a code
         let resp=await isUserEligableForLab(zip);
         setEligable(resp);
+        // setEligable(true);
     }
 
     useEffect(() => {
@@ -40,6 +42,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         setPESEL(p);
     }
     function inputPhone(p) {
+        if (p.length > 20) return;
         setFeedback("");
         setPhone(p);
     }
@@ -59,7 +62,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         }
 
         //valide Phone
-        if (!phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
+        if (phone!=="" && !phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
             setFeedback("Niepoprawny numer telefonu!");
             return
         }
@@ -72,9 +75,14 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
             setFeedback(respObj.feedback);
             return
         }
-        setFeedback("");
-        setLabCode(respObj.code);
-        dispatch(setUserLabCode(respObj.code));
+        await setFeedback("");
+        // let respObj= {code:1327};
+        await dispatch(setUserLabCode(respObj.code));
+        await setLabCode(respObj.code);
+
+        if(codeFieldRef.current){
+            codeFieldRef.current.scrollIntoView();
+        }
     }
 
 
@@ -177,7 +185,8 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
 
 
 
-                {labCode !== undefined && <div className="codeContainer">
+                {labCode !== undefined &&
+                <div className="codeContainer" ref={codeFieldRef}>
                     <h3>Twój 4 cyfrowy kod do badań w laboratiorium:</h3>
                     <div className="code"><Reel theme={theme} text={labCode.toString()}/></div>
                 </div>}

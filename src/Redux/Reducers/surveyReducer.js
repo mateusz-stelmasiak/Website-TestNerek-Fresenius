@@ -31,9 +31,10 @@ export default function surveyReducer(state = surveyInitialState, action) {
             if (state.answers.length===0) return {...state}
             let finalAnswers=state.answers;
             sessionStorage.removeItem('answersState');
+            sessionStorage.removeItem('labCode');
             let result=calculateSurveyResult(finalAnswers,state.userData);
             sessionStorage.setItem('surveyResult',JSON.stringify(result));
-            return {...state,  answers: [],surveyResult:result};
+            return {...state,  answers: [],surveyResult:result,labCode:undefined};
         case actions.CLEAR_RESULTS:
             sessionStorage.removeItem('surveyResult');
             return {...state,surveyResult:undefined};
