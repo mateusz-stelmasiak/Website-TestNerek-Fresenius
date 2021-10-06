@@ -5,6 +5,7 @@ import {Form} from "react-bootstrap";
 import {connect} from "react-redux";
 import {latOrLata} from "../../JSBackend";
 import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/Actions/surveyActions";
+import Explainer from "./Explainer";
 
 let fullZipRegex = /^[0-9]{2}-[0-9]{3}$/;
 let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/
@@ -71,14 +72,19 @@ function PersonalInfoQuestion({qId, userData, dispatch}) {
 
             <Form.Group className="SurveyAnswer">
                 <Form.Label>Kod pocztowy: </Form.Label>
-                <Form.Control
-                    className="sixCharInput"
-                    required
-                    name="zip"
-                    type="text"
-                    value={zipCode}
-                    onChange={(e) => validateZipCode(e.target.value)}
-                />
+                <div className="FieldWithUnits">
+                    <Form.Control
+                        className="sixCharInput"
+                        name="zip"
+                        type="text"
+                        value={zipCode}
+                        onChange={(e) => validateZipCode(e.target.value)}
+                    />
+                    <Explainer
+                        title="Dlaczego pytamy?"
+                        content="Lorem ipsum et dolor dolor color bolor solor! Lorem ipsum et dolor dolor color bolor solor! Lorem ipsum et dolor dolor color bolor solor!"
+                    />
+                </div>
             </Form.Group>
 
             <Form.Group className="SurveyAnswer">

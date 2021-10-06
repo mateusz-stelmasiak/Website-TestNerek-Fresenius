@@ -35,9 +35,10 @@ export class ChoiceQuestion{
 }
 
 export class BloodParameter{
-    constructor(name,possibleUnits,normForUnits) {
+    constructor(name,possibleUnits,normForUnits,explainer) {
         this.name=name;
         this.possibleUnits=possibleUnits;
         this.normForUnits=normForUnits;
+        this.explainer=explainer;
     }
 }

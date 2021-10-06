@@ -24,6 +24,7 @@ function BloodParametersQuestion({qId,dispatch}){
                     pName={question.name}
                     pNorms={question.normForUnits}
                     pUnits={question.possibleUnits}
+                    explainer={question.explainer}
                 />;
             qComps.push(qComp)
             startingIndex+=1;

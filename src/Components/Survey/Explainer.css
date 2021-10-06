@@ -1,0 +1,46 @@
+.Explainer{
+    color: var(--section-bg-color);
+    background-color: var(--primary-color-opaque);
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 200ms;
+}
+
+.Explainer:hover{
+    background-color: var(--primary-color);
+}
+.react-tooltip-lite {
+    background: rgba(247,247,247,0.98);
+    color: black;
+
+}
+.react-tooltip-lite-arrow {
+    border-color: rgba(247,247,247,0.98);
+}
+
+.tooltip-content{
+    font-family: Arial, serif;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.tooltip-content h3{
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.tooltip-content div{
+    display: block;
+    text-wrap: initial;
+    max-width: 25rem;
+}

@@ -4,8 +4,8 @@ export let bloodParameters =[
     new BloodParameter("Kreatynina",["umol/l","mg/dl"],[130,1.5]),
     new BloodParameter("Glukoza",["mmol/l","mg/dl"],[5.6,100]),
     new BloodParameter("Cholesterol całkowity",["mmol/l","mg/dl"],[5.2,200]),
-    new BloodParameter("Skurczowe ciśnienie krwi",[],[]),
-    new BloodParameter("Rozkurczowe ciśnienie krwi",[],[])
+    new BloodParameter("Skurczowe ciśnienie krwi",[],[],{title:'Wskazówka',content:'Wyższa wartość.'}),
+    new BloodParameter("Rozkurczowe ciśnienie krwi",[],[],{title:'Wskazówka',content:'Niższa wartość.'})
 ]
 
 
@@ -30,8 +30,8 @@ export let choiceQuestions = [
 ]
 
 let LOW_RESULT_BOUNDARY = 0;
-let MODERATE_RESULT_BOUNDARY = 3;
-let HIGH_RESULT_BOUNDARY = 5;
+let MODERATE_RESULT_BOUNDARY = 1;
+let HIGH_RESULT_BOUNDARY = 2;
 
 let possibleResultHeaders={
     low:'nerki są',

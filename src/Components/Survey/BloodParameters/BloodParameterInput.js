@@ -5,8 +5,9 @@ import "./BloodParameterInput.css"
 import {Form} from "react-bootstrap";
 import useWindowDimensions from "../../Common/useWindowDimensions"
 import BloodParameterRange from "./BloodParameterRange"
+import Explainer from "../Explainer";
 
-function BloodParameterInput({qId, pName, pNorms, pUnits, dispatch}) {
+function BloodParameterInput({qId, pName, pNorms, pUnits, explainer, dispatch}) {
     //holds chosen indices answers in an array
     const [show, setShow] = useState(false);
     const [displayName, setDisplayName] = useState(pName)
@@ -14,7 +15,7 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, dispatch}) {
     const [chosenUnit, setChosenUnit] = useState(0)
     //viewport width and height from hook
     const {height, width} = useWindowDimensions();
-    const [result,setResult]=useState("Opis wyniku")
+    const [result, setResult] = useState("Opis wyniku")
 
 
     function setParamValue(paramValue) {
@@ -43,15 +44,26 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, dispatch}) {
 
             {show &&
             <Form.Group className="SurveyAnswer">
-                <Form.Control
-                    className="sixCharInput"
-                    type="number"
-                    value={pLevel}
-                    onChange={(e) => setParamValue(e.target.value)}
-                />
+                <div className="FieldWithUnits">
+                    <Form.Control
+                        className="sixCharInput"
+                        type="number"
+                        value={pLevel}
+                        onChange={(e) => setParamValue(e.target.value)}
+                    />
+                    {explainer &&
+                        <Explainer
+                            title={explainer.title}
+                            content={explainer.content}
+                        />
+                    }
+
+                </div>
+
                 {pUnits.length > 0 &&
                 <Form.Group>
                     {width > 900 && <Form.Label>Jednostka: </Form.Label>}
+
                     <Form.Control as="select" onChange={(e) => setChosenUnit(e.target.value)}>
                         {pUnits.map((unit, index) => {
                             return <option key={index} value={index}>{unit}</option>
@@ -67,7 +79,6 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, dispatch}) {
                     norm={pNorms}
                 />
                 {pLevel && result}
-
 
 
             </Form.Group>
