@@ -4,7 +4,7 @@ import {calculateSurveyResult} from "../../JSBackend";
 import {SET_AGE, SET_HEIGHT, SET_LAB_CODE, SET_WEIGHT, SET_ZIP} from "../Actions/surveyActions";
 import {User} from "../../Utils";
 
-let defaultUser=new User("","","","","","","","");
+let defaultUser=new User(undefined,undefined,undefined,undefined,undefined);
 
 export const surveyInitialState = {
     //var backed up to session storage to allow reloads of website with data retention
@@ -31,7 +31,7 @@ export default function surveyReducer(state = surveyInitialState, action) {
             if (state.answers.length===0) return {...state}
             let finalAnswers=state.answers;
             sessionStorage.removeItem('answersState');
-            let result=calculateSurveyResult(finalAnswers,state.userData.weight,state.userData.height);
+            let result=calculateSurveyResult(finalAnswers,state.userData);
             sessionStorage.setItem('surveyResult',JSON.stringify(result));
             return {...state,  answers: [],surveyResult:result};
         case actions.CLEAR_RESULTS:

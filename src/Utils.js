@@ -3,6 +3,7 @@ export const inviteScriptPath= "/PhpScripts/sendInvite.php";
 export const codeGenScriptPath="/PhpScripts/generateLabCode.php"
 export const sendContactMsgPath="/PhpScripts/sendContactMsg.php"
 export const checkZIPPath="/PhpScripts/checkZIP.php"
+export const submitResultsToDbPath="/PhpScripts/submitResultsToDb.php"
 export const securityTokenPath="/PhpScripts/securityToken.php"
 
 
@@ -14,15 +15,12 @@ export const fetchOptions={
 
 //user class to convinently store all user data
 export class User{
-    constructor(name,surname,age,location,postalCode,height,weight,PESEL) {
-        this.name=name;
-        this.surname=surname;
+    constructor(age,height,weight,PESEL,zip) {
         this.age=age;
-        this.location=location;
-        this.postalCode=postalCode;
         this.height=height;
         this.weight=weight;
         this.PESEL=PESEL;
+        this.zip=zip;
     }
 }
 

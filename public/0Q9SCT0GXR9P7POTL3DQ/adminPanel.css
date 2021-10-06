@@ -18,7 +18,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     max-width: 3000px;
-    background-color: var(--section-bg-color)
+    background-color: var(--section-bg-color);
+    min-height: 100vh;
 }
 
 header{
@@ -65,7 +66,7 @@ p{
 section{
     background-color: white;
     padding: 2rem 3%;
-    min-height: 100vh;
+    margin:2rem 2%;
 }
 
 .download-container{

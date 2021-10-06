@@ -42,7 +42,6 @@ function BloodParametersQuestion({qId,dispatch}){
                 Czy zna Pan/Pani poziom któregokolwiek z poniższych parametrów? Jeżeli tak, proszę podać wynik.
             </QuestionTitle>
             {qComponents}
-
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import {BloodParameter, checkZIPPath, ChoiceQuestion, fetchOptions} from "./Utils";
+import {BloodParameter, checkZIPPath, ChoiceQuestion, fetchOptions, submitResultsToDbPath} from "./Utils";
 
 export let bloodParameters =[
     new BloodParameter("Kreatynina",["umol/l","mg/dl"],[130,1.5]),
@@ -76,11 +76,23 @@ let possibleResults ={
     high:{severity:'high',header:possibleResultHeaders.high,result:possibleResultTitles.high,verbose:verboseResults.high,color:resultColors.high}
 }
 
+async function submitResultsToDb(answers,userData){
+    //transform answers into string
+    let answString= answers.join("");
+    return await fetch(submitResultsToDbPath
+        + "?answers=" + answString
+        + "&weight=" + userData.weight
+        + "&height=" + userData.height
+        + "&age=" + userData.age,
+        fetchOptions);
+}
 
-export function calculateSurveyResult(answers,weight,height){
+
+export function calculateSurveyResult(answers,userData){
     if (!answers) return {result:'-',verbose:'nie podano niezbędnych informacji.'}
-    let result;
+    submitResultsToDb(answers, userData).then();
 
+    let result;
 
     let negativeAns=0;
     answers.forEach((answer)=>{
@@ -88,7 +100,7 @@ export function calculateSurveyResult(answers,weight,height){
     });
 
     //BMI impact on the answer
-    let BMI = calculateBMI(weight,height);
+    let BMI = calculateBMI(userData.weight,userData.height);
     if (BMI>=30.0) negativeAns+=1;
 
     //Bloodwork impact on the anwser

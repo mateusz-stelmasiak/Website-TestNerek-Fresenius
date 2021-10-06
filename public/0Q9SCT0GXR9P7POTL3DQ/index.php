@@ -52,6 +52,13 @@ if (!isset($_SESSION['SlOAlgiuDdxidSCDxqeD'])) {
     </svg>
 </header>
 
+
+<section>
+    <h1>Dane witryny</h1>
+    <p> Wypełnionych ankiet dzisiaj:&nbsp;<span id='todaySurveyCount'></span> </p>
+    <p> Ogólnie wypełnionych ankiet:&nbsp;<span id='allSurveyCount'></span></p>
+</section>
+
 <section>
     <h1>Do pobrania</h1>
     <p>
@@ -80,9 +87,9 @@ if (!isset($_SESSION['SlOAlgiuDdxidSCDxqeD'])) {
         </form>
 
         <!--Get survey data-->
-        <form>
+        <form action="PhpScripts/downloadSurveyData.php" method="post">
             <h2>Dane z ankiet</h2>
-            <div>Wypełnionych ankiet:<span id='survey_ammount'></span> </div>
+            <div>Wypełnionych ankiet:&nbsp;<span id='downloadSurveyCount'></span> </div>
             <button>Pobierz</button>
         </form>
     </div>
@@ -99,6 +106,8 @@ const fetchOptions={
 
 //populate code count after loading page
 updateCodeCount(document.getElementById('powiatS'));
+calculateAllSurveyCount();
+calculateTodaySurveyCount();
 
 async function updateCodeCount(selector) {
     let codeCountHTML = document.getElementById('codeCount');
@@ -107,6 +116,27 @@ async function updateCodeCount(selector) {
     const respBody = await response.text();
     //inject into HTML element
     codeCountHTML.innerText = respBody.toString();
+}
+
+async function calculateAllSurveyCount() {
+    let downloadSurveyCountHTML = document.getElementById('downloadSurveyCount');
+    let allSurveyCountHTML = document.getElementById('allSurveyCount');
+    downloadSurveyCountHTML.innerText = "loading...";
+    allSurveyCountHTML.innerText = "loading..."
+    const response = await fetch('./PhpScripts/countSurveyData.php', fetchOptions);
+    const respBody = await response.text();
+    //inject into HTML element
+    downloadSurveyCountHTML.innerText = respBody.toString();
+    allSurveyCountHTML.innerText = respBody.toString();
+}
+
+async function calculateTodaySurveyCount() {
+    let surveyCountHTML = document.getElementById('todaySurveyCount');
+    surveyCountHTML.innerText = "loading...";
+    const response = await fetch('./PhpScripts/countSurveyData.php?today=true', fetchOptions);
+    const respBody = await response.text();
+    //inject into HTML element
+    surveyCountHTML.innerText = respBody.toString();
 }
 
 async function logOut(){
