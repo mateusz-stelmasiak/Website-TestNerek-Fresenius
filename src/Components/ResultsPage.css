@@ -24,6 +24,10 @@
     margin:2rem 0;
     font-size:3.5rem;
     font-weight: bold;
+    animation: flipInX;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    animation-delay: 2s;
 }
 
 .ResultsPage .resultContainer h3{
@@ -31,7 +35,11 @@
     font-size:1.5rem;
     font-weight: normal;
     text-align: justify;
-    text-align-last: center;
+    text-align-last: start;
+    animation: fadeInLeft;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 2.4s;
 }
 
 

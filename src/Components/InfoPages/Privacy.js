@@ -301,12 +301,12 @@ export default function Privacy() {
             <p>
                 Fresenius Nephrocare Polska sp. z o.o.
                 <br/>ul. Krzywa 13, 60-118 Poznań
-                <br/>tel. 00 48 61 839 26 00
-                <br/>e–mail: sekretariat.pl(at)fmc-ag.com
+                <br/>tel.<a href="tel:00 48 61 839 26 00">00 48 61 839 26 00</a>
+                <br/>e–mail: <a href="mailto:sekretariat.pl@fmc-ag.com">sekretariat.pl(at)fmc-ag.com</a>
             </p>
             <p>
                 Można również skontaktować się z naszym Inspektorem Ochrony Danych (IOD) lub jego przedstawicielem pod
-                adresem: e–mail: daneosobowe.pl(at)fmc-ag.com
+                adresem: e–mail: <a href="mailto:daneosobowe.pl@fmc-ag.com">daneosobowe.pl(at)fmc-ag.com</a>
             </p>
 
 

@@ -45,7 +45,7 @@
 }
 
 @keyframes slideHandsMobile {
-    from {  background-position: 65% 60px;}
+    from {  background-position: 65% 20px;}
     to {  background-position: 65% 80px;}
 }
 

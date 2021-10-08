@@ -3,6 +3,8 @@ import LogoPartner from "../Partners/LogoPartner"
 import burmistrz from '../../Assets/partners/Minsk/burmistrz.png';
 import powiat from '../../Assets/partners/Minsk/powiat.jpg';
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
+import drAndrzej from "../../Assets/dr-Andrzej-Redlicki.JPG";
+import stacjaDializ from "../../Assets/stacja-dializ.jpg";
 
 export default function Minsk() {
     const general_partners= [
@@ -47,6 +49,10 @@ export default function Minsk() {
                     badanie moczu i oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e-GFR. Te dwa
                     badania pokażą, czy coś złego dzieje się w ich nerkach.
                 </p>
+                {/*<div className="img-container">*/}
+                {/*    <img src={drAndrzej} alt="drAndrzej"/>*/}
+                {/*    <img src={stacjaDializ} alt="stacjaDializ"/>*/}
+                {/*</div>*/}
                 <p>
                     Akcja społeczna OGÓLNOPOLSKI TEST ZDROWIA NEREK będzie w Mińsku
                     Mazowieckim trwać od sierpnia do października 2021.

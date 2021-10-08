@@ -1,4 +1,4 @@
-.Wielun .img-container{
+.InfoPage .img-container{
     display: flex;
     flex-wrap: wrap;
     padding: 2rem 2rem;
@@ -8,7 +8,7 @@
     column-gap: 0.5rem;
 }
 
-.Wielun img{
-    width: min(30rem,100%);
+.InfoPage .img-container img{
+    width: min(33rem,100%);
     height: auto;
 }

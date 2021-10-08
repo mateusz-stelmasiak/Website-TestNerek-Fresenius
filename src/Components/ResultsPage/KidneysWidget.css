@@ -1,11 +1,38 @@
 .kidneyIcon{
-    fill: var(--kidney-color);
     width: min(10rem,30vw);
 }
 
 .kidneyIcon path{
     width: 30vw;
 }
+
+.kidneyIcon path{
+    fill-opacity: 1;
+    fill: var(--kidney-color);
+    stroke:var(--kidney-color);
+    stroke-width: 2px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 3000;
+    animation: fillKidney 4s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fillKidney {
+    0% {
+        stroke-dashoffset: 3000;
+        fill: none;
+    }
+    80%{
+        fill: var(--kidney-color);
+    }
+    100%{
+        stroke-dashoffset: 0;
+        stroke-width: 0px;
+    }
+}
+
+
+
 
 .KidneysWidget{
     display: flex;

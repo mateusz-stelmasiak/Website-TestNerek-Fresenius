@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 import "./BurgerMenu.css"
+import {Link} from "react-router-dom";
 
 export default function BurgerMenu(props) {
     let [menuOpen, setMenuOpen] = useState(false);
@@ -11,8 +12,18 @@ export default function BurgerMenu(props) {
     }
 
     let closeMenu = () => {
+        console.log('ZAMYKAM');
         setMenuOpen(false);
     }
+
+    //add close menu function call to any clicked link
+    const childrenWithProps = React.Children.map(props.children.props.children,
+        (child) => {
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child,{ onClick:closeMenu});
+            }
+            return child;
+    });
 
     return (
         <div className="BurgerMenu">
@@ -48,12 +59,16 @@ export default function BurgerMenu(props) {
                             borderRadius={0}
                             animationDuration={0.5}
                         />
-                        {props.children}
+
+                        {childrenWithProps}
                     </div>
             </CheeseburgerMenu>
 
         </div>
 
     );
-
+    // {menuButtons}
+    // <>
+    //     {React.cloneElement(props.children, { onClick: closeMenu })}
+    // </>
 }
