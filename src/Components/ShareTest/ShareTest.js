@@ -3,6 +3,11 @@ import Button from "react-bootstrap/Button";
 import "./ShareTest.css"
 import {useState} from "react";
 import {emailRegex, fetchOptions, inviteScriptPath} from "../../Utils";
+import {
+    WhatsappIcon,
+    FacebookIcon,
+    FacebookShareButton, FacebookMessengerShareButton, FacebookMessengerIcon, WhatsappShareButton,
+} from "react-share";
 
 
 function ShareTest(){
@@ -30,20 +35,46 @@ function ShareTest(){
     }
 
     return (
-        <form className="ShareTest" onSubmit={sendInvite}>
-            <h2>Jeśli chcesz komuś polecić test, wyślij mu zaproszenie!</h2>
-            <Form.Control
-                id="email"
-                type="email"
-                onChange={(e)=>inputEmail(e.target.value)}
-                placeholder="przykład@gmail.com"
-            />
-            {feedback!=="" && feedback}
-            <Button type='submit'>
-                Wyślij!
-            </Button>
+        <div className="ShareTest" >
+            <h2>Jeśli chcesz polecić test, podziel się nim</h2>
 
-        </form>
+            <div className="ShareSocial">
+                <FacebookShareButton
+                    url={"https://www.poradnianefrologiczna.pl/"}
+                >
+                    <FacebookIcon size={38} round={true} />
+                </FacebookShareButton>
+
+                <FacebookMessengerShareButton
+                    url={"https://www.poradnianefrologiczna.pl/"}
+                    appId={process.env.FACEBOOK_APP_ID} >
+                    <FacebookMessengerIcon  size={38}  round={true} />
+                </FacebookMessengerShareButton>
+
+                <WhatsappShareButton  url={"https://www.poradnianefrologiczna.pl/"}>
+                    <WhatsappIcon  size={38} round={true}/>
+                </WhatsappShareButton>
+            </div>
+            <h3>lub wyślij komuś zaproszenie email</h3>
+            <form className="ShareEmail" onSubmit={sendInvite}>
+                <Form.Control
+                    id="email"
+                    type="email"
+                    onChange={(e)=>inputEmail(e.target.value)}
+                    placeholder="przykład@gmail.com"
+                />
+                {feedback!=="" && feedback}
+                <Button type='submit'>
+                    Wyślij!
+                </Button>
+
+            </form>
+
+
+        </div>
+
+
+
     );
 
 }
