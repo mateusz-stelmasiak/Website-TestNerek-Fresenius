@@ -21,8 +21,8 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         if (surveyResult.severity==='low') return;
 
         //determines if users zip is eligable for a code
-        // let resp=await isUserEligableForLab(zip);
-        // setEligable(resp);
+        let resp=await isUserEligableForLab(zip);
+        setEligable(resp);
         // setEligable(true);
     }
 
