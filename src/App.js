@@ -74,7 +74,6 @@ function App() {
 
 
                                 <Route path={process.env.REACT_APP_TOKEN+"/"}>
-                                    <ScrollToTop/>
                                     <LandingPage/>
                                 </Route>
 

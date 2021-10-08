@@ -20,10 +20,18 @@ export default function BurgerMenu(props) {
     const childrenWithProps = React.Children.map(props.children.props.children,
         (child) => {
             if (React.isValidElement(child)) {
-                return React.cloneElement(child,{ onClick:closeMenu});
+
+                return React.cloneElement(child, {
+                    onClick: function () {
+                        closeMenu();
+                        if (child.props.onClick) {
+                            child.props.onClick();
+                        }
+                    }
+                });
             }
             return child;
-    });
+        });
 
     return (
         <div className="BurgerMenu">
@@ -46,22 +54,22 @@ export default function BurgerMenu(props) {
                 isOpen={menuOpen}
                 closeCallback={closeMenu}
             >
-                    <div className="CheeseburgerMenu-content">
-                        <HamburgerMenu
-                            className='BurgerButton'
-                            isOpen={menuOpen}
-                            menuClicked={closeMenu}
-                            width={32}
-                            height={24}
-                            strokeWidth={3}
-                            rotate={0}
-                            color='var(--primary-color)'
-                            borderRadius={0}
-                            animationDuration={0.5}
-                        />
+                <div className="CheeseburgerMenu-content">
+                    <HamburgerMenu
+                        className='BurgerButton'
+                        isOpen={menuOpen}
+                        menuClicked={closeMenu}
+                        width={32}
+                        height={24}
+                        strokeWidth={3}
+                        rotate={0}
+                        color='var(--primary-color)'
+                        borderRadius={0}
+                        animationDuration={0.5}
+                    />
 
-                        {childrenWithProps}
-                    </div>
+                    {childrenWithProps}
+                </div>
             </CheeseburgerMenu>
 
         </div>

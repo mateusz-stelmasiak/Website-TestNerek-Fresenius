@@ -7,9 +7,10 @@ import Partners from "./Partners/Partners"
 import LogoPartner from "./Partners/LogoPartner"
 import ISBZdrowie from '../Assets/partners/Ogólnopolskie/ISB-zdrowie.png';
 import zdrowneNet from '../Assets/partners/Ogólnopolskie/zdrowe-net.PNG';
+import {useEffect} from "react";
 
 
-function LandingPage() {
+function LandingPage({props}) {
     // const general_partners= [
     // ]
 
@@ -29,6 +30,14 @@ function LandingPage() {
     //routing after starting the test
     const history = useHistory();
     const startTest = () => history.push(process.env.REACT_APP_TOKEN + '/test');
+
+    //scroll to top but only if no arguments are present
+    useEffect(() => {
+        const queryString = window.location.search;
+        console.log(queryString);
+        if(queryString){return;}
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, );
 
     return (
         <div>

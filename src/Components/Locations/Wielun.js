@@ -3,7 +3,7 @@ import Partners from "../Partners/Partners"
 import LogoPartner from "../Partners/LogoPartner"
 import tvWielun from '../../Assets/partners/Wieluń/TV-Wielun.png';
 import dziennikLodzki from '../../Assets/partners/Wieluń/dziennik-lodzki.png';
-import drAndrzej from '../../Assets/dr-Andrzej-Redlicki.JPG'
+import drAndrzej from '../../Assets/dr-Andrzej-Redlicki.jpg'
 import stacjaDializ from '../../Assets/stacja-dializ.jpg'
 import "./Wielun.css"
 

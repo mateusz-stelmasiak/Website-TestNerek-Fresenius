@@ -41,6 +41,12 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, explainer, dispatch}) 
                 label={<span>{displayName}</span>}
                 onChange={toogleShowInput}
             />
+            {explainer &&
+            <Explainer
+                title={explainer.title}
+                content={explainer.content}
+            />
+            }
 
             {show &&
             <Form.Group className="SurveyAnswer">
@@ -51,12 +57,7 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, explainer, dispatch}) 
                         value={pLevel}
                         onChange={(e) => setParamValue(e.target.value)}
                     />
-                    {explainer &&
-                        <Explainer
-                            title={explainer.title}
-                            content={explainer.content}
-                        />
-                    }
+
 
                 </div>
 
@@ -78,7 +79,7 @@ function BloodParameterInput({qId, pName, pNorms, pUnits, explainer, dispatch}) 
                     chosenUnit={chosenUnit}
                     norm={pNorms}
                 />
-                {pLevel && result}
+
 
 
             </Form.Group>
