@@ -33,6 +33,8 @@ function ShareTest(){
         // console.log(respObj);
         setFeedback(respObj.feedback)
     }
+    const shareUrl="https://www.poradnianefrologiczna.pl/";
+    const shareIconSize=38;
 
     return (
         <div className="ShareTest" >
@@ -40,21 +42,22 @@ function ShareTest(){
 
             <div className="ShareSocial">
                 <FacebookShareButton
-                    url={"https://www.poradnianefrologiczna.pl/"}
+                    url={shareUrl}
                 >
-                    <FacebookIcon size={38} round={true} />
+                    <FacebookIcon size={shareIconSize} round={true} />
                 </FacebookShareButton>
 
                 <FacebookMessengerShareButton
-                    url={"https://www.poradnianefrologiczna.pl/"}
+                    url={shareUrl}
                     appId={process.env.FACEBOOK_APP_ID} >
-                    <FacebookMessengerIcon  size={38}  round={true} />
+                    <FacebookMessengerIcon  size={shareIconSize}  round={true} />
                 </FacebookMessengerShareButton>
 
-                <WhatsappShareButton  url={"https://www.poradnianefrologiczna.pl/"}>
-                    <WhatsappIcon  size={38} round={true}/>
+                <WhatsappShareButton  url={shareUrl}>
+                    <WhatsappIcon  size={shareIconSize} round={true}/>
                 </WhatsappShareButton>
             </div>
+
             <h3>lub wyślij komuś zaproszenie email</h3>
             <form className="ShareEmail" onSubmit={sendInvite}>
                 <Form.Control
