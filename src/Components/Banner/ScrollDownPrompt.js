@@ -1,22 +1,22 @@
-import {useEffect} from "react";
+import "./ScrollDownPrompt.css"
+import "animate.css"
 
-export default function ScrollToSectionComponent(props) {
-
+export default function ScrollDownPrompt() {
     //get banner hight from DOM
     function getBannerHeight(){
         let bannerElement = document.querySelector('.BannerContainer');
         return bannerElement.clientHeight
     }
 
-    useEffect(() => {
+    let scrollPastBanner = ()=>{
         let scrollTo = getBannerHeight();
         window.scrollTo({ top: scrollTo, behavior: 'smooth' })
-    });
+    };
 
     return (
-        <section className={props.className}>
-            {props.children}
-        </section>
-        );
-
+        <div onClick={scrollPastBanner} className="ScrollDownPrompt">
+            <div className="mouse"/>
+            PRZEWIŃ W DÓŁ
+        </div>
+    )
 }

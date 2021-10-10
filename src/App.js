@@ -10,8 +10,6 @@ import Banner from "./Components/Banner/Banner";
 import LandingPage from "./Components/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import ResultsPage from "./Components/ResultsPage";
-import ScrollToTop from "./Components/Common/ScrollToTop";
-import PrivateRoute from "./Components/PrivateRoute";
 import Privacy from "./Components/InfoPages/Privacy";
 import Cookies from "./Components/InfoPages/Cookies";
 import Law from "./Components/InfoPages/Law";
@@ -41,9 +39,9 @@ function App() {
                                     <SurveyContainer/>
                                 </Route>
 
-                                <PrivateRoute path={process.env.REACT_APP_TOKEN+"/wyniki"} >
+                                <Route path={process.env.REACT_APP_TOKEN+"/wyniki"} >
                                     <ResultsPage/>
-                                </PrivateRoute>
+                                </Route>
 
                                 <Route path={process.env.REACT_APP_TOKEN+"/polityka-prywatnosci"}>
                                     <Privacy/>

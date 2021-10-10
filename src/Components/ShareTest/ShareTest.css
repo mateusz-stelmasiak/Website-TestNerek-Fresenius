@@ -17,6 +17,10 @@
     text-align: center;
     margin-top: 2.5rem;
 }
+.ShareTest .feedback{
+    margin-top: 1rem;
+    opacity: 0.8;
+}
 
 .ShareEmail{
     display: flex;

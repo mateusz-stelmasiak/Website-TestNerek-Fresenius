@@ -1,13 +1,8 @@
 import "./AdminLogin.css"
 import {Form} from "react-bootstrap";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faLock } from '@fortawesome/free-solid-svg-icons'
-import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
-import {setUserLabCode} from "../../Redux/Actions/surveyActions";
-
-//test
-
 
 export default function AdminLogin() {
     let [username, setUsername] = useState("");
@@ -16,19 +11,13 @@ export default function AdminLogin() {
     let userIcon =  <FontAwesomeIcon icon={faUser} />;
     let passIcon =<FontAwesomeIcon icon={faLock} />;
 
-    // let logIn = async (event) => {
-    //     event.preventDefault();
-    //
-    //     setFeedback("Próba logowania...")
-    //     const response = await fetch("/PhpScripts/authenticate.php?username=" + username + "&password=" + password, fetchOptions);
-    //     const respBody = await response.text();
-    //     let respObj = JSON.parse(respBody);
-    //     if (respObj.success !== "true") {
-    //         setFeedback(respObj.feedback);
-    //         return
-    //     }
-    //     setFeedback("");
-    // }
+    //if login failed error will be passed as html parameter
+    useEffect(() => {
+        const queryString = window.location.search;
+        if(!queryString) return;
+
+        setFeedback('Niepoprawne hasło/nazwa użytkownika.');
+    },[] );
 
     return (
         <section className="AdminLogin">
@@ -60,7 +49,10 @@ export default function AdminLogin() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </Form.Group>
-                        {feedback !=="" && feedback}
+                        {feedback !=="" &&
+                            <div className="feedback">{feedback}</div>
+                        }
+
                         <button type='submit'>Zaloguj</button>
                     </div>
 

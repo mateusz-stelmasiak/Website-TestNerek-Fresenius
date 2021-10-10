@@ -1,0 +1,56 @@
+.ScrollDownPrompt{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    animation: fadeInDown;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 0.8s;
+}
+
+.mouse {
+    width: 20px;
+    height: 40px;
+    border: 2px solid var(--primary-color-opaque);
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+.mouse::before {
+     content: "";
+     width: 8px;
+     height: 8px;
+     position: absolute;
+     top: 10px;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color:var(--primary-color);
+     border-radius: 50%;
+     opacity: 1;
+     animation: wheel 2.5s infinite;
+     -webkit-animation: wheel 2.5s infinite;
+    animation-delay: 2s;
+ }
+
+
+@keyframes wheel {
+    to {
+        opacity: 0;
+        top: 30px;
+    }
+}
+
+@-webkit-keyframes wheel {
+    to {
+        opacity: 0;
+        top: 30px;
+    }
+}

@@ -12,7 +12,6 @@ export default function BurgerMenu(props) {
     }
 
     let closeMenu = () => {
-        console.log('ZAMYKAM');
         setMenuOpen(false);
     }
 
@@ -75,8 +74,4 @@ export default function BurgerMenu(props) {
         </div>
 
     );
-    // {menuButtons}
-    // <>
-    //     {React.cloneElement(props.children, { onClick: closeMenu })}
-    // </>
 }

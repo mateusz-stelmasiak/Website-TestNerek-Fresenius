@@ -34,7 +34,6 @@ function LandingPage({props}) {
     //scroll to top but only if no arguments are present
     useEffect(() => {
         const queryString = window.location.search;
-        console.log(queryString);
         if(queryString){return;}
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }, );

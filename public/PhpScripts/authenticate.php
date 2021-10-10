@@ -26,7 +26,7 @@ $db_password=$sqlResult['password'];
 
 // Account exists, now we verify the password.
 if (!password_verify($password, $db_password)) {
-    header('Location: /admin?login=failed');
+    header('Location: /admin?error=failed');
     die('Niepoprawne hasło/użytkownik');
 }
 

@@ -1,8 +1,8 @@
+import "./SurveyPage.css"
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import SurveyQuestion from "./Survey/SurveyQuestion";
 import {choiceQuestions} from "../JSBackend";
-import "./SurveyPage.css"
 import {useHistory} from "react-router-dom";
 import {Form} from "react-bootstrap";
 import PersonalInfoQuestion from "./Survey/PersonalInfoQuestion";

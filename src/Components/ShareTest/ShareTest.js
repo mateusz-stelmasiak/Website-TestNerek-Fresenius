@@ -8,53 +8,57 @@ import {
     FacebookIcon,
     FacebookShareButton, FacebookMessengerShareButton, FacebookMessengerIcon, WhatsappShareButton,
 } from "react-share";
+import Dots from "../Common/Dots";
 
 
-function ShareTest(){
-    const [email,setEmail]=useState("")
-    const [feedback,setFeedback]=useState("")
+function ShareTest() {
+    const [email, setEmail] = useState("")
+    const [feedback, setFeedback] = useState("")
 
-    function inputEmail(mail){
+    function inputEmail(mail) {
         setFeedback("");
         setEmail(mail);
     }
 
-    async function sendInvite(event){
+    async function sendInvite(event) {
         event.preventDefault();
-        if (!email.match(emailRegex)){
+        if (!email.match(emailRegex)) {
             setFeedback("Niepoprawny adres email!");
             return
         }
-        setFeedback("Wysłanie zaproszenia...")
-        const response = await fetch(inviteScriptPath+"?email="+email,fetchOptions);
-        const respBody= await response.text();
+        setFeedback(<span>wysłanie zaproszenia<Dots/></span>);
+        const response = await fetch(inviteScriptPath + "?email=" + email, fetchOptions);
+        const respBody = await response.text();
         const respObj = JSON.parse(respBody);
         //const respObj = JSON.parse('{"feedback": "Wysłano zaproszenie do mateusz.stelmasiak@alhambrasklep.pl!"}')
         // console.log(respObj);
         setFeedback(respObj.feedback)
     }
-    const shareUrl="https://www.poradnianefrologiczna.pl/";
-    const shareIconSize=38;
+
+    const shareUrl = "https://www.poradnianefrologiczna.pl/";
+    const shareIconSize = 38;
 
     return (
-        <div className="ShareTest" >
+        <div className="ShareTest">
             <h2>Jeśli chcesz polecić test, podziel się nim</h2>
 
             <div className="ShareSocial">
-                <FacebookShareButton
-                    url={shareUrl}
-                >
-                    <FacebookIcon size={shareIconSize} round={true} />
-                </FacebookShareButton>
+
 
                 <FacebookMessengerShareButton
                     url={shareUrl}
-                    appId={process.env.FACEBOOK_APP_ID} >
-                    <FacebookMessengerIcon  size={shareIconSize}  round={true} />
+                    appId={process.env.REACT_APP_FACEBOOK_APP_ID}>
+                    <FacebookMessengerIcon size={shareIconSize} round={true}/>
                 </FacebookMessengerShareButton>
 
-                <WhatsappShareButton  url={shareUrl}>
-                    <WhatsappIcon  size={shareIconSize} round={true}/>
+                <FacebookShareButton
+                    url={shareUrl}
+                >
+                    <FacebookIcon size={shareIconSize + 5} round={true}/>
+                </FacebookShareButton>
+
+                <WhatsappShareButton url={shareUrl}>
+                    <WhatsappIcon size={shareIconSize} round={true}/>
                 </WhatsappShareButton>
             </div>
 
@@ -63,10 +67,14 @@ function ShareTest(){
                 <Form.Control
                     id="email"
                     type="email"
-                    onChange={(e)=>inputEmail(e.target.value)}
+                    onChange={(e) => inputEmail(e.target.value)}
                     placeholder="przykład@gmail.com"
                 />
-                {feedback!=="" && feedback}
+
+                {feedback !== "" &&
+                    <div className='feedback'>{feedback}</div>
+                }
+
                 <Button type='submit'>
                     Wyślij!
                 </Button>
@@ -75,7 +83,6 @@ function ShareTest(){
 
 
         </div>
-
 
 
     );

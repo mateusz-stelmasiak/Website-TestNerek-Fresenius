@@ -4,13 +4,20 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {sendContactMsgPath, emailRegex, fetchOptions} from "../../Utils";
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
+import ReCAPTCHA from "react-google-recaptcha";
+import Dots from "../Common/Dots";
 
 export default function Contact() {
     const [feedback, setFeedback] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [msg, setMsg] = useState("");
+    const [captchaValue, setCaptchaValue] = useState(null);
 
+
+    function captchaChange(value) {
+        setCaptchaValue(value);
+    }
 
     function inputEmail(mail) {
         if (mail.length > 256) return;
@@ -33,7 +40,7 @@ export default function Contact() {
         setMsg(msg);
     }
 
-    function emptyAllFields(){
+    function emptyAllFields() {
         setName("");
         setMsg("");
         setEmail("");
@@ -42,26 +49,34 @@ export default function Contact() {
 
     async function sendMsg(event) {
         event.preventDefault();
+
+        //validate captcha filled
+        if (captchaValue === null) {
+            setFeedback("Zaznacz, że nie jesteś robotem!");
+            return
+        }
+
         //validate email
         if (email !== "" && !email.match(emailRegex)) {
             setFeedback("Niepoprawny adres email!");
             return
         }
         //valide name and surname
-        if (name === ""){
+        if (name === "") {
             setFeedback("Brak imienia i nazwiska!");
             return
         }
-        if (msg === ""){
+        if (msg === "") {
             setFeedback("Brak treści!");
             return
         }
         //replace all newlines with <br/> to keep format
         let msg_formatted = msg.replace(/(?:\r\n|\r|\n)/g, '<br/>');
 
-        setFeedback("Wysyłanie wiadomości..")
-        const response = await fetch(sendContactMsgPath + "?email=" + email + "&name=" + name + "&msg=" + msg_formatted, fetchOptions);
+        setFeedback(<span>wysłanie wiadomości<Dots/></span>)
+        const response = await fetch(sendContactMsgPath + "?email=" + email + "&name=" + name + "&msg=" + msg_formatted + "&captcha=" + captchaValue, fetchOptions);
         const respBody = await response.text();
+        console.log(respBody);
         let respObj = JSON.parse(respBody);
         //if fails
         if (respObj.success !== "true") {
@@ -111,11 +126,17 @@ export default function Contact() {
                         placeholder="Twoja wiadomość"
                         required
                     />
-                    {feedback !== "" &&
-                    <div className="feedback">
-                        {feedback}
-                    </div>}
                 </Form.Group>
+
+                <ReCAPTCHA
+                    sitekey={process.env.REACT_APP_CAPTCHA_KEY}
+                    onChange={captchaChange}
+                    size="normal"
+                />
+                {feedback !== "" &&
+                <div className="feedback">
+                    {feedback}
+                </div>}
 
 
                 <Button type='submit'>
@@ -124,12 +145,23 @@ export default function Contact() {
 
             </Form>
 
-            <p><strong>Fresenius Nephrocare Polska Sp. z o.o.</strong><br/> ul. Krzywa 13<br/> 60-118 Poznań<br/> Tel.
-                +48
-                61 8392 600<br/> Faks. +48 61 8392 601<br/> E-mail: sekretariat.pl(at)fmc-ag.com</p>
+            <p>
+                <strong>Fresenius Nephrocare Polska Sp. z o.o.</strong>
+                <br/> ul. Krzywa 13
+                <br/> 60-118 Poznań
+                <br/> Tel. <a href="tel:+48618392600">+48 61 8392 600</a>
+                <br/> Faks. +48 61 8392 601
+                <br/> E-mail: <a href="mailto:sekretariat.pl@fmc-ag.com">sekretariat.pl(at)fmc-ag.com</a>
+            </p>
 
-            <p>Sąd Rejonowy w Poznaniu - Nowe Miasto i Wilda<br/> w Poznaniu VIII Wydział KRS;<br/> KRS:
-                0000054766<br/> NIP: 783-15-59-498<br/> kapitał zakładowy: 135.852.000 PLN</p>
+            <p>
+                Sąd Rejonowy w Poznaniu - Nowe Miasto i Wilda<br/>
+                w Poznaniu VIII Wydział KRS;<br/>
+                KRS: 0000054766<br/>
+                NIP: 783-15-59-498<br/>
+                kapitał zakładowy: 135.852.000
+            </p>
+
         </ScrollToSectionComponent>
     );
 }

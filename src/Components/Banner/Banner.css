@@ -2,6 +2,7 @@
     --hand-animation-state: paused;
 }
 .Banner{
+    position: relative;
     color: var(--primary-color);
     padding: min(8vw,200px) min(10vw,200px);
     background-color: var(--section-bg-color);

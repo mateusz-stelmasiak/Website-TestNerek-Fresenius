@@ -9,16 +9,12 @@ import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 import {useHistory} from "react-router-dom";
 
 function ResultsPage({surveyResult,age,dispatch,}){
-    const [loading,setLoading]=useState(true)
-
     //reroute to test if not completed
     const history = useHistory();
     const routeToTest = () => history.push(process.env.REACT_APP_TOKEN + '/test');
 
     async function loadResults(){
-        setLoading(true);
         await dispatch(calculateResult(age))
-        setLoading(false);
 
         //if there is no results (direct access from link,without completing the survey)
         let check=sessionStorage.getItem('surveyResult');
@@ -28,7 +24,7 @@ function ResultsPage({surveyResult,age,dispatch,}){
     }
 
     useEffect(()=>{
-        loadResults()
+        loadResults().then();
     },[])
 
 
