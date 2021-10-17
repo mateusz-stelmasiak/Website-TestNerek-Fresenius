@@ -2,7 +2,7 @@ import "./Banner.css"
 import "animate.css"
 
 import useWindowDimensions from "../Common/useWindowDimensions"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ScrollDownPrompt from "./ScrollDownPrompt";
 
 export default function Banner() {
@@ -18,6 +18,18 @@ export default function Banner() {
         setBackgroundImage('url(' + src + ')');
         document.documentElement.style.setProperty('--hand-animation-state', 'running');
     };
+
+    //get navbar height from DOM
+    let getNavbarHeight = ()=>{
+        let navbarElement = document.querySelector('.NavBar-container');
+        if(!navbarElement) return -1;
+        return navbarElement.clientHeight
+    }
+
+    useEffect(()=>{
+        let nvHeight= getNavbarHeight();
+
+    })
 
     return (
         <div className="BannerContainer">

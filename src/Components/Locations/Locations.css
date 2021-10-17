@@ -9,6 +9,7 @@
 }
 
 .InfoPage .img-container img{
-    width: min(33rem,100%);
+    width: min(35rem,100%);
     height: auto;
+    object-fit: cover;
 }

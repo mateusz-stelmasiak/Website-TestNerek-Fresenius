@@ -62,9 +62,9 @@ function App() {
                                     <Wielun/>
                                 </Route>
 
-                                <Route path={process.env.REACT_APP_TOKEN+"/sprawdz-wyniki"}>
-                                    <ResultsChecker/>
-                                </Route>
+                                {/*<Route path={process.env.REACT_APP_TOKEN+"/sprawdz-wyniki"}>*/}
+                                {/*    <ResultsChecker/>*/}
+                                {/*</Route>*/}
 
                                 <Route path={process.env.REACT_APP_TOKEN+"/kontakt"}>
                                     <Contact/>

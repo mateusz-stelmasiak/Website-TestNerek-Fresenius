@@ -3,9 +3,10 @@ import Partners from "../Partners/Partners"
 import LogoPartner from "../Partners/LogoPartner"
 import tvWielun from '../../Assets/partners/Wieluń/TV-Wielun.png';
 import dziennikLodzki from '../../Assets/partners/Wieluń/dziennik-lodzki.png';
+import radioZw from '../../Assets/partners/Wieluń/radio_zw.png';
 import drAndrzej from '../../Assets/dr-Andrzej-Redlicki.jpg'
 import stacjaDializ from '../../Assets/stacja-dializ.jpg'
-import "./Wielun.css"
+import "./Locations.css"
 
 export default function Wielun() {
     // const general_partners = []
@@ -23,6 +24,12 @@ export default function Wielun() {
             link="https://dzienniklodzki.pl/"
             name="Dziennik Łódzki"
             desc="wiadomości z Łodzi i województwa łódzkiego"
+        >
+        </LogoPartner>,
+        <LogoPartner
+            logo={radioZw}
+            link="https://www.radiozw.com.pl//"
+            name="Radio Ziemi Wieluńskiej"
         >
         </LogoPartner>
     ]

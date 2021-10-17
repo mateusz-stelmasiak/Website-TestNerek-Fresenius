@@ -26,7 +26,7 @@ export default function NavBar() {
         <>
             <Link to={process.env.REACT_APP_TOKEN + '/minsk-mazowiecki/'}>MIŃSK MAZOWIECKI</Link>
             <Link to={process.env.REACT_APP_TOKEN + '/wielun'}>WIELUŃ</Link>
-            <Link to={process.env.REACT_APP_TOKEN + '/sprawdz-wyniki/'}>SPRAWDŹ WYNIKI</Link>
+            {/*<Link to={process.env.REACT_APP_TOKEN + '/sprawdz-wyniki/'}>SPRAWDŹ WYNIKI</Link>*/}
             <Link to={process.env.REACT_APP_TOKEN + '/?test=true'} onClick={scrollPastBanner}>TEST</Link>
             <Link to={process.env.REACT_APP_TOKEN + '/kontakt/'}>KONTAKT</Link>
         </>

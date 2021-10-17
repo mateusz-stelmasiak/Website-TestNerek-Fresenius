@@ -2,7 +2,9 @@ import Partners from "../Partners/Partners"
 import LogoPartner from "../Partners/LogoPartner"
 import burmistrz from '../../Assets/partners/Minsk/burmistrz.png';
 import powiat from '../../Assets/partners/Minsk/powiat.jpg';
-import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
+import ScrollToSectionComponent from "../Common/ScrollToSectionComponent";
+import stacjaDializ from "../../Assets/minsk_stacja.jpg";
+import budynek from "../../Assets/minsk_budynek.jpg";
 
 export default function Minsk() {
     const general_partners= [
@@ -47,6 +49,10 @@ export default function Minsk() {
                     badanie moczu i oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e-GFR. Te dwa
                     badania pokażą, czy coś złego dzieje się w ich nerkach.
                 </p>
+                <div className="img-container">
+                    <img src={stacjaDializ} alt="stacjaDializ"/>
+                    <img src={budynek} alt="budynek"/>
+                </div>
 
                 <p>
                     Akcja społeczna OGÓLNOPOLSKI TEST ZDROWIA NEREK będzie w Mińsku
