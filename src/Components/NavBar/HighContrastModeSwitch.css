@@ -1,0 +1,19 @@
+.HighContrastModeSwitch{
+   cursor: pointer;
+    position: absolute;
+    right: 4rem;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.HighContrastModeSwitch:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/*TODO switch to actually hiding it in js*/
+@media only screen and (max-width: 1100px){
+    .HighContrastModeSwitch{
+        display: none;
+    }
+}

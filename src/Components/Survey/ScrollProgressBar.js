@@ -59,7 +59,7 @@ export default class ScrollProgressBar extends Component{
         if (this.navBarHeight===0) this.getNavBarHeight();
 
         const progressContainerStyle = {
-            background: "#f8bbd0",
+            background: "var(--secondary-color-lighter)",
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
             height: "5px",
             position: "sticky",

@@ -35,9 +35,9 @@
     display: inline-block;
     /* background-color only for content */
     background-clip: content-box;
-    border: 1px rgba(0,0,0,0.5) solid;
+    border: 1px var(--primary-color-opaque) solid;
     border-radius: 100%;
-    background-color: white;
+    background-color: var(--background-color);
     transition: 0.1s ease-in;
     padding:1rem;
 }

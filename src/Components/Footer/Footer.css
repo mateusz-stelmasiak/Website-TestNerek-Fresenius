@@ -9,12 +9,12 @@
 
 .Footer a{
     all:unset;
-    color:white;
+    color:var(--background-color);
     cursor: pointer;
 }
 
 .Footer a:hover{
-    color: #c4c4c4;
+    color: var(--section-bg-color);
 }
 
 .moreinfoContainer{

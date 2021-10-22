@@ -5,6 +5,7 @@ import powiat from '../../Assets/partners/Minsk/powiat.jpg';
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent";
 import stacjaDializ from "../../Assets/minsk_stacja.jpg";
 import budynek from "../../Assets/minsk_budynek.jpg";
+import Layout from "../Common/Layout";
 
 export default function Minsk() {
     const general_partners= [
@@ -30,7 +31,7 @@ export default function Minsk() {
 
 
     return (
-        <div>
+        <Layout>
             <ScrollToSectionComponent className="InfoPage">
                 <h1>Mińsk Mazowiecki</h1>
                 <p>
@@ -39,7 +40,7 @@ export default function Minsk() {
                     </b>
                 </p>
                 <p>
-                    Na stronie głównej - <a href="/process.env.REACT_APP_TOKEN/">www.poradnianefrologiczna.pl</a> można wypełnić prosty test, który
+                    Na stronie głównej - <a href="/">www.poradnianefrologiczna.pl</a> można wypełnić prosty test, który
                     pokaże w jakiej kondycji są nasze nerki. Jeśli pacjent będzie tego potrzebował, po
                     uzupełnieniu quizu, dostanie skierowanie na bezpłatne badania nerek w miejscowym
                     laboratorium.
@@ -63,7 +64,7 @@ export default function Minsk() {
             <Partners
                 general={general_partners}
             />
-        </div>
+        </Layout>
 
 
     );

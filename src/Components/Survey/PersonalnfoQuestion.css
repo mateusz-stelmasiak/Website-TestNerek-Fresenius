@@ -38,6 +38,14 @@ input:focus, textarea:focus {
     border: 1px var(--primary-color-opaque) solid;
 }
 
+.PersonalInfoQuestion .SurveyAnswer .zipFHInput{
+    width: 2rem;
+}
+
+.PersonalInfoQuestion .SurveyAnswer .zipSHInput{
+    width: 3rem;
+}
+
 .SurveyQuestion .threeCharInput{
     width: 3rem;
 }

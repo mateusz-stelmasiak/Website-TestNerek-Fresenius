@@ -23,7 +23,7 @@ export default function AdminLogin() {
         <section className="AdminLogin">
             <div className="login">
                 <h1>Login</h1>
-                <Form action="PhpScripts/authenticate.php" method="post">
+                <Form action="../PhpScripts/authenticate.php" method="post">
                     <div className="inputContainer">
                         <Form.Group >
                             <Form.Label>{userIcon}</Form.Label>

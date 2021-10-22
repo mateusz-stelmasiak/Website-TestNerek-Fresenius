@@ -17,6 +17,18 @@ export let bloodParameters = [
 ]
 
 
+export let powiatInfo=[
+    ""
+    ,
+    "Bezpłatne badania nerek można wykonać od 25 października do 31 grudnia 2021 w Centrum " +
+    "Dializ Fresenius przy ulicy Szpitalnej 16 w Wieluniu. Stacja będzie pobierać krew we wtorki i " +
+    "czwartki między godziną 13.00 a 14.00."
+    ,
+    "Bezpłatne badania nerek można wykonać od 3 listopada do 31 grudnia 2021 w laboratorium " +
+    "ALAB w Mińsku Mazowieckim, ul. Warszawska 141 lok U2. Laboratorium pobiera próbki od " +
+    "poniedziałku do piątku w godzinach 7:00-11:30, w soboty 8:00-12:30."
+];
+
 export let bloodResults = [
     new BloodParameter("Kreatynina", ["umol/l", "mg/dl"], [130, 1.5]),
     new BloodParameter("Glukoza", ["mmol/l", "mg/dl"], [5.6, 100]),
@@ -137,12 +149,7 @@ export function calculateSurveyResult(answers, userData) {
 export async function isUserEligableForLab(zip) {
     const response = await fetch(checkZIPPath + "?zip=" + zip, fetchOptions);
     const respBody = await response.text();
-    let respObj = JSON.parse(respBody);
-    console.log(respObj)
-    if (respObj.success !== "true") {
-        return false;
-    }
-    return true;
+    return JSON.parse(respBody);
 }
 
 //returns appropriate form of 'lat' based on given number

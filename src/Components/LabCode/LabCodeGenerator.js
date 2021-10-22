@@ -1,15 +1,16 @@
 import Reel from "react-reel";
 import React, {useEffect, useRef, useState} from "react";
 import {connect} from "react-redux";
-import {isUserEligableForLab} from "../../JSBackend";
+import {isUserEligableForLab, powiatInfo} from "../../JSBackend";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
 import "./LabCodeGenerator.css"
 import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 
-function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
-    const [eligable, setEligable] = useState(false)
+function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
+    const [eligable, setEligable] = useState(false);
+    const [powiatId,setPowiatId]=useState(-1);
     const [PESEL, setPESEL] = useState("")
     const [labCode, setLabCode] = useState(code)
     const [email, setEmail] = useState("")
@@ -17,12 +18,16 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
     const [feedback, setFeedback] = useState("")
     const codeFieldRef = useRef(null);
 
-    async function determinUserEligable(){
-        if (surveyResult.severity==='low') return;
+    async function determinUserEligable() {
+        if (surveyResult.severity === 'low') return;
 
-        //determines if users zip is eligable for a code
-        let resp=await isUserEligableForLab(zip);
-        setEligable(resp);
+        // //determines if users zip is eligable for a code
+        // let resp = await isUserEligableForLab(zip);
+        // if (!resp.success) return;
+        // console.log(resp);
+        setEligable(true);
+        setPowiatId(1);
+        // setPowiatId(resp.powiat);
     }
 
     useEffect(() => {
@@ -40,6 +45,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         setFeedback("");
         setPESEL(p);
     }
+
     function inputPhone(p) {
         if (p.length > 20) return;
         setFeedback("");
@@ -61,13 +67,13 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         }
 
         //valide Phone
-        if (phone!=="" && !phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
+        if (phone !== "" && !phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
             setFeedback("Niepoprawny numer telefonu!");
             return
         }
 
         setFeedback("Generowanie kodu..")
-        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip+ "&phone=" + phone, fetchOptions);
+        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip + "&phone=" + phone, fetchOptions);
         const respBody = await response.text();
         let respObj = JSON.parse(respBody);
         if (respObj.success !== "true") {
@@ -79,7 +85,7 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
         await dispatch(setUserLabCode(respObj.code));
         await setLabCode(respObj.code);
 
-        if(codeFieldRef.current){
+        if (codeFieldRef.current) {
             codeFieldRef.current.scrollIntoView();
         }
     }
@@ -110,13 +116,21 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
             {eligable &&
             <Form className="inline" onSubmit={generateCode}>
                 <h2>Kwalifikuje się Pani/Pan na darmowe badanie nerek w swoim powiecie</h2>
-                <p>Badania można wykonać od 15 sierpnia do 15 października 2021,
-                    w laboratorium DIAGNOSTYKA w Mińsku Mazowieckim przy ulicy Laboratoryjnej 30,
-                    w godzinach od 7.00 do 10.00, codziennie oprócz sobót i niedziel.
-                    Po wpisaniu numeru PESEL otrzyma Pani/Pan czterocyfrowy kod, który należy podać w laboratorium.
-                    Może Pani/Pan także podać swój adres email lub numer telefonu, wyślemy na niego kod aby się nie
-                    zagubił!
+
+                <p>
+                    {powiatInfo[powiatId]}
                 </p>
+
+                <p>
+                    Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+                </p>
+
+                <p>
+                    Po wpisaniu numeru PESEL otrzyma Pani/Pan kod, który należy podać w laboratorium.
+                    Może Pani/Pan także podać swój adres email lub numer telefonu, wyślemy kod, aby się nie
+                    zagubił.
+                </p>
+
 
                 {labCode === undefined &&
                 <Form.Group>
@@ -183,10 +197,9 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
                 </Form.Group>}
 
 
-
                 {labCode !== undefined &&
                 <div className="codeContainer" ref={codeFieldRef}>
-                    <h3>Twój 4 cyfrowy kod do badań w laboratiorium:</h3>
+                    <h3>Twój kod do badań w laboratiorium:</h3>
                     <div className="code"><Reel theme={theme} text={labCode.toString()}/></div>
                 </div>}
 
@@ -200,13 +213,14 @@ function LabCodeGenerator({zip, code, dispatch,surveyResult}) {
     );
 }
 
-const mapStateToProps = (state) => {
-        return {
-            zip: state.survey.userData.zip,
-            code: state.survey.labCode,
-            surveyResult: state.survey.surveyResult,
-        };
-    }
+const mapStateToProps = (state) =>
+{
+    return {
+        zip: state.survey.userData.zip,
+        code: state.survey.labCode,
+        surveyResult: state.survey.surveyResult,
+    };
+}
 ;
 
 export default connect(mapStateToProps)(LabCodeGenerator);

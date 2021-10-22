@@ -4,12 +4,17 @@ import "./BurgerMenu.css"
 import logo from '../../Assets/freseniusLogo.png';
 import {useHistory} from "react-router-dom";
 import BurgerMenu from "./BurgerMenu";
-import {useEffect} from "react";
+import logoSvg from '../../Assets/freseniusLogo.svg';
+
+import React from "react";
+import HighContrastModeSwitch from "./HighContastModeSwitch";
+import FreseniusLogo from "./FreseniusLogo";
 
 export default function NavBar() {
     //reroute to main page after click on logo
     const history = useHistory();
-    const routeToMain = () => history.push(process.env.REACT_APP_TOKEN + '/');
+    const routeToMain = () => history.push('/');
+
 
     //get banner hight from DOM
     function getBannerHeight(){
@@ -24,11 +29,11 @@ export default function NavBar() {
 
     const menuButtons =
         <>
-            <Link to={process.env.REACT_APP_TOKEN + '/minsk-mazowiecki/'}>MIŃSK MAZOWIECKI</Link>
-            <Link to={process.env.REACT_APP_TOKEN + '/wielun'}>WIELUŃ</Link>
-            {/*<Link to={process.env.REACT_APP_TOKEN + '/sprawdz-wyniki/'}>SPRAWDŹ WYNIKI</Link>*/}
-            <Link to={process.env.REACT_APP_TOKEN + '/?test=true'} onClick={scrollPastBanner}>TEST</Link>
-            <Link to={process.env.REACT_APP_TOKEN + '/kontakt/'}>KONTAKT</Link>
+            <Link to={'/minsk-mazowiecki/'}>MIŃSK MAZOWIECKI</Link>
+            <Link to={'/wielun'}>WIELUŃ</Link>
+            {/*<Link to={'/sprawdz-wyniki/'}>SPRAWDŹ WYNIKI</Link>*/}
+            <Link to={'/?test=true'} onClick={scrollPastBanner}>TEST</Link>
+            <Link to={'/kontakt/'}>KONTAKT</Link>
         </>
 
 
@@ -36,7 +41,7 @@ export default function NavBar() {
         <header className="NavBar-container">
             <div className="NavBar">
 
-                <img src={logo} alt="logo" onClick={routeToMain}/>
+                <FreseniusLogo onClick={routeToMain}/>
 
                 <div className="buttons-container">
                     {menuButtons}
@@ -45,6 +50,7 @@ export default function NavBar() {
                 <BurgerMenu>
                     {menuButtons}
                 </BurgerMenu>
+                <HighContrastModeSwitch/>
 
             </div>
         </header>

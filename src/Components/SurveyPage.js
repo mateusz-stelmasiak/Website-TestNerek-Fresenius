@@ -10,6 +10,7 @@ import BloodParametersQuestion from "./Survey/BloodParameters/BloodParametersQue
 import {clearResults} from "../Redux/Actions/surveyActions";
 import ScrollProgressBar from "./Survey/ScrollProgressBar";
 import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
+import Layout from "./Common/Layout";
 
 function SurveyPage({dispatch}) {
     const questions = choiceQuestions;
@@ -18,7 +19,7 @@ function SurveyPage({dispatch}) {
 
     //reroute to results after completed
     const history = useHistory();
-    const routeToResults = () => history.push(process.env.REACT_APP_TOKEN + '/wyniki');
+    const routeToResults = () => history.push('/wyniki');
 
     //on first load prepares react components for all questions
     useEffect(() => {
@@ -43,7 +44,7 @@ function SurveyPage({dispatch}) {
 
 
     return (
-        <div>
+        <Layout>
             <ScrollProgressBar/>
             <ScrollToSectionComponent className='SurveyContainer'>
 
@@ -70,7 +71,7 @@ function SurveyPage({dispatch}) {
                 </Form>
 
             </ScrollToSectionComponent>
-        </div>
+        </Layout>
 
     );
 

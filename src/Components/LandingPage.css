@@ -27,7 +27,7 @@
     display: inline-block;
 }
 .LandingPage .startTest a{
-    color: black;
+    color: var(--text-color);
 }
 @media (max-width: 1100px) {
     .LandingPage{

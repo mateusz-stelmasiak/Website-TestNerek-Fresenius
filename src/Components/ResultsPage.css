@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background-color: white;
     align-content: center;
 }
 .ResultsPage .resultContainer{

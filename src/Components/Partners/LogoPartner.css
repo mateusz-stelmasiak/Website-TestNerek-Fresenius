@@ -2,11 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-right: 4rem;
 }
-.LogoPartner:last-child{
-    margin-right: 0;
-}
+
 .LogoPartner .img-container{
     width: 12rem;
     height: 10rem;

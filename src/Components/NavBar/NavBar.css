@@ -6,7 +6,7 @@
 }
 
 .NavBar{
-    background-color: white;
+    background-color: var(--background-color);
     -webkit-box-shadow: 0px 9px 11px 7px rgba(0,0,0,0.24);
     box-shadow: 0px 9px 11px 2px rgba(0,0,0,0.1);
     z-index: 80;
@@ -16,12 +16,12 @@
     padding: 2.5rem 10vw;
     justify-content: space-between;
 }
-.NavBar img{
+.NavBar svg{
     width: 13rem;
     height: auto;
 }
 
-.NavBar img:hover{
+.NavBar svg:hover{
     transform: scale(1.05);
     cursor: pointer;
 
@@ -76,7 +76,7 @@
     .NavBar .buttons-container{
         display: none;
     }
-    .NavBar img{
+    .NavBar svg{
         width: min(13rem,40vw);
         height: auto;
     }

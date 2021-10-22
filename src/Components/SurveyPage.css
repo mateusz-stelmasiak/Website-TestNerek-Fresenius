@@ -2,6 +2,10 @@
     margin:7rem 15vw;
 }
 
+.SurveyContainer label{
+    color: var(--primary-color);
+}
+
 .SurveyContainer> div:first-of-type
 {
     z-index: 100;
@@ -17,6 +21,9 @@
     display: flex;
     align-items: flex-start;
     margin-top: 2rem;
+}
+.SurveyContainer .Survey-checkbox label{
+    color: var(--text-color);
 }
 
 @media only screen and (max-width: 400px){

@@ -8,9 +8,9 @@ function Banner(){
                 <a href="https://www.nephrocare.pl/o-nas.html">Więcej o Fresenius Nephrocare</a>
             </div>
             <div className="hyperlinksContainer">
-                <Link to={process.env.REACT_APP_TOKEN+'/polityka-prywatnosci/'}> Polityka Prywatności </Link>
-                <Link to={process.env.REACT_APP_TOKEN+'/pliki-cookie'}> Ustawienia plików cookie </Link>
-                <Link to={process.env.REACT_APP_TOKEN+'/informacje-prawne/'}> Informacje prawne </Link>
+                <Link to={'/polityka-prywatnosci/'}> Polityka Prywatności </Link>
+                <Link to={'/pliki-cookie'}> Ustawienia plików cookie </Link>
+                <Link to={'/informacje-prawne/'}> Informacje prawne </Link>
             </div>
         </footer>
     );

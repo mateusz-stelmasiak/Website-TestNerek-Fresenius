@@ -8,10 +8,14 @@ import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/
 import Explainer from "./Explainer";
 
 let fullZipRegex = /^[0-9]{2}-[0-9]{3}$/;
-let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/
+let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/;
+let firstHalfZipRegex = /^[0-9]{0,2}$/;
+let secondHalfZipRegex= /^[0-9]{0,3}$/;
 
 function PersonalInfoQuestion({qId, userData, dispatch}) {
     const [age, setAge] = useState()
+    const [zipFirstHalf,setZipFirstHalf]=useState();
+    const [zipSecondHalf,setZipSecondtHalf]=useState();
     const [zipCode, setZipCode] = useState()
     const [isZipValid, setIsZipValid] = useState(false);
     const [height, setHeight] = useState()
@@ -25,13 +29,19 @@ function PersonalInfoQuestion({qId, userData, dispatch}) {
         dispatch(setUserAge(age));
     }
 
-    function validateZipCode(zip) {
-        if (!zip.match(incompleteZipRegex)) return;
+    function validateZipFirstHalf(zipFH) {
+        if (!zipFH.match(firstHalfZipRegex)) return;
+        setZipFirstHalf(zipFH);
+    }
 
-        setIsZipValid(zip.match(fullZipRegex));
-        setZipCode(zip);
+    function validateZipSecondHalf(zipSH){
+        if (!zipSH.match(secondHalfZipRegex)) return;
+
+        setZipSecondtHalf(zipSH);
+        let zip=zipFirstHalf+'-'+zipSH;
         dispatch(setUserZip(zip));
     }
+
 
     function validateHeight(height) {
         if (height < 0) return;
@@ -74,15 +84,28 @@ function PersonalInfoQuestion({qId, userData, dispatch}) {
                 <Form.Label>Kod pocztowy: </Form.Label>
                 <div className="FieldWithUnits">
                     <Form.Control
-                        className="sixCharInput"
+                        className="zipFHInput"
                         name="zip"
-                        type="text"
-                        value={zipCode}
-                        onChange={(e) => validateZipCode(e.target.value)}
+                        type="number"
+                        value={zipFirstHalf}
+                        onChange={(e) => validateZipFirstHalf(e.target.value)}
+                    />
+                    <span className="zipHyphen">-</span>
+                    <Form.Control
+                        className="zipSHInput"
+                        name="zip"
+                        type="number"
+                        value={zipSecondHalf}
+                        onChange={(e) => validateZipSecondHalf(e.target.value)}
                     />
                     <Explainer
                         title="Dlaczego pytamy?"
-                        content="Lorem ipsum et dolor dolor color bolor solor! Lorem ipsum et dolor dolor color bolor solor! Lorem ipsum et dolor dolor color bolor solor!"
+                        content=
+                        "Pytamy o kod pocztowy, ponieważ w wybranych
+                        powiatach pacjenci, którzy wypełnią test i
+                        ich nerki będą potrzebowały kontroli, dostaną indywidualny
+                        kod na bezpłatne badania nerek (kreatynina we krwi i badanie moczu)
+                        do miejscowego laboratorium."
                     />
                 </div>
             </Form.Group>

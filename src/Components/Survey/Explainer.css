@@ -17,12 +17,12 @@
     background-color: var(--primary-color);
 }
 .react-tooltip-lite {
-    background: rgba(247,247,247,0.98);
+    background: var(--section-bg-color);
     color: black;
 
 }
 .react-tooltip-lite-arrow {
-    border-color: rgba(247,247,247,0.98);
+    border-color: var(--section-bg-color);
 }
 
 .tooltip-content{
@@ -43,4 +43,5 @@
     display: block;
     text-wrap: initial;
     max-width: 25rem;
+    color: var(--text-color);
 }

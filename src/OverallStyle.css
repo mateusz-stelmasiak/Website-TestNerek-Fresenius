@@ -5,12 +5,17 @@ ex. "color: var (--some-color);"
 ---------------------*/
 :root{
   --body-color:#282828;
-
   --primary-color: #03379a;
   --primary-color-lighter:#42a2d9 ;
   --primary-color-opaque: rgba(3,55,154,0.5);
   --secondary-color: #dc5555;
+  --secondary-color-lighter: #f8bbd0;
   --section-bg-color:#f7f6f6;
+  --background-color:white;
+  --text-color:black;
+  --hyperlink-color:#0645AD;
+  --check-input-shadow-color:rgba(0,0,0,0.15)
+
 }
 /*---------------------
 [Fonts]
@@ -31,13 +36,26 @@ html{
   scroll-padding-top: 10rem;
 }
 
+
+
 body {
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 3000px;
-  background-color: white;
+  background-color: var(--background-color);
 }
+
+p{
+  color: var(--text-color);
+}
+a{
+  color:var(--hyperlink-color)
+}
+label{
+  color: var(--text-color);
+}
+
 
 
 /*---------------------
@@ -53,7 +71,7 @@ button{
   box-shadow: 5px 8px 13px 0px rgba(0,0,0,0.15);
 
 
-  color: white;
+  color: var(--background-color);
   font-size:2rem;
   font-weight: 500;
 
@@ -73,7 +91,7 @@ input[type=checkbox] {
   width: 1.5rem;
   min-width: 1.5rem;
   height: 1.5rem;
-  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 13px 0px var(--check-input-shadow-color);
   margin-right: 0.7rem;
 
   -webkit-appearance: none;
@@ -85,7 +103,7 @@ input[type=checkbox] {
   background-clip: content-box;
   border: none;
   border-radius: 10%;
-  background-color: white;
+  background-color: var(--background-color);
   padding:0.7rem;
   transition: 0.1s ease-in;
 }
@@ -105,7 +123,9 @@ input[type=checkbox]:focus{
   align-items: flex-start;
   max-width: 55rem;
 }
-
+input{
+  color: var(--text-color);
+}
 /* Change color after autocomplete in chrome*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

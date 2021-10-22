@@ -7,29 +7,44 @@ import Partners from "./Partners/Partners"
 import LogoPartner from "./Partners/LogoPartner"
 import ISBZdrowie from '../Assets/partners/Ogólnopolskie/ISB-zdrowie.png';
 import zdrowneNet from '../Assets/partners/Ogólnopolskie/zdrowe-net.PNG';
+import KMN from '../Assets/partners/Ogólnopolskie/KMN.png';
+import osod from '../Assets/partners/Ogólnopolskie/osod.png';
 import {useEffect} from "react";
+import PersonPartner from "./Partners/PersonPartner";
+import Layout from "./Common/Layout";
 
 
 function LandingPage({props}) {
-    // const general_partners= [
-    // ]
+    const general_partners= [
+        <PersonPartner
+            name="prof. dr hab.n.med. Ryszard Gellert"
+            desc="Krajowy Konsultant w dziedzinie Nefrologii"
+        />,
+        <LogoPartner
+            logo={KMN}
+            link="https://ptnefro.pl/klub-mlodych-nefrologow"
+        />,
+        <LogoPartner
+            logo={osod}
+            link="https://osod.info/"
+        />
+    ];
 
     const media_parnters = [
         <LogoPartner
             logo={ISBZdrowie}
             link="https://www.isbzdrowie.pl/"
-        >
-        </LogoPartner>,
+        />
+       ,
         <LogoPartner
             logo={zdrowneNet}
             link="http://zdrowe.net/"
-        >
-        </LogoPartner>
+        />
     ]
 
     //routing after starting the test
     const history = useHistory();
-    const startTest = () => history.push(process.env.REACT_APP_TOKEN + '/test');
+    const startTest = () => history.push('/test');
 
     //scroll to top but only if no arguments are present
     useEffect(() => {
@@ -39,7 +54,7 @@ function LandingPage({props}) {
     }, );
 
     return (
-        <div>
+        <Layout>
             <section className="LandingPage">
                 <Form className="startTest" onSubmit={startTest}>
                     <Button type='submit'> Start testu </Button>
@@ -51,7 +66,7 @@ function LandingPage({props}) {
                             label={
                                 <div>
                                     Oświadczam, że zapoznałam/zapoznałem się z&nbsp;
-                                    <Link to={process.env.REACT_APP_TOKEN + '/polityka-prywatnosci'}>polityką
+                                    <Link to={'/polityka-prywatnosci'}>polityką
                                         prywatności</Link>
                                     &nbsp;i akceptuję jej warunki.
                                 </div>
@@ -77,9 +92,10 @@ function LandingPage({props}) {
 
             <Partners
                 media={media_parnters}
+                general={general_partners}
             />
 
-        </div>
+        </Layout>
 
     );
 

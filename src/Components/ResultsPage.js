@@ -7,11 +7,12 @@ import LabCodeGenerator from "./LabCode/LabCodeGenerator";
 import KidneysWidget from "./ResultsPage/KidneysWidget"
 import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 import {useHistory} from "react-router-dom";
+import Layout from "./Common/Layout";
 
 function ResultsPage({surveyResult,age,dispatch,}){
     //reroute to test if not completed
     const history = useHistory();
-    const routeToTest = () => history.push(process.env.REACT_APP_TOKEN + '/test');
+    const routeToTest = () => history.push('/test');
 
     async function loadResults(){
         await dispatch(calculateResult(age))
@@ -29,22 +30,24 @@ function ResultsPage({surveyResult,age,dispatch,}){
 
 
     return (
-        <ScrollToSectionComponent className="InfoPage">
+        <Layout>
+            <ScrollToSectionComponent className="InfoPage">
 
-            {surveyResult!==undefined &&
-            <div className="ResultsPage">
-                <div className="resultContainer">
-                    <h1>Wynik testu wskazuje, że Pani/Pana {surveyResult.header}</h1>
-                    <KidneysWidget color={surveyResult.color}/>
-                    <h4 style={{color:surveyResult.color}}>{surveyResult.result}</h4>
-                    <h3 >{surveyResult.verbose}</h3>
+                {surveyResult!==undefined &&
+                <div className="ResultsPage">
+                    <div className="resultContainer">
+                        <h1>Wynik testu wskazuje, że Pani/Pana {surveyResult.header}</h1>
+                        <KidneysWidget color={surveyResult.color}/>
+                        <h4 style={{color:surveyResult.color}}>{surveyResult.result}</h4>
+                        <h3 >{surveyResult.verbose}</h3>
 
-                    <LabCodeGenerator/>
+                        <LabCodeGenerator/>
+                    </div>
                 </div>
-            </div>
-            }
-            <ShareTest/>
-        </ScrollToSectionComponent>
+                }
+                <ShareTest/>
+            </ScrollToSectionComponent>
+        </Layout>
     );
 
 }

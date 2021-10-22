@@ -14,13 +14,14 @@ $client = new SmsapiHttpClient();
 $apiToken = 'ciSbp6LC5luN3D9oh4sNaDiorn1konzuHPA18svP';
 $service = $client->smsapiPlService($apiToken);
 
-function sendLabCodeSms($number,$code){
+function sendSms($number,$msg){
     global $service;
-    $message = 'Twój kod do laboratorium: '.$code;
-    $sms = SendSmsBag::withMessage($number,  $message);
-//    $sms->from = 'PoradniaNefrologiczna';
+    $sms = SendSmsBag::withMessage($number, $msg);
+    //$sms->from = 'e-poradnia';
 
-    $service->smsFeature()
+    return $service->smsFeature()
         ->sendSms($sms);
+
+
 }
 ?>

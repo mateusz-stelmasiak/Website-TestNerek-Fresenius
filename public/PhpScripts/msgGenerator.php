@@ -70,11 +70,8 @@ function generateInviteMessage(){
     return $msg;
 }
 
-function generateLabCodeMessage($code,$date,$adress){
+function generateLabCodeMessage($code,$msg_content){
     $msg_title="Twoje darmowe badanie nerek";
-    $msg_content = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Excepturi cumque exercitationem adipisci atque culpa soluta quibusdam, commodi dolorum 
-    eius neque perferendis quas harum reprehenderit obcaecati velit quidem similique quam quo.</p>";
 
     $msg = '
     <html lang="pl-PL">
@@ -104,31 +101,12 @@ function generateLabCodeMessage($code,$date,$adress){
                         <tr>
                             <td align="left" valign="top" style="padding:0px 20px;  text-align: justify; text-justify: inter-word;">
                                 '.$msg_content.'
-    
-                            </td>
-                        </tr>
-                        <td height="10">&nbsp;</td>
-                        <tr >
-                            <td valign="top" style="padding: 10px 20px 0px 20px;" >
-                                <h1 style="color:rgb(3,55,154); font-size: 22">Dane wizyty</h1>
-                            </td>
-                        </tr>
-                        <tr height="40px">
-                            <td align="left" style="padding:0px 25px;display: flex;align-items: center;" >
-                                <img style="width: auto;height: 30px; display: inline-block" src="http://cdn.mcauto-images-production.sendgrid.net/7eb033a49f5489c9/dd0c4d3c-e367-4879-b8b3-fb3c08f65605/40x40.png">
-                                <span style="margin-left:2rem;"> <b>10/08/2021</b> o <b>15:00</b> </span>
-                            </td>
-                        </tr>
-                        <tr height="40px">
-                            <td align="left" style="padding:10px 25px;display: flex;align-items: center;" >
-                                <img style="width: auto;height: 30px; display: inline-block" src="http://cdn.mcauto-images-production.sendgrid.net/7eb033a49f5489c9/1d5e8fb4-7858-421e-8a57-ff2d9cb94163/48x48.png">
-                                <span style="margin-left:2rem;"> ul. Przykładowa17, Przykładowo </span>
                             </td>
                         </tr>
                         <td height="30">&nbsp;</td>
                         <tr>
                             <td align="center" valign="top" style="padding:20px 0">
-                                <h2 style="color:rgb(3,55,154)">Twój 4 cyfrowy kod do badań w laboratorium</h2>
+                                <h2 style="color:rgb(3,55,154)">Twój kod na badania nerek</h2>
                                 <div style="font-size: 3rem; font-weight: bold;width: 30%;color: #dc5555; border: 1px rgba(3,55,154,0.5) solid;border-radius: 3%;padding: 0.5rem 8rem;">
                                     '.$code.'
                                 </div>

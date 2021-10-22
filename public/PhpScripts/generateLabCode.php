@@ -4,6 +4,37 @@ include 'db.php';
 include 'msgGenerator.php';
 include 'sendSms.php';
 
+//index in table is powiat_id
+//1-wieluń 2-mińsk
+$sms_messages = array(
+    1 => " Centrum Dializ Fresenius, Szpitalna 16. Wtorek lub czwartek, 13.00-14.00.",
+    2 => " Zabierz pobrany mocz, nie trzeba byc na czczo. Laboratorium ALAB, ul. Warszawska."
+);
+$mail_messages = array(
+    1 => "<p>
+           Bezpłatne badania można wykonać od 25 października do 31 grudnia 2021 w Centrum Dializ
+           Fresenius przy ulicy Szpitalnej 16 w Wieluniu. Stacja będzie pobierać krew we wtorki i
+           czwartki między godziną 13.00 a 14.00.
+          </p>
+          <p>
+           Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+          </p>
+          <p>
+           Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
+          </p>",
+    2 => " <p>
+          Bezpłatne badania można wykonać od 3 listopada do 31 grudnia 2021 w laboratorium ALAB
+          w Mińsku Mazowieckim, ul. Warszawska 141 lok U2. Laboratorium pobiera próbki od
+          poniedziałku do piątku w godzinach 7:00-11:30, w soboty 8:00-12:30.
+         </p>
+         <p>
+          Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+         </p>
+         <p>
+          Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
+         </p>"
+);
+
 $PESEL = $_REQUEST['PESEL'];
 $email = $_REQUEST['email'];
 $zip = $_REQUEST['zip'];
@@ -29,6 +60,7 @@ if (is_null($powiat_row) || !is_array($powiat_row)){
    die('{"feedback": "Niestety nie prowadzimy badań w Pani/Pana rejonie!","success":"false"}');
 }
 
+//1-wieluń 2-mińsk
 $powiat_id=intval($powiat_row['powiat_id']);
 
 //generate pseudo-random 4 digit code
@@ -42,19 +74,23 @@ if(is_null($result)){
     die('{"feedback": "Błąd serwera: nie można dodać do bazy danych, spróbuj ponownie!","success":"false"}');
 }
 
-//send email with code
-$mail_title="Twój kod na badanie nerek";
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=utf-8\r\n";
-$headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n";
 
+//send email with code
 if ($email){
-    $msg= generateLabCodeMessage($new_code,"unknown","unknown");
+    $mail_title="Twój kod na badanie nerek";
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=utf-8\r\n";
+    $headers .= "From: PoradniaNefrologiczna <poradnia@poradnianefrologiczna.pl>\r\n";
+    $msg= generateLabCodeMessage($new_code,$mail_messages[$powiat_id]);
+
     mail( "$email", $mail_title, $msg ,$headers) or die('{"feedback": "Błąd serwera: nie można wysłać maila, spróbuj ponownie!","success":"false"}');
 }
 
+//send sms
 if ($phone){
-    sendLabCodeSms($phone,$new_code);
+    $msg_header= 'Twoj kod na badania nerek: '.$new_code.'.';
+    $full_sms_msg= $msg_header.$sms_messages[$powiat_id];
+    sendSms($phone,$full_sms_msg) or die('{"feedback": "Błąd serwera: nie można wysłać smsa, spróbuj ponownie!","success":"false"}');
 }
 
 die ('{"code":"'.$new_code.'","feedback": "","success":"true"}');

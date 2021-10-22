@@ -1,18 +1,22 @@
 import "./Contact.css"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {sendContactMsgPath, emailRegex, fetchOptions} from "../../Utils";
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent"
 import ReCAPTCHA from "react-google-recaptcha";
 import Dots from "../Common/Dots";
+import Layout from "../Common/Layout";
+import {connect} from "react-redux";
 
-export default function Contact() {
+function Contact({highContrast}) {
     const [feedback, setFeedback] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [msg, setMsg] = useState("");
     const [captchaValue, setCaptchaValue] = useState(null);
+    const [captchaMode,setCaptchaMode]=useState(highContrast? 'dark':'light');
+
 
 
     function captchaChange(value) {
@@ -87,81 +91,107 @@ export default function Contact() {
         emptyAllFields();
     }
 
+
+    useEffect(()=>{
+        let newMode=highContrast ? 'dark':'light';
+        setCaptchaMode(newMode);
+    },[highContrast])
+
     return (
-        <ScrollToSectionComponent className="InfoPage Contact">
-            <h1>Kontakt</h1>
-            <Form onSubmit={sendMsg}>
-                <Form.Group>
-                    <Form.Label>Imię i nazwisko</Form.Label>
-                    <Form.Control
-                        id="name"
-                        type="text"
-                        value={name}
-                        onChange={(e) => inputName(e.target.value)}
-                        placeholder="Twoje imię i nazwisko"
-                        required
+        <Layout>
+            <ScrollToSectionComponent className="InfoPage Contact">
+                <h1>Kontakt</h1>
+                <p>
+                    Skontaktuj się telefonicznie lub mailowo wypełniając poniższy formularz.
+                    <br/><br/>Tel. <a href="tel:+48512556512">+48 512 556 512</a>
+
+                </p>
+
+
+                <Form onSubmit={sendMsg}>
+                    <Form.Group>
+                        <Form.Label>Imię i nazwisko</Form.Label>
+                        <Form.Control
+                            id="name"
+                            type="text"
+                            value={name}
+                            onChange={(e) => inputName(e.target.value)}
+                            placeholder="Twoje imię i nazwisko"
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Adres email</Form.Label>
+                        <Form.Control
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => inputEmail(e.target.value)}
+                            placeholder="Twój adres email"
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Wiadomość</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={6}
+                            id="msg"
+                            value={msg}
+                            onChange={(e) => inputMsg(e.target.value)}
+                            placeholder="Twoja wiadomość"
+                            required
+                        />
+                    </Form.Group>
+
+
+                    <ReCAPTCHA
+                        sitekey={process.env.REACT_APP_CAPTCHA_KEY}
+                        onChange={captchaChange}
+                        size="normal"
+                        mode={captchaMode}
                     />
-                </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Adres email</Form.Label>
-                    <Form.Control
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => inputEmail(e.target.value)}
-                        placeholder="Twój adres email"
-                        required
-                    />
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>Wiadomość</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        rows={6}
-                        id="msg"
-                        value={msg}
-                        onChange={(e) => inputMsg(e.target.value)}
-                        placeholder="Twoja wiadomość"
-                        required
-                    />
-                </Form.Group>
-
-                <ReCAPTCHA
-                    sitekey={process.env.REACT_APP_CAPTCHA_KEY}
-                    onChange={captchaChange}
-                    size="normal"
-                />
-                {feedback !== "" &&
-                <div className="feedback">
-                    {feedback}
-                </div>}
+                    {feedback !== "" &&
+                    <div className="feedback">
+                        {feedback}
+                    </div>}
 
 
-                <Button type='submit'>
-                    Wyślij
-                </Button>
+                    <Button type='submit'>
+                        Wyślij
+                    </Button>
 
-            </Form>
+                </Form>
 
-            <p>
-                <strong>Fresenius Nephrocare Polska Sp. z o.o.</strong>
-                <br/> ul. Krzywa 13
-                <br/> 60-118 Poznań
-                <br/> Tel. <a href="tel:+48618392600">+48 61 8392 600</a>
-                <br/> Faks. +48 61 8392 601
-                <br/> E-mail: <a href="mailto:sekretariat.pl@fmc-ag.com">sekretariat.pl(at)fmc-ag.com</a>
-            </p>
+                <p>
+                    <strong>Fresenius Nephrocare Polska Sp. z o.o.</strong>
+                    <br/> ul. Krzywa 13
+                    <br/> 60-118 Poznań
+                    <br/> Tel. <a href="tel:+48618392600">+48 61 8392 600</a>
+                    <br/> Faks. +48 61 8392 601
+                    <br/> E-mail: <a href="mailto:sekretariat.pl@fmc-ag.com">sekretariat.pl(at)fmc-ag.com</a>
+                </p>
 
-            <p>
-                Sąd Rejonowy w Poznaniu - Nowe Miasto i Wilda<br/>
-                w Poznaniu VIII Wydział KRS;<br/>
-                KRS: 0000054766<br/>
-                NIP: 783-15-59-498<br/>
-                kapitał zakładowy: 135.852.000
-            </p>
+                <p>
+                    Sąd Rejonowy w Poznaniu - Nowe Miasto i Wilda<br/>
+                    w Poznaniu VIII Wydział KRS;<br/>
+                    KRS: 0000054766<br/>
+                    NIP: 783-15-59-498<br/>
+                    kapitał zakładowy: 135.852.000
+                </p>
 
-        </ScrollToSectionComponent>
+            </ScrollToSectionComponent>
+        </Layout>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        highContrast: state.theme.highContrast,
+    };
+};
+
+export default connect(mapStateToProps)(Contact);
