@@ -12,6 +12,7 @@ import osod from '../Assets/partners/Ogólnopolskie/osod.png';
 import {useEffect} from "react";
 import PersonPartner from "./Partners/PersonPartner";
 import Layout from "./Common/Layout";
+import ReactPixel from 'react-facebook-pixel';
 
 
 function LandingPage({props}) {
@@ -44,7 +45,10 @@ function LandingPage({props}) {
 
     //routing after starting the test
     const history = useHistory();
-    const startTest = () => history.push('/test');
+    const startTest = () =>{
+        ReactPixel.trackCustom('StartTest'); //register custom pixel event
+        history.push('/test');
+    }
 
     //scroll to top but only if no arguments are present
     useEffect(() => {

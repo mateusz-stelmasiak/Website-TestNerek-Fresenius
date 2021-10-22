@@ -11,6 +11,7 @@ import {clearResults} from "../Redux/Actions/surveyActions";
 import ScrollProgressBar from "./Survey/ScrollProgressBar";
 import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 import Layout from "./Common/Layout";
+import ReactPixel from 'react-facebook-pixel';
 
 function SurveyPage({dispatch}) {
     const questions = choiceQuestions;
@@ -19,7 +20,10 @@ function SurveyPage({dispatch}) {
 
     //reroute to results after completed
     const history = useHistory();
-    const routeToResults = () => history.push('/wyniki');
+    const routeToResults = () => {
+        ReactPixel.trackCustom('CompleteTest'); //register custom pixel event
+        history.push('/wyniki');
+    }
 
     //on first load prepares react components for all questions
     useEffect(() => {

@@ -14,8 +14,19 @@ import Law from "./Components/InfoPages/Law";
 import Minsk from "./Components/Locations/Minsk"
 import Wielun from "./Components/Locations/Wielun"
 import Contact from "./Components/ContactForm/Contact"
-import ResultsChecker from "./Components/ResultsChecker/ResultsChecker"
 import AdminLogin from "./Components/AdminPanel/AdminLogin";
+import ReactPixel from 'react-facebook-pixel';
+
+//FacebookPixel config
+const options = {
+    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+    debug: false, // enable logs
+};
+ReactPixel.init(process.env.REACT_APP_PIXEL_ID,null, options);
+
+//TODO ACCEPT COOKIES
+// ReactPixel.revokeConsent();
+// <button onClick={ReactPixel.grantConsent}>Accept cookies</button>.
 
 //redux store
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
@@ -60,5 +71,5 @@ function App() {
     );
 }
 
-//TO DO <Redirect from="*" to="/" />
+
 export default App;

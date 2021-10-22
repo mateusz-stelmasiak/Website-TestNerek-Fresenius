@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
 import "./LabCodeGenerator.css"
 import {setUserLabCode} from "../../Redux/Actions/surveyActions";
+import ReactPixel from 'react-facebook-pixel';
 
 function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
     const [eligable, setEligable] = useState(false);
@@ -84,6 +85,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         // let respObj= {code:1327};
         await dispatch(setUserLabCode(respObj.code));
         await setLabCode(respObj.code);
+        ReactPixel.trackCustom('ReceiveCode'); //register custom pixel event
 
         if (codeFieldRef.current) {
             codeFieldRef.current.scrollIntoView();
