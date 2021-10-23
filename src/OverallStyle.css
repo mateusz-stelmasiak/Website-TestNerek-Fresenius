@@ -8,6 +8,7 @@ ex. "color: var (--some-color);"
   --primary-color: #03379a;
   --primary-color-lighter:#42a2d9 ;
   --primary-color-opaque: rgba(3,55,154,0.5);
+  --primary-color-opaque-little: rgba(3,55,154,0.95);
   --secondary-color: #dc5555;
   --secondary-color-lighter: #f8bbd0;
   --section-bg-color:#f7f6f6;

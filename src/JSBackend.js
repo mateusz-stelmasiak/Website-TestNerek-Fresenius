@@ -146,7 +146,7 @@ export function calculateSurveyResult(answers, userData) {
     return result;
 }
 
-export async function isUserEligableForLab(zip) {
+export async function isUserEligibleForLab(zip) {
     const response = await fetch(checkZIPPath + "?zip=" + zip, fetchOptions);
     const respBody = await response.text();
     return JSON.parse(respBody);

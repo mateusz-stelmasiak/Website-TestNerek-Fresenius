@@ -24,6 +24,8 @@ export class User{
     }
 }
 
+
+
 //for questions in which one/or many answers are to be chosen from a list of possible ones
 export class ChoiceQuestion{
     constructor(text,answers,multipleChoice) {
@@ -40,3 +42,7 @@ export class BloodParameter{
         this.explainer=explainer;
     }
 }
+export function capitalizeFirst(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+

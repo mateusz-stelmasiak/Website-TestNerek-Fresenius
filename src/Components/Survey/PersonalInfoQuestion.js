@@ -7,7 +7,7 @@ import {latOrLata} from "../../JSBackend";
 import {setUserAge, setUserHeight, setUserWeight, setUserZip} from "../../Redux/Actions/surveyActions";
 import Explainer from "./Explainer";
 
-let fullZipRegex = /^[0-9]{2}-[0-9]{3}$/;
+
 let incompleteZipRegex = /^(([0-9]{0,2})|([0-9]{2}-[0-9]{0,3}))$/;
 let firstHalfZipRegex = /^[0-9]{0,2}$/;
 let secondHalfZipRegex= /^[0-9]{0,3}$/;

@@ -8,6 +8,10 @@
     color: var(--primary-color);
     font-size: 2rem;
 }
+.InfoPage h2{
+    color: var(--primary-color);
+    font-size: 1.7rem;
+}
 
 .InfoPage h4{
     color: var(--primary-color);

@@ -9,13 +9,14 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom
 import LandingPage from "./Components/LandingPage";
 import ResultsPage from "./Components/ResultsPage";
 import Privacy from "./Components/InfoPages/Privacy";
-import Cookies from "./Components/InfoPages/Cookies";
+import CookiesPage from "./Components/Cookies/CookiesPage";
 import Law from "./Components/InfoPages/Law";
 import Minsk from "./Components/Locations/Minsk"
 import Wielun from "./Components/Locations/Wielun"
 import Contact from "./Components/ContactForm/Contact"
 import AdminLogin from "./Components/AdminPanel/AdminLogin";
 import ReactPixel from 'react-facebook-pixel';
+import CookiesConsent from "./Components/Cookies/CookiesConsent";
 
 //FacebookPixel config
 const options = {
@@ -23,10 +24,8 @@ const options = {
     debug: false, // enable logs
 };
 ReactPixel.init(process.env.REACT_APP_PIXEL_ID,null, options);
-
-//TODO ACCEPT COOKIES
-// ReactPixel.revokeConsent();
-// <button onClick={ReactPixel.grantConsent}>Accept cookies</button>.
+//revoke consent by default
+ReactPixel.revokeConsent();
 
 //redux store
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
@@ -37,6 +36,7 @@ function App() {
         <Provider store={store}>
             <Router>
                 <div className="App">
+                    <CookiesConsent/>
                     <Switch>
                         <Route exact path="/" component={LandingPage}/>
 
@@ -46,7 +46,7 @@ function App() {
 
                         <Route path="/polityka-prywatnosci" component={Privacy}/>
 
-                        <Route path="/pliki-cookie" component={Cookies}/>
+                        <Route path="/pliki-cookie" component={CookiesPage}/>
 
                         <Route path="/informacje-prawne" component={Law}/>
 

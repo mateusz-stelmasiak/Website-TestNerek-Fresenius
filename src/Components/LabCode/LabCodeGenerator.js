@@ -1,7 +1,7 @@
 import Reel from "react-reel";
 import React, {useEffect, useRef, useState} from "react";
 import {connect} from "react-redux";
-import {isUserEligableForLab, powiatInfo} from "../../JSBackend";
+import {isUserEligibleForLab, powiatInfo} from "../../JSBackend";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
@@ -23,12 +23,12 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         if (surveyResult.severity === 'low') return;
 
         // //determines if users zip is eligable for a code
-        // let resp = await isUserEligableForLab(zip);
-        // if (!resp.success) return;
+        let resp = await isUserEligibleForLab(zip);
+        if (!resp.success) return;
         // console.log(resp);
         setEligable(true);
-        setPowiatId(1);
-        // setPowiatId(resp.powiat);
+        setPowiatId(resp.powiat);
+        ReactPixel.trackCustom('EligibleForCode');
     }
 
     useEffect(() => {

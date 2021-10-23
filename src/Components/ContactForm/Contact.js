@@ -80,7 +80,7 @@ function Contact({highContrast}) {
         setFeedback(<span>wysłanie wiadomości<Dots/></span>)
         const response = await fetch(sendContactMsgPath + "?email=" + email + "&name=" + name + "&msg=" + msg_formatted + "&captcha=" + captchaValue, fetchOptions);
         const respBody = await response.text();
-        console.log(respBody);
+
         let respObj = JSON.parse(respBody);
         //if fails
         if (respObj.success !== "true") {

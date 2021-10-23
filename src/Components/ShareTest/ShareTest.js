@@ -9,6 +9,7 @@ import {
     FacebookShareButton, FacebookMessengerShareButton, FacebookMessengerIcon, WhatsappShareButton,
 } from "react-share";
 import Dots from "../Common/Dots";
+import ReactPixel from 'react-facebook-pixel';
 
 
 function ShareTest() {
@@ -32,7 +33,18 @@ function ShareTest() {
         const respObj = JSON.parse(respBody);
         //const respObj = JSON.parse('{"feedback": "Wysłano zaproszenie do mateusz.stelmasiak@alhambrasklep.pl!"}')
         // console.log(respObj);
-        setFeedback(respObj.feedback)
+        setFeedback(respObj.feedback);
+        ReactPixel.trackCustom('sendEmailInvite');
+    }
+
+    async function registerShareOnMessenger(){
+        ReactPixel.trackCustom('shareOnMessenger');
+    }
+    async function registerShareOnFb(){
+        ReactPixel.trackCustom('shareOnFacebook');
+    }
+    async function registerShareOnWhatsapp(){
+        ReactPixel.trackCustom('shareOnWhatsapp');
     }
 
     const shareUrl = "https://www.poradnianefrologiczna.pl/";
@@ -46,18 +58,23 @@ function ShareTest() {
 
 
                 <FacebookMessengerShareButton
+                    beforeOnClick={registerShareOnMessenger}
                     url={shareUrl}
                     appId={process.env.REACT_APP_FACEBOOK_APP_ID}>
                     <FacebookMessengerIcon size={shareIconSize} round={true}/>
                 </FacebookMessengerShareButton>
 
                 <FacebookShareButton
+                    beforeOnClick={registerShareOnFb}
                     url={shareUrl}
                 >
                     <FacebookIcon size={shareIconSize + 5} round={true}/>
                 </FacebookShareButton>
 
-                <WhatsappShareButton url={shareUrl}>
+                <WhatsappShareButton
+                    beforeOnClick={registerShareOnWhatsapp}
+                    url={shareUrl}
+                >
                     <WhatsappIcon size={shareIconSize} round={true}/>
                 </WhatsappShareButton>
             </div>
