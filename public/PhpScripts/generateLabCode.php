@@ -65,6 +65,17 @@ $powiat_id=intval($powiat_row['powiat_id']);
 
 //generate pseudo-random 4 digit code
 $new_code=rand(1000,9999);
+//for minsk use one from already generated code base
+if($powiat_id==2){
+    $sql= "SELECT m_code_id,code FROM codes_minsk WHERE used lIKE 0 ORDER BY RAND() LIMIT 1";
+    $values = [];
+    $result= query_one_row($sql,$values);
+    //update the value to indicate code was used
+    $sql= "UPDATE codes_minsk SET used=1 WHERE m_code_id=:code_id";
+    $values = [':code_id' => $result['m_code_id']];
+    query($sql,$values);
+    $new_code=$result['code'];
+}
 
 //save the code in database
 $sql= "INSERT INTO lab_codes (PESEL, code, powiat_id) VALUES (:pesel,:code,:powiat)";

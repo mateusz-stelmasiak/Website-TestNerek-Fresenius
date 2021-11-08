@@ -1,23 +1,23 @@
 import Partners from "../Partners/Partners"
 import LogoPartner from "../Partners/LogoPartner"
 import burmistrz from '../../Assets/partners/Minsk/burmistrz.png';
-import powiat from '../../Assets/partners/Minsk/powiat.jpg';
+import powiat from '../../Assets/partners/Minsk/powiat.png';
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent";
 import stacjaDializ from "../../Assets/minsk_stacja.jpg";
-import budynek from "../../Assets/minsk_budynek.jpg";
+import drMinsk from "../../Assets/dr-Minsk.jpg";
 import Layout from "../Common/Layout";
 
 export default function Minsk() {
-    const general_partners= [
+    const general_partners = [
         <LogoPartner
-            logo= {burmistrz}
+            logo={burmistrz}
             link="https://www.minsk-maz.pl/"
             name="Marcin Jakubowski"
             desc="Burmistrz miasta Mińsk Mazowiecki"
         >
         </LogoPartner>,
         <LogoPartner
-            logo= {powiat}
+            logo={powiat}
             link="http://powiatminski.pl/"
             name="Antoni Jan Tarczyński"
             desc="Starosta Miński"
@@ -46,19 +46,28 @@ export default function Minsk() {
                     laboratorium.
                 </p>
                 <p>
-                    W ramach badań profilaktycznych, mieszkańcy będą mogli wykonywać dwa badania - ogólne
-                    badanie moczu i oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e-GFR. Te dwa
-                    badania pokażą, czy coś złego dzieje się w ich nerkach.
+                    W ramach badań profilaktycznych, mieszkańcy będą mogli wykonywać dwa testy - ogólne badanie moczu i
+                    oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e-GFR. Pokażą one, czy nerki działają
+                    prawidłowo. Pacjenci mogą wykonywać badania w laboratorium ALAB przy ulicy WArszawskiej 141 lok U2.
+                    Laboratorium pobiera próbki od poniedziałku do piątku w godzinach 7:00-11:30, w soboty 8:00-12:30.
                 </p>
-                <div className="img-container">
-                    <img src={stacjaDializ} alt="stacjaDializ"/>
-                    <img src={budynek} alt="budynek"/>
-                </div>
-
                 <p>
                     Akcja społeczna OGÓLNOPOLSKI TEST ZDROWIA NEREK będzie w Mińsku
-                    Mazowieckim trwać od sierpnia do października 2021.
+                    Mazowieckim trwać od 8 listopada do 31 grudnia 2021.
                 </p>
+                <div className="img-container">
+                    <img src={stacjaDializ} alt="stacja Dializ"/>
+                    <img src={drMinsk} alt="dr Arkadiusz Bogucki"/>
+                </div>
+                <p>
+                    Centrum Dializ Fresenius Nephrocare w Mińsku Mazowieckim, które opiekuje się chorymi na nerki w
+                    powiecie działa już 5 lat - otwarto je w październiku 2016 roku. Ordynatorem Centrum jest dr
+                    Arkadiusz Bogucki, nefrolog, współautor projektu OGÓLNOPOLSKI TEST ZDROWIA NEREK.
+                </p>
+                <p>
+                    Ośrodek działa wyłącznie na podstawie kontraktu z Narodowym Funduszem Zdrowia.
+                </p>
+
             </ScrollToSectionComponent>
 
             <Partners

@@ -24,8 +24,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
 
         // //determines if users zip is eligable for a code
         let resp = await isUserEligibleForLab(zip);
-        if (!resp.success) return;
-        // console.log(resp);
+        if (resp.success==="false") return;
         setEligable(true);
         setPowiatId(resp.powiat);
         ReactPixel.trackCustom('EligibleForCode');
@@ -33,7 +32,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
 
     useEffect(() => {
         determinUserEligable();
-    }, [zip])
+    }, [])
 
     function inputEmail(mail) {
         if (mail.length > 256) return;
