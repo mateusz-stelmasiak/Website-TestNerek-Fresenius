@@ -5,6 +5,7 @@ import powiat from '../../Assets/partners/Minsk/powiat.png';
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent";
 import stacjaDializ from "../../Assets/minsk_stacja.jpg";
 import drMinsk from "../../Assets/dr-Minsk.jpg";
+import nowyDzwon from "../../Assets/partners/Minsk/nowyDzwon.jpg"
 import Layout from "../Common/Layout";
 
 export default function Minsk() {
@@ -25,9 +26,13 @@ export default function Minsk() {
         </LogoPartner>
     ]
 
-    // const media_parnters = [
-    //
-    // ]
+    const media_partners = [
+        <LogoPartner
+            logo={nowyDzwon}
+            link="http://www.nowydzwon.pl/"
+        >
+        </LogoPartner>
+    ]
 
 
     return (
@@ -72,6 +77,7 @@ export default function Minsk() {
 
             <Partners
                 general={general_partners}
+                media={media_partners}
             />
         </Layout>
 

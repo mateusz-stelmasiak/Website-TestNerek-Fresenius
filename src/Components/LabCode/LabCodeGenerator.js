@@ -11,7 +11,7 @@ import ReactPixel from 'react-facebook-pixel';
 
 function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
     const [eligable, setEligable] = useState(false);
-    const [powiatId,setPowiatId]=useState(-1);
+    const [powiatId, setPowiatId] = useState(-1);
     const [PESEL, setPESEL] = useState("")
     const [labCode, setLabCode] = useState(code)
     const [email, setEmail] = useState("")
@@ -24,10 +24,11 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
 
         // //determines if users zip is eligable for a code
         let resp = await isUserEligibleForLab(zip);
-        if (resp.success==="false") return;
+        if (resp.success === "false") return;
         setEligable(true);
         setPowiatId(resp.powiat);
         ReactPixel.trackCustom('EligibleForCode');
+        resp.powiat === 1 ? ReactPixel.trackCustom('EligibleFromWielun') : ReactPixel.trackCustom('EligibleFromMinsk');
     }
 
     useEffect(() => {
@@ -214,14 +215,13 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
     );
 }
 
-const mapStateToProps = (state) =>
-{
-    return {
-        zip: state.survey.userData.zip,
-        code: state.survey.labCode,
-        surveyResult: state.survey.surveyResult,
-    };
-}
+const mapStateToProps = (state) => {
+        return {
+            zip: state.survey.userData.zip,
+            code: state.survey.labCode,
+            surveyResult: state.survey.surveyResult,
+        };
+    }
 ;
 
 export default connect(mapStateToProps)(LabCodeGenerator);
