@@ -12,5 +12,10 @@ if (is_null($result) || !is_array($result)){
    die('{"success":"false"}');
 }
 
+//no longer in wieluń or minsk
+if($result['powiat_id'] ==1 || $result['powiat_id'] ==2){
+die('{"powiat": -1,"success":"false"}');
+}
+
 die('{"powiat": "'.$result['powiat_id'].'","success":"true"}');
 ?>

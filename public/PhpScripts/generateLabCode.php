@@ -60,8 +60,16 @@ if (is_null($powiat_row) || !is_array($powiat_row)){
    die('{"feedback": "Niestety nie prowadzimy badań w Pani/Pana rejonie!","success":"false"}');
 }
 
+
+
 //1-wieluń 2-mińsk
 $powiat_id=intval($powiat_row['powiat_id']);
+
+//no longer in wieluń or minsk :(
+if($powiat_id==1 || $powiat_id==1  ){
+die('{"feedback": "Niestety nie prowadzimy już badań w Pani/Pana rejonie!","success":"false"}');
+}
+
 
 //generate pseudo-random 4 digit code
 $new_code=rand(1000,9999);
