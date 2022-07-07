@@ -17,6 +17,7 @@ import Contact from "./Components/ContactForm/Contact"
 import AdminLogin from "./Components/AdminPanel/AdminLogin";
 import ReactPixel from 'react-facebook-pixel';
 import CookiesConsent from "./Components/Cookies/CookiesConsent";
+import Mlawa from "./Components/Locations/Mlawa";
 
 //FacebookPixel config
 const options = {
@@ -53,6 +54,8 @@ function App() {
                         <Route path="/minsk-mazowiecki" component={Minsk}/>
 
                         <Route path="/wielun" component={Wielun}/>
+
+                        <Route path="/mlawa" component={Mlawa}/>
 
                         {/*<Route path={"/sprawdz-wyniki"}>*/}
                         {/*    <ResultsChecker/>*/}

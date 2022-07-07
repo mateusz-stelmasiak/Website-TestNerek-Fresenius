@@ -29,6 +29,7 @@ export default function NavBar() {
 
     const menuButtons =
         <>
+            <Link to={'/mlawa/'}>MŁAWA</Link>
             <Link to={'/minsk-mazowiecki/'}>MIŃSK MAZOWIECKI</Link>
             <Link to={'/wielun'}>WIELUŃ</Link>
             {/*<Link to={'/sprawdz-wyniki/'}>SPRAWDŹ WYNIKI</Link>*/}
