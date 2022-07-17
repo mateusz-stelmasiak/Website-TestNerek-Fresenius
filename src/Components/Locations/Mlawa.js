@@ -6,9 +6,9 @@ import "./Locations.css"
 import drPiotr from "../../Assets/dr_Piotr_Kozminski.jpg"
 import burmistrz from "../../Assets/partners/Mlawa/burmistrz_nidzica.PNG"
 import starosta from "../../Assets/partners/Mlawa/starosta_zuromski.png"
-import zoz from  "../../Assets/partners/Mlawa/zespol_opieki_zdrowotnej_nidzica.png"
-import radio7 from  "../../Assets/partners/Mlawa/radio_7.png"
-import stacjaDializ from  "../../Assets/mlawa_stacja.jpg"
+import zoz from "../../Assets/partners/Mlawa/zespol_opieki_zdrowotnej_nidzica.png"
+import radio7 from "../../Assets/partners/Mlawa/radio_7.png"
+import stacjaDializ from "../../Assets/mlawa_stacja.jpg"
 
 export default function Mlawa() {
     const general_partners = [
@@ -27,8 +27,8 @@ export default function Mlawa() {
         <LogoPartner
             logo={zoz}
             link="https://zoz.nidzica.pl/"
-            name="ZOZ Nidzica"
-            desc="zespół opieki zdrowotnej"
+            name="lek. med. Anna Osłowska"
+            desc="Dyrektor ZOZ w Nidzicy"
         />
     ]
 
@@ -57,7 +57,7 @@ export default function Mlawa() {
                 </p>
                 <p>
                     W ramach badań profilaktycznych, mieszkańcy będą mogli wykonywać dwa badania -
-                    ogólne badanie moczu i oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e - GFR. Te testy
+                    ogólne badanie moczu i oznaczenie we krwi poziomu kreatyniny wraz z obliczeniem e-GFR. Te testy
                     pokażą, czy coś złego dzieje się w ich nerkach.
                 </p>
                 <p>
@@ -79,17 +79,13 @@ export default function Mlawa() {
                     Centrum Dializ Fresenius w Mławie istnieje od 2006 roku.
                 </p>
                 <p>
-                    Stacja znajduje się w n
-                    owoczesnym parterowym budynku na terenie szpitala. Dysponuje
+                    Stacja znajduje się w nowoczesnym parterowym budynku na terenie szpitala. Dysponuje
                     klimatyzowanymi salami z telewizorami i z węzłami sanitarnymi oraz szatniami dla
                     pacjentów. Jest wyposażona w nowoczesny sprzęt medyczny, umożliwiający wykonywanie
-                    zabiegów hemodializ, hemodiafil
-                    tracji i hemofiltracji. Dwie sale oraz wydzielone stanowiska,
+                    zabiegów hemodializ, hemodiafiltracji i hemofiltracji. Dwie sale oraz wydzielone stanowiska,
                     których jest 19, umożliwiają bezpieczne wykonywanie zabiegów u pacjentów z różnym
                     profilem wirusowym, według światowych standardów.
-                    Bezpłatny transport z domu na zabiegi
-                    i z powrotem zapewniają
-                    wygodne samochody
+                    Bezpłatny transport z domu na zabiegi i z powrotem zapewniają wygodne samochody
                     -
                     klimatyzowane busy.
                     Ośrodek działa
@@ -97,26 +93,18 @@ export default function Mlawa() {
                 </p>
                 <p>
                     Oprócz dializ zewnątrzustrojowych możliwe jest także leczenie dializą otrzewnową
-                    –
-                    wizyty
-                    kontrolne i wymiany otrzewnowe odbywają się w
-                    pododdziale dializ otrzewnowych. Przy
-                    stacji funkcjonuje także poradnia nefrologiczna
-                    .
+                    – wizyty kontrolne i wymiany otrzewnowe odbywają się w pododdziale dializ otrzewnowych. Przy
+                    stacji funkcjonuje także poradnia nefrologiczna.
                 </p>
                 <p>
                     Pacjenci objęci są kompleksową opieką: opieka przeddializacyjna, dializoterapia, kwalifikacja
-                    do przeszczepu nerki lub nerki i trzustki. We współpracy z SP ZOZ Mława wyk
-                    onywane są
-                    dostępy naczyniowe oraz otrzewnowe do dializ. Nad pacjentami czuwają doświadczeni
-                    lekarze, zespół pielęgniarski, personel administracyjny, techniczny i gospodarczy.
+                    do przeszczepu nerki lub nerki i trzustki. We współpracy z SP ZOZ Mława wykonywane są
+                    dostępy naczyniowe do dializ. Nad pacjentami czuwają doświadczeni lekarze, zespół pielęgniarski,
+                    personel administracyjny, techniczny i gospodarczy.
                 </p>
                 <p>
-                    Ordynatorem Centrum Dializ jest
-                    dr Piotr Koźmiński
-                    , jeden z najważniejszych ekspertów
-                    współ
-                    tworzących Ogólnopolski Test Zdrowia Nerek.
+                    Ordynatorem Centrum Dializ jest dr Piotr Koźmiński, jeden z najważniejszych ekspertów
+                    współtworzących Ogólnopolski Test Zdrowia Nerek.
                 </p>
                 <p>
                     Stacja zapewnia obsługę dializacyjną i nefrologiczną dla ok. 200 000 mieszkańców powiatów
