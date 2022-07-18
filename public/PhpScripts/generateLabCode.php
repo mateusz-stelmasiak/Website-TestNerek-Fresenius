@@ -147,7 +147,7 @@ if ($email){
 
 //send sms
 if ($phone){
-    $msg_header= 'Twoj kod na badania nerek: '.$new_code.'.';
+    $msg_header= '
     $full_sms_msg= $msg_header.$sms_messages[$powiat_id];
     sendSms($phone,$full_sms_msg) or die('{"feedback": "Błąd serwera: nie można wysłać smsa, spróbuj ponownie!","success":"false"}');
 }
