@@ -25,10 +25,13 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         // //determines if users zip is eligable for a code
         let resp = await isUserEligibleForLab(zip);
         if (resp.success === "false") return;
+
         setEligable(true);
         setPowiatId(resp.powiat);
         ReactPixel.trackCustom('EligibleForCode');
-        resp.powiat === 1 ? ReactPixel.trackCustom('EligibleFromWielun') : ReactPixel.trackCustom('EligibleFromMinsk');
+        if (resp.powiat === 3)  ReactPixel.trackCustom('EligibleFromMlawa');
+        if (resp.powiat === 4)  ReactPixel.trackCustom('EligibleFromZuromin');
+        if (resp.powiat === 5)  ReactPixel.trackCustom('EligibleFromNidzica');
     }
 
     useEffect(() => {

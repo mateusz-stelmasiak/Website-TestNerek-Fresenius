@@ -14,6 +14,7 @@ $sms_messages = array(
     5=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab."
 
 );
+
 $mail_messages = array(
     1 => "<p>
            Bezpłatne badania można wykonać od 25 października do 31 grudnia 2021 w Centrum Dializ
@@ -104,26 +105,38 @@ if (is_null($powiat_row) || !is_array($powiat_row)){
 }
 
 
-
-//1-wieluń 2-mińsk
+//1-wieluń 2-mińsk 3-mława 4-żuromiński 5-nidzicki
 $powiat_id=intval($powiat_row['powiat_id']);
 
 //no longer in wieluń or minsk :(
-if($powiat_id==1 || $powiat_id==1  ){
+if($powiat_id==1 || $powiat_id==2){
 die('{"feedback": "Niestety nie prowadzimy już badań w Pani/Pana rejonie!","success":"false"}');
 }
 
 
 //generate pseudo-random 4 digit code
-$new_code=rand(1000,9999);
+//$new_code=rand(1000,9999);
+
 //for minsk use one from already generated code base
-if($powiat_id==2){
-    $sql= "SELECT m_code_id,code FROM codes_minsk WHERE used lIKE 0 ORDER BY RAND() LIMIT 1";
+//if($powiat_id==2){
+//    $sql= "SELECT m_code_id,code FROM codes_minsk WHERE used lIKE 0 ORDER BY RAND() LIMIT 1";
+//    $values = [];
+//    $result= query_one_row($sql,$values);
+//    //update the value to indicate code was used
+//    $sql= "UPDATE codes_minsk SET used=1 WHERE m_code_id=:code_id";
+//    $values = [':code_id' => $result['m_code_id']];
+//    query($sql,$values);
+//    $new_code=$result['code'];
+//}
+
+//for mlawa take one from db
+if($powiat_id==3 || $powiat_id==4 || $powiat_id==5){
+    $sql= "SELECT id,code FROM codes_mlawa WHERE used lIKE 0 ORDER BY RAND() LIMIT 1";
     $values = [];
     $result= query_one_row($sql,$values);
     //update the value to indicate code was used
-    $sql= "UPDATE codes_minsk SET used=1 WHERE m_code_id=:code_id";
-    $values = [':code_id' => $result['m_code_id']];
+    $sql= "UPDATE codes_mlawa SET used=1 WHERE id=:code_id";
+    $values = [':code_id' => $result['id']];
     query($sql,$values);
     $new_code=$result['code'];
 }
@@ -150,7 +163,7 @@ if ($email){
 
 //send sms
 if ($phone){
-    $msg_header= '
+    $msg_header= 'Twoj kod na badania nerek: '.$new_code.'.';;
     $full_sms_msg= $msg_header.$sms_messages[$powiat_id];
     sendSms($phone,$full_sms_msg) or die('{"feedback": "Błąd serwera: nie można wysłać smsa, spróbuj ponownie!","success":"false"}');
 }
