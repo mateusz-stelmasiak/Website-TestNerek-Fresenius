@@ -119,9 +119,9 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
             <Form className="inline" onSubmit={generateCode}>
                 <h2>Kwalifikuje się Pani/Pan na darmowe badanie nerek w swoim powiecie</h2>
 
-                <p>
-                    {powiatInfo[powiatId]}
-                </p>
+
+                {powiatInfo[powiatId]}
+
 
                 <p>
                     Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.

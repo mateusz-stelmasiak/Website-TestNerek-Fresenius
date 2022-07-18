@@ -9,6 +9,9 @@ include 'sendSms.php';
 $sms_messages = array(
     1 => " Centrum Dializ Fresenius, Szpitalna 16. Wtorek lub czwartek, 13.00-14.00.",
     2 => " Zabierz pobrany mocz, nie trzeba byc na czczo. Laboratorium ALAB, ul. Warszawska.",
+    3=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
+    4=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
+    5=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab."
 
 );
 $mail_messages = array(

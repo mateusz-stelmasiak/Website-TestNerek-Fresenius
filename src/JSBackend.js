@@ -28,17 +28,20 @@ export let powiatInfo=[
     "ALAB w Mińsku Mazowieckim, ul. Warszawska 141 lok U2. Laboratorium pobiera próbki od " +
     "poniedziałku do piątku w godzinach 7:00-11:30, w soboty 8:00-12:30."
     ,
-    "Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie," +
-    "Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą" +
-    "na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>",
+    <p>Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+        Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą na&nbsp;
+        <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
+    </p>
     ,
-    "Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie," +
-    "Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą" +
-    "na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>",
+    <p>Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+        Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą na&nbsp;
+        <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
+    </p>
     ,
-    "Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie," +
-    "Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą" +
-    "na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>"
+    <p>Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+        Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą na&nbsp;
+        <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
+    </p>
 ];
 
 export let bloodResults = [
