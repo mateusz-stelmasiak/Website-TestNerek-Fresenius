@@ -9,9 +9,9 @@ include 'sendSms.php';
 $sms_messages = array(
     1 => " Centrum Dializ Fresenius, Szpitalna 16. Wtorek lub czwartek, 13.00-14.00.",
     2 => " Zabierz pobrany mocz, nie trzeba byc na czczo. Laboratorium ALAB, ul. Warszawska.",
-    3=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
-    4=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
-    5=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab."
+    3 =>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
+    4 =>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab.",
+    5 =>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab."
 
 );
 
@@ -42,7 +42,7 @@ $mail_messages = array(
          <p>
              Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
              Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
-             na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+             na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
          </p>
          <p>
            Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
@@ -55,7 +55,7 @@ $mail_messages = array(
               <p>
                   Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
                   Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
-                  na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+                  na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
               </p>
               <p>
                 Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
@@ -68,7 +68,7 @@ $mail_messages = array(
                <p>
                    Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
                    Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
-                   na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+                   na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>.
                </p>
                <p>
                  Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
@@ -91,7 +91,7 @@ $values = [':pesel' => $PESEL];
 $result = query_one_row($sql,$values);
 
 if (!is_null($result) && is_array($result)){
-    die('{"code":"'.$result['code'].'","feedback": "Wygenrowano już wcześniej dla Pana/Pani kod!","success":"true"}');
+    die('{"code":"'.$result['code'].'","feedback": "Wygenerowano już wcześniej dla Pana/Pani kod!","success":"true"}');
 }
 
 //check if the person qualifies
@@ -163,7 +163,7 @@ if ($email){
 
 //send sms
 if ($phone){
-    $msg_header= 'Twoj kod na badania nerek: '.$new_code.'.';;
+    $msg_header= 'Twoj kod na badania nerek: '.$new_code.'.';
     $full_sms_msg= $msg_header.$sms_messages[$powiat_id];
     sendSms($phone,$full_sms_msg) or die('{"feedback": "Błąd serwera: nie można wysłać smsa, spróbuj ponownie!","success":"false"}');
 }

@@ -79,6 +79,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         setFeedback("Generowanie kodu..")
         const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip + "&phone=" + phone, fetchOptions);
         const respBody = await response.text();
+        console.log(respBody);
         let respObj = JSON.parse(respBody);
         if (respObj.success !== "true") {
             setFeedback(respObj.feedback);
