@@ -8,7 +8,8 @@ include 'sendSms.php';
 //1-wieluń 2-mińsk
 $sms_messages = array(
     1 => " Centrum Dializ Fresenius, Szpitalna 16. Wtorek lub czwartek, 13.00-14.00.",
-    2 => " Zabierz pobrany mocz, nie trzeba byc na czczo. Laboratorium ALAB, ul. Warszawska."
+    2 => " Zabierz pobrany mocz, nie trzeba byc na czczo. Laboratorium ALAB, ul. Warszawska.",
+
 );
 $mail_messages = array(
     1 => "<p>
@@ -32,7 +33,46 @@ $mail_messages = array(
          </p>
          <p>
           Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
-         </p>"
+         </p>",
+         3=> "
+         <p>
+             Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+             Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
+             na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+         </p>
+         <p>
+           Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+          </p>
+          <p>
+           Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
+          </p>
+         ",
+         4=> "
+              <p>
+                  Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+                  Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
+                  na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+              </p>
+              <p>
+                Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+               </p>
+               <p>
+                Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
+               </p>
+              ",
+          5=> "
+               <p>
+                   Bezpłatne badania nerek można wykonać do 30 września 2022 w wybranym laboratorium firmy ALAB w Mławie,
+                   Żurominie lub Nidzicy. Prosimy sprawdzić adres i godziny pracy wybranego laboratorium przed wizytą
+                   na <a href='https://www.alablaboratoria.pl/punkty'>https://www.alablaboratoria.pl/punkty</a>
+               </p>
+               <p>
+                 Prosimy by zabrać ze sobą prawidłowo pobrany mocz. Na badaniach nie trzeba być na czczo.
+                </p>
+                <p>
+                 Dziękujemy za udział w Ogólnopolskim Teście Zdrowia Nerek.
+                </p>
+               "
 );
 
 $PESEL = $_REQUEST['PESEL'];
