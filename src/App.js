@@ -18,7 +18,7 @@ import AdminLogin from "./Components/AdminPanel/AdminLogin";
 import ReactPixel from 'react-facebook-pixel';
 import CookiesConsent from "./Components/Cookies/CookiesConsent";
 import Mlawa from "./Components/Locations/Mlawa";
-import {useEffect} from "react";
+
 
 //FacebookPixel config
 const options = {
