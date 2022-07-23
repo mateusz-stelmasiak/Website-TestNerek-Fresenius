@@ -162,10 +162,23 @@ export function calculateSurveyResult(answers, userData) {
 }
 
 export async function isUserEligibleForLab(zip) {
-    const response = await fetch(checkZIPPath + "?zip=" + zip, fetchOptions);
-    const respBody = await response.text();
-    console.log(respBody);
-    return JSON.parse(respBody);
+    let maxTries = 3;
+    for(let i=0;i<maxTries;i++){
+        const response = await fetch(checkZIPPath + "?zip=" + zip, fetchOptions);
+        let responseCode =  response.status;
+        if(responseCode === 500){
+            console.log("error, retrying");
+            continue;
+        }
+        const respBody = await response.text();
+        console.log(respBody);
+
+        // //for localhost testing
+        // return {powiat:3,success:true}
+        return JSON.parse(respBody);
+    }
+
+    return {powiat:'-1',success:'error'}
 }
 
 //returns appropriate form of 'lat' based on given number

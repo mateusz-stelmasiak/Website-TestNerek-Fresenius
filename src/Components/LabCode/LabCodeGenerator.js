@@ -8,9 +8,10 @@ import {codeGenScriptPath, emailRegex, fetchOptions} from "../../Utils";
 import "./LabCodeGenerator.css"
 import {setUserLabCode} from "../../Redux/Actions/surveyActions";
 import ReactPixel from 'react-facebook-pixel';
+import Dots from "../Common/Dots";
 
 function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
-    const [eligable, setEligable] = useState(false);
+    const [eligable, setEligable] = useState(undefined);
     const [powiatId, setPowiatId] = useState(-1);
     const [PESEL, setPESEL] = useState("")
     const [labCode, setLabCode] = useState(code)
@@ -22,9 +23,16 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
     async function determinUserEligable() {
         if (surveyResult.severity === 'low') return;
 
-        // //determines if users zip is eligable for a code
+        //determines if users zip is eligable for a code
         let resp = await isUserEligibleForLab(zip);
-        if (resp.success === "false") return;
+        if (resp.success === "false"){
+            setEligable(false);
+            return;
+        }
+        if (resp.success === "error"){
+            setEligable(false);
+            return;
+        }
 
         setEligable(true);
         setPowiatId(resp.powiat);
@@ -119,7 +127,28 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
 
     return (
         <div className="LabCodeGenerator ">
-            {eligable &&
+            {eligable === undefined &&
+                <div className="loadingContainer">
+                    <h3>Trwa sprawdzanie czy kwalifikuje się Pani/Pan na darmowe badanie nerek w swoim powiecie</h3>
+                    <span>oczekiwanie na odpowiedź serwera<Dots/></span>
+                </div>
+            }
+
+            {eligable === "error" &&
+            <div className="loadingContainer">
+                <h3>Przepraszamy, wystąpił błąd serwera</h3>
+                <span>prosimy spróbować odświeżyć stronę</span>
+            </div>
+            }
+
+            {eligable === false &&
+            <div className="loadingContainer">
+                <h3>Niestety, nie kwalifikuje się Pani/Pan na darmowe badanie nerek</h3>
+                <span>nasza akcja nie odbywa się w pańskim powiecie</span>
+            </div>
+            }
+
+            {eligable === true &&
             <Form className="inline" onSubmit={generateCode}>
                 <h2>Kwalifikuje się Pani/Pan na darmowe badanie nerek w swoim powiecie</h2>
 

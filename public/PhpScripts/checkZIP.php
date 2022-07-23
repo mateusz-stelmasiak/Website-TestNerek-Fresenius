@@ -1,5 +1,8 @@
 <?php
-$WebsiteRoot=$_SERVER['DOCUMENT_ROOT'];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include 'db.php';
 $ZIP = $_REQUEST['zip'];
 
@@ -13,7 +16,7 @@ if (is_null($result) || !is_array($result)){
 }
 
 //no longer in wieluń or minsk
-if($result['powiat_id'] ==1 || $result['powiat_id'] ==2){
+if($result['powiat_id'] == 1 || $result['powiat_id'] ==2){
 die('{"powiat": -1,"success":"false"}');
 }
 

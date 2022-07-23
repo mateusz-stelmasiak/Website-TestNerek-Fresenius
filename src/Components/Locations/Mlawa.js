@@ -5,13 +5,31 @@ import LogoPartner from "../Partners/LogoPartner"
 import "./Locations.css"
 import drPiotr from "../../Assets/dr_Piotr_Kozminski.jpg"
 import burmistrz from "../../Assets/partners/Mlawa/burmistrz_nidzica.PNG"
-import starosta from "../../Assets/partners/Mlawa/starosta_zuromski.png"
+import starostaZur from "../../Assets/partners/Mlawa/starosta_zuromski.png"
+import starostaMlaw from "../../Assets/partners/Mlawa/Starosta_Mławski_Jerzy_Ryszard_Rakowski.png"
 import zoz from "../../Assets/partners/Mlawa/zespol_opieki_zdrowotnej_nidzica.png"
 import radio7 from "../../Assets/partners/Mlawa/radio_7.png"
+import codziennik from "../../Assets/partners/Mlawa/codziennik.jpg"
+import telewizjaMazury from "../../Assets/partners/Mlawa/telewizja_mlawa.png"
+import mlawskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mlawa.png"
+import mazurskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mazury.png"
 import stacjaDializ from "../../Assets/mlawa_stacja.jpg"
+
 
 export default function Mlawa() {
     const general_partners = [
+        <LogoPartner
+            logo={starostaMlaw}
+            link="https://www.bip.powiatmlawski.pl/"
+            name="Jerzy Ryszard Rakowski"
+            desc="Starosta Mławski "
+        />,
+        <LogoPartner
+            logo={starostaZur}
+            link="http://zuromin.ibip.net.pl/"
+            name="Jerzy Rzymowski"
+            desc="Starosta Żuromiński"
+        />,
         <LogoPartner
             logo={burmistrz}
             link="https://www.nidzica.pl/"
@@ -19,17 +37,11 @@ export default function Mlawa() {
             desc="Burmistrz Nidzicy"
         />,
         <LogoPartner
-            logo={starosta}
-            link="http://zuromin.ibip.net.pl/"
-            name="Jerzy Rzymowski"
-            desc="Starosta Żuromiński"
-        />,
-        <LogoPartner
             logo={zoz}
             link="https://zoz.nidzica.pl/"
             name="lek. med. Anna Osłowska"
             desc="Dyrektor ZOZ w Nidzicy"
-        />
+        />,
     ]
 
     const media_parnters = [
@@ -39,7 +51,26 @@ export default function Mlawa() {
             name="Radio 7"
             desc="rozgłośnia Północnego Mazowsza "
         />,
-
+        <LogoPartner
+            logo={codziennik}
+            link="https://codziennikmlawski.pl/"
+            name="Codziennik Mławski"
+            desc="piszemy jak jest "
+        />,
+        <LogoPartner
+            logo={telewizjaMazury}
+            link="https://www.telewizjamazury.pl/"
+            name="Telewizja mazury"
+            desc="mazury w obiektywie kamery "
+        />,
+        <LogoPartner
+            logo={mlawskitygodnikTelewizyjny}
+            link = "https://www.mttv.pl/"
+        />,
+        <LogoPartner
+            logo={mazurskitygodnikTelewizyjny}
+            link = ""
+        />
     ]
 
 

@@ -12,7 +12,6 @@ $sms_messages = array(
     3=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab",
     4=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab",
     5=>" Wazny do 30 wrzesnia 2022 w laboratorium ALAB w Mlawie, Zurominie lub Nidzicy. Wybierz laboratorium -  www.idz.do/alab"
-
 );
 
 $mail_messages = array(

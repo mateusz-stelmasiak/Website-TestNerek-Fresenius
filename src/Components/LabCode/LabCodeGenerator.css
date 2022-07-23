@@ -49,7 +49,21 @@
     font-size: 1.05rem;
     color: var(--text-color);
 }
-
+.LabCodeGenerator .loadingContainer{
+    text-align: center;
+    border: 1px var(--primary-color-opaque) solid;
+    padding: 1rem 2%;
+}
+.LabCodeGenerator .loadingContainer h3{
+    text-align: center;
+    text-align-last: unset;
+    margin-top:unset;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.LabCodeGenerator .loadingContainer span{
+opacity: 0.8;
+}
 
 .LabCodeGenerator .feedback{
     color:var(--secondary-color);
@@ -84,7 +98,7 @@
     color:var(--secondary-color);
     border: 1px var(--primary-color-opaque) solid;
     border-radius: 3%;
-    padding: 0.5rem min(8rem,20vw);
+    padding: 0.5rem 1vw;
 }
 
 

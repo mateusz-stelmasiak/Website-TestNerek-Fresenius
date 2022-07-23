@@ -3,7 +3,7 @@
 }
 
 .Partners{
-    padding: 5rem 15%;
+    padding: 5rem 10%;
     background-color: var(--section-bg-color);
 }
 
@@ -22,6 +22,7 @@
     align-items: center;
     flex-wrap: wrap;
     column-gap: 4rem;
+    row-gap: 3rem;
 }
 
 
