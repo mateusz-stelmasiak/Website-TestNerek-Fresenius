@@ -12,6 +12,7 @@ import ScrollProgressBar from "./Survey/ScrollProgressBar";
 import ScrollToSectionComponent from "./Common/ScrollToSectionComponent"
 import Layout from "./Common/Layout";
 import ReactPixel from 'react-facebook-pixel';
+import {Helmet} from "react-helmet";
 
 function SurveyPage({dispatch}) {
     const questions = choiceQuestions;
@@ -49,6 +50,15 @@ function SurveyPage({dispatch}) {
 
     return (
         <Layout>
+            {/*Metatags for SEO*/}
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Wypełnij test online, który pokaże w jakiej kondycji są twoje nerki."
+                />
+                <title>Quiz - ogólnopolski test zdrowia nerek</title>
+            </Helmet>
+
             <ScrollProgressBar/>
             <ScrollToSectionComponent className='SurveyContainer'>
 

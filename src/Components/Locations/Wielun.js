@@ -10,6 +10,8 @@ import stacjaDializ from '../../Assets/stacja-dializ.jpg'
 import "./Locations.css"
 import burmistrz from "../../Assets/partners/Wieluń/burmistrz.png";
 import Layout from "../Common/Layout";
+import {Helmet} from "react-helmet";
+import React from "react";
 
 export default function Wielun() {
     const general_partners = [
@@ -52,6 +54,18 @@ export default function Wielun() {
 
     return (
         <Layout>
+            {/*Metatags for SEO*/}
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Powiat wieluński w województwie łódzkim jest pierwszym powiatem w Polsce, w którym ruszają: wirtualna poradnia nefrologiczna oraz kampania społeczna OGÓLNOPOLSKI TEST ZDROWIA NEREK."
+                />
+                <meta name="keywords"
+                      content="Wieluń, test, nerek, internetowy, ogólnopolski"
+                />
+                <title>Wieluń - ogólnopolski test zdrowia nerek</title>
+            </Helmet>
+
             <ScrollToSectionComponent className="InfoPage Wielun">
                 <h1>Wieluń</h1>
                 <p>

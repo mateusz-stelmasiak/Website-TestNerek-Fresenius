@@ -7,6 +7,8 @@ import stacjaDializ from "../../Assets/minsk_stacja.jpg";
 import drMinsk from "../../Assets/dr-Minsk.jpg";
 import nowyDzwon from "../../Assets/partners/Minsk/nowyDzwon.jpg"
 import Layout from "../Common/Layout";
+import {Helmet} from "react-helmet";
+import React from "react";
 
 export default function Minsk() {
     const general_partners = [
@@ -37,6 +39,17 @@ export default function Minsk() {
 
     return (
         <Layout>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="W powiecie mińskim (województwo mazowieckie) rusza wirtualna poradnia nefrologiczna."
+                />
+                <meta name="keywords"
+                      content="Mińsk, test, nerek, internetowy, ogólnopolski"
+                />
+                <title>Mińsk - ogólnopolski test zdrowia nerek</title>
+            </Helmet>
+
             <ScrollToSectionComponent className="InfoPage">
                 <h1>Mińsk Mazowiecki</h1>
                 <p>

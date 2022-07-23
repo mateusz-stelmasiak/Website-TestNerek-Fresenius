@@ -8,6 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Dots from "../Common/Dots";
 import Layout from "../Common/Layout";
 import {connect} from "react-redux";
+import {Helmet} from "react-helmet";
 
 function Contact({highContrast}) {
     const [feedback, setFeedback] = useState("");
@@ -99,6 +100,15 @@ function Contact({highContrast}) {
 
     return (
         <Layout>
+            {/*Metatags for SEO*/}
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Skontaktuj się telefonicznie lub mailowo wypełniając formularz lub wysyłając email na kontakt@poradnianefrologiczna.pl"
+                />
+                <title>Kontakt - ogólnopolski test zdrowia nerek</title>
+            </Helmet>
+
             <ScrollToSectionComponent className="InfoPage Contact">
                 <h1>Kontakt</h1>
                 <p>

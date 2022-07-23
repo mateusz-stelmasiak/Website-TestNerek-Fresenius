@@ -1,11 +1,8 @@
 import {Link} from "react-router-dom";
 import "./NavBar.css"
 import "./BurgerMenu.css"
-import logo from '../../Assets/freseniusLogo.png';
 import {useHistory} from "react-router-dom";
 import BurgerMenu from "./BurgerMenu";
-import logoSvg from '../../Assets/freseniusLogo.svg';
-
 import React from "react";
 import HighContrastModeSwitch from "./HighContastModeSwitch";
 import FreseniusLogo from "./FreseniusLogo";

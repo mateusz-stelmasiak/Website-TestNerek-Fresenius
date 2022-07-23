@@ -14,6 +14,8 @@ import telewizjaMazury from "../../Assets/partners/Mlawa/telewizja_mlawa.png"
 import mlawskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mlawa.png"
 import mazurskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mazury.png"
 import stacjaDializ from "../../Assets/mlawa_stacja.jpg"
+import {Helmet} from "react-helmet";
+import React from "react";
 
 
 export default function Mlawa() {
@@ -76,6 +78,18 @@ export default function Mlawa() {
 
     return (
         <Layout>
+            {/*Metatags for SEO*/}
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Mieszkańcy powiatów: mławskiego, żuromińskiego i nidzickiego mogą wypełnić test, który pokaże w jakiej kondycji są ich nerki."
+                />
+                <meta name="keywords"
+                      content="Mława, Żuromin, Nidzica, test, nerek, internetowy, ogólnopolski"
+                />
+                <title>Mława - ogólnopolski test zdrowia nerek</title>
+            </Helmet>
+
             <ScrollToSectionComponent className="InfoPage Mlawa">
                 <h1>MŁAWA, ŻUROMIN, NIDZICA</h1>
                 <p>

@@ -18,6 +18,8 @@ import AdminLogin from "./Components/AdminPanel/AdminLogin";
 import ReactPixel from 'react-facebook-pixel';
 import CookiesConsent from "./Components/Cookies/CookiesConsent";
 import Mlawa from "./Components/Locations/Mlawa";
+import {Helmet} from "react-helmet";
+import React from "react";
 
 
 //FacebookPixel config
@@ -38,6 +40,21 @@ function App() {
         <Provider store={store}>
             <Router>
                 <div className="App">
+
+                    <Helmet>
+                        <meta
+                            name="description"
+                            content="Weź udział w Internetowym teście zdrowia nerek!"
+                        />
+                        <meta name="keywords"
+                              content="test, nerek, internetowy, ogólnopolski,online"
+                        />
+                        <meta name="author" content="Fresenius Nephrocare"/>
+                        <title>Ogólnopolski test zdrowia nerek</title>
+                        <meta property="og:image" content="%PUBLIC_URL%/banner.png"/>
+                        <meta property="og:description" content="Weź udział w ogólnopolskim Internetowym teście zdrowia nerek!"/>
+                    </Helmet>
+
                     <CookiesConsent/>
                     <Switch>
                         <Route exact path="/" component={LandingPage}/>
