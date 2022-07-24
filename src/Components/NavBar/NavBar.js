@@ -41,9 +41,9 @@ export default function NavBar() {
 
                 <FreseniusLogo onClick={routeToMain}/>
 
-                <div className="buttons-container">
+                <nav className="buttons-container">
                     {menuButtons}
-                </div>
+                </nav>
 
                 <BurgerMenu>
                     {menuButtons}

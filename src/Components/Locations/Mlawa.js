@@ -3,7 +3,7 @@ import Layout from "../Common/Layout";
 import Partners from "../Partners/Partners"
 import LogoPartner from "../Partners/LogoPartner"
 import "./Locations.css"
-import drPiotr from "../../Assets/dr_Piotr_Kozminski.jpg"
+import drPiotr from "../../Assets/dr_Piotr_Kozminski.webp"
 import burmistrz from "../../Assets/partners/Mlawa/burmistrz_nidzica.PNG"
 import starostaZur from "../../Assets/partners/Mlawa/starosta_zuromski.png"
 import starostaMlaw from "../../Assets/partners/Mlawa/Starosta_Mławski_Jerzy_Ryszard_Rakowski.png"
@@ -13,7 +13,7 @@ import codziennik from "../../Assets/partners/Mlawa/codziennik.jpg"
 import telewizjaMazury from "../../Assets/partners/Mlawa/telewizja_mlawa.png"
 import mlawskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mlawa.png"
 import mazurskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mazury.png"
-import stacjaDializ from "../../Assets/mlawa_stacja.jpg"
+import stacjaDializ from "../../Assets/mlawa_stacja.webp"
 import {Helmet} from "react-helmet";
 import React from "react";
 

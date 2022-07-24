@@ -10,8 +10,8 @@ function Banner({highContrast}) {
     //viewport width and height from hook
     const { height, width } = useWindowDimensions();
     const [backgroundImage,setBackgroundImage]=useState('none');
-    let src = 'https://poradnianefrologiczna.pl/static/media/banner_recolor.f793798f.png';
-    let decoloredSrc='https://poradnianefrologiczna.pl/static/media/banner_derecolor.png';
+    let src = 'https://poradnianefrologiczna.pl/static/media/banner_recolor.f793798f.webp';
+    let decoloredSrc='https://poradnianefrologiczna.pl/static/media/banner_derecolor.webp';
 
 
     useEffect(()=>{

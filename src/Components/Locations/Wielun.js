@@ -5,8 +5,8 @@ import skomlin from '../../Assets/partners/Wieluń/skomlin.png';
 import tvWielun from '../../Assets/partners/Wieluń/TV-Wielun.png';
 import dziennikLodzki from '../../Assets/partners/Wieluń/dziennik-lodzki.png';
 import radioZw from '../../Assets/partners/Wieluń/radio_zw.png';
-import drAndrzej from '../../Assets/dr-Andrzej-Redlicki.jpg'
-import stacjaDializ from '../../Assets/stacja-dializ.jpg'
+import drAndrzej from '../../Assets/dr-Andrzej-Redlicki.webp'
+import stacjaDializ from '../../Assets/stacja-dializ.webp'
 import "./Locations.css"
 import burmistrz from "../../Assets/partners/Wieluń/burmistrz.png";
 import Layout from "../Common/Layout";

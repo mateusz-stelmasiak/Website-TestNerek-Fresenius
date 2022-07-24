@@ -3,8 +3,8 @@ import LogoPartner from "../Partners/LogoPartner"
 import burmistrz from '../../Assets/partners/Minsk/burmistrz.png';
 import powiat from '../../Assets/partners/Minsk/powiat.png';
 import ScrollToSectionComponent from "../Common/ScrollToSectionComponent";
-import stacjaDializ from "../../Assets/minsk_stacja.jpg";
-import drMinsk from "../../Assets/dr-Minsk.jpg";
+import stacjaDializ from "../../Assets/minsk_stacja.webp";
+import drMinsk from "../../Assets/dr-Minsk.webp";
 import nowyDzwon from "../../Assets/partners/Minsk/nowyDzwon.jpg"
 import Layout from "../Common/Layout";
 import {Helmet} from "react-helmet";

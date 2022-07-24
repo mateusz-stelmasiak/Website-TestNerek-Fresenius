@@ -8,7 +8,9 @@ export default function Layout(props){
         <>
             <NavBar/>
             <Banner/>
+            <main>
                 {props.children}
+            </main>
             <Footer/>
         </>
     );
