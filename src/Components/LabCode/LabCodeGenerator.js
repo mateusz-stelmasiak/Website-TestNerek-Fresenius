@@ -13,7 +13,7 @@ import Dots from "../Common/Dots";
 function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
     const [eligable, setEligable] = useState(undefined);
     const [powiatId, setPowiatId] = useState(-1);
-    const [PESEL, setPESEL] = useState("")
+    const [name, setName] = useState("")
     const [labCode, setLabCode] = useState(code)
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
@@ -52,10 +52,9 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         setEmail(mail);
     }
 
-    function inputPESEL(p) {
-        if (p.length > 11) return;
+    function inputName(p) {
         setFeedback("");
-        setPESEL(p);
+        setName(p);
     }
 
     function inputPhone(p) {
@@ -72,11 +71,6 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
             setFeedback("Niepoprawny adres email!");
             return
         }
-        //valide PESEL
-        if (!PESEL.match(/[0-9]{11}/)) {
-            setFeedback("Niepoprawny numer PESEL!");
-            return
-        }
 
         //valide Phone
         if (phone !== "" && !phone.match(/([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+/)) {
@@ -85,7 +79,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         }
 
         setFeedback("Generowanie kodu..")
-        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + PESEL + "&zip=" + zip + "&phone=" + phone, fetchOptions);
+        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + name + "&zip=" + zip + "&phone=" + phone, fetchOptions);
         const respBody = await response.text();
         console.log(respBody);
         let respObj = JSON.parse(respBody);
@@ -171,11 +165,11 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
                 <Form.Group>
                     <Form.Control
                         required
-                        id="PESEL"
-                        type="number"
-                        value={PESEL}
-                        onChange={(e) => inputPESEL(e.target.value)}
-                        placeholder="wpisz numer PESEL"
+                        id="name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => inputName(e.target.value)}
+                        placeholder="wpisz imię i nazwisko"
                     />
                     <Form.Control
                         id="email"
@@ -203,7 +197,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
                             label={
                                 <span>
                                     Wyrażam zgodę na przekazanie organizatorowi kampanii społecznej OGÓLNOPOLSKI TEST ZDROWIA NEREK mojego
-                                    adresu e-mail i numeru PESEL w celu wystawienia skierowania na bezpłatne badania laboratoryjne.
+                                    adresu e-mail oraz imienia i nazwiska w celu wystawienia skierowania na bezpłatne badania laboratoryjne.
                                 </span>
                             }
                         />

@@ -39,9 +39,8 @@ function ResultsPage({surveyResult,age,dispatch,}){
                         <h1>Wynik testu wskazuje, że Pani/Pana {surveyResult.header}</h1>
                         <KidneysWidget color={surveyResult.color}/>
                         <h4 style={{color:surveyResult.color}}>{surveyResult.result}</h4>
-                        <h3 >{surveyResult.verbose}</h3>
-
                         <LabCodeGenerator/>
+                        <h3 >{surveyResult.verbose}</h3>
                     </div>
                 </div>
                 }

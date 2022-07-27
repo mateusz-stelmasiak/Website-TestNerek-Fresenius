@@ -78,15 +78,15 @@ $mail_messages = array(
                "
 );
 
-$PESEL = $_REQUEST['PESEL'];
+$name = $_REQUEST['name'];
 $email = $_REQUEST['email'];
 $zip = $_REQUEST['zip'];
 $phone =$_REQUEST['phone'];
 
 //check if this person has not yet generated a code
-$sql="SELECT code FROM lab_codes WHERE PESEL = :pesel";
+$sql="SELECT code FROM lab_codes WHERE name = :name";
 /* Values array for PDO. */
-$values = [':pesel' => $PESEL];
+$values = [':name' => $name];
 $result = query_one_row($sql,$values);
 
 if (!is_null($result) && is_array($result)){
@@ -141,8 +141,8 @@ if($powiat_id==3 || $powiat_id==4 || $powiat_id==5){
 }
 
 //save the code in database
-$sql= "INSERT INTO lab_codes (PESEL, code, powiat_id) VALUES (:pesel,:code,:powiat)";
-$values = [':pesel' => $PESEL,':code' => $new_code,':powiat' => $powiat_id];
+$sql= "INSERT INTO lab_codes (name, code, powiat_id) VALUES (:name,:code,:powiat)";
+$values = [':name' => $name,':code' => $new_code,':powiat' => $powiat_id];
 $result= query($sql,$values);
 if(is_null($result)){
     die('{"feedback": "Błąd serwera: nie można dodać do bazy danych, spróbuj ponownie!","success":"false"}');
