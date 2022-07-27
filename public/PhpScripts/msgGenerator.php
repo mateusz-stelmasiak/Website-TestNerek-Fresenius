@@ -107,7 +107,7 @@ function generateLabCodeMessage($code,$msg_content){
                         <tr>
                             <td align="center" valign="top" style="padding:20px 0">
                                 <h2 style="color:rgb(3,55,154)">Twój kod na badania nerek</h2>
-                                <div style="font-size: 3rem; font-weight: bold;width: 30%;color: #dc5555; border: 1px rgba(3,55,154,0.5) solid;border-radius: 3%;padding: 0.5rem 8rem;">
+                                <div style="font-size: 3rem; font-weight: bold;color: #dc5555; border: 1px rgba(3,55,154,0.5) solid;border-radius: 3%;padding: 0.2rem 3rem;text-align: center;display: inline-block;">
                                     '.$code.'
                                 </div>
                             </td>
