@@ -36,7 +36,7 @@
 }
 
 /*Email input field*/
-.LabCodeGenerator  input[type=email], .LabCodeGenerator input[type=number], .LabCodeGenerator input[type=tel]{
+.LabCodeGenerator  input[type=email], .LabCodeGenerator input[type=number], .LabCodeGenerator input[type=tel], .LabCodeGenerator input[type=text]{
     all: unset;
     -webkit-appearance: none;
     -moz-appearance: textfield;
@@ -98,7 +98,7 @@ opacity: 0.8;
     color:var(--secondary-color);
     border: 1px var(--primary-color-opaque) solid;
     border-radius: 3%;
-    padding: 0.5rem 1vw;
+    padding: 0.5rem 3vw;
 }
 
 

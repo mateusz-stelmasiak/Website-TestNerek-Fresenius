@@ -9,5 +9,6 @@
 .BloodParametersQuestion p{
     color:var(--secondary-color);
     margin:unset;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.5rem;
+    font-weight: bold;
 }

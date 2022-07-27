@@ -79,7 +79,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
         }
 
         setFeedback("Generowanie kodu..")
-        const response = await fetch(codeGenScriptPath + "?email=" + email + "&PESEL=" + name + "&zip=" + zip + "&phone=" + phone, fetchOptions);
+        const response = await fetch(codeGenScriptPath + "?email=" + email + "&name=" + name + "&zip=" + zip + "&phone=" + phone, fetchOptions);
         const respBody = await response.text();
         console.log(respBody);
         let respObj = JSON.parse(respBody);
@@ -155,7 +155,7 @@ function LabCodeGenerator({zip, code, dispatch, surveyResult}) {
                 </p>
 
                 <p>
-                    Po wpisaniu numeru PESEL otrzyma Pani/Pan kod, który należy podać w laboratorium.
+                    Po wpisaniu imienia i nazwiska otrzyma Pani/Pan kod, który należy podać w laboratorium.
                     Może Pani/Pan także podać swój adres email lub numer telefonu, wyślemy kod, aby się nie
                     zagubił.
                 </p>
