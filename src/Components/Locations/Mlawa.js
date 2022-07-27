@@ -8,9 +8,11 @@ import burmistrz from "../../Assets/partners/Mlawa/burmistrz_nidzica.PNG"
 import starostaZur from "../../Assets/partners/Mlawa/starosta_zuromski.png"
 import starostaMlaw from "../../Assets/partners/Mlawa/Starosta_Mławski_Jerzy_Ryszard_Rakowski.png"
 import zoz from "../../Assets/partners/Mlawa/zespol_opieki_zdrowotnej_nidzica.png"
+import zuromin from "../../Assets/partners/Mlawa/herb_zuromin.png"
 import radio7 from "../../Assets/partners/Mlawa/radio_7.png"
 import codziennik from "../../Assets/partners/Mlawa/codziennik.jpg"
 import telewizjaMazury from "../../Assets/partners/Mlawa/telewizja_mlawa.png"
+import nowyKurier from "../../Assets/partners/Mlawa/nowy_kurier.png"
 import mlawskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mlawa.png"
 import mazurskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mazury.png"
 import stacjaDializ from "../../Assets/mlawa_stacja.webp"
@@ -33,6 +35,12 @@ export default function Mlawa() {
             desc="Starosta Żuromiński"
         />,
         <LogoPartner
+            logo={zuromin}
+            link="http://zuromin.ibip.net.pl/"
+            name="Aneta Goliat"
+            desc="Burmistrz Gminy i Miasta Żuromin"
+        />,
+        <LogoPartner
             logo={burmistrz}
             link="https://www.nidzica.pl/"
             name="Jacek Kosmala"
@@ -44,6 +52,7 @@ export default function Mlawa() {
             name="lek. med. Anna Osłowska"
             desc="Dyrektor ZOZ w Nidzicy"
         />,
+
     ]
 
     const media_parnters = [
@@ -58,6 +67,11 @@ export default function Mlawa() {
             link="https://codziennikmlawski.pl/"
             name="Codziennik Mławski"
             desc="piszemy jak jest "
+        />,
+        <LogoPartner
+            logo={nowyKurier}
+            link="https://kuriermlawski.pl/"
+            name="Nowy Kurier Mławski"
         />,
         <LogoPartner
             logo={telewizjaMazury}

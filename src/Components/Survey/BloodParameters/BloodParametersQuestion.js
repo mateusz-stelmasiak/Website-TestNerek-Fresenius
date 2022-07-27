@@ -39,9 +39,9 @@ function BloodParametersQuestion({qId,dispatch}){
     return (
         <div className="SurveyQuestion BloodParametersQuestion">
             <QuestionTitle qId={qId}>
-                Czy zna Pani/Pan poziom któregokolwiek z poniższych parametrów? Jeżeli tak, proszę podać wynik.<span>*</span>
+                Czy zna Pani/Pan poziom któregokolwiek z poniższych parametrów? Jeżeli tak, proszę podać wynik.
             </QuestionTitle>
-            <p>* możesz pominąć to pytanie, jeśli nie znasz lub nie pamiętasz wyników badań.</p>
+            <p>możesz pominąć to pytanie, jeśli nie znasz lub nie pamiętasz wyników badań</p>
             {qComponents}
         </div>
     );
