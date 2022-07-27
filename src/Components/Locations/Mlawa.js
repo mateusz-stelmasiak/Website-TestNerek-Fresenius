@@ -62,7 +62,7 @@ export default function Mlawa() {
         <LogoPartner
             logo={telewizjaMazury}
             link="https://www.telewizjamazury.pl/"
-            name="Telewizja mazury"
+            name="Telewizja Mazury"
             desc="mazury w obiektywie kamery "
         />,
         <LogoPartner

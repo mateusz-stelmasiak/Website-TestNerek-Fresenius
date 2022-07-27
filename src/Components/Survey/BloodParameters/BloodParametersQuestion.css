@@ -1,0 +1,13 @@
+.BloodParametersQuestion .QuestionTitle{
+    margin-bottom:0.5rem;
+}
+
+.BloodParametersQuestion .QuestionTitle span span{
+    color:var(--secondary-color);
+}
+
+.BloodParametersQuestion p{
+    color:var(--secondary-color);
+    margin:unset;
+    margin-bottom: 1.5rem;
+}

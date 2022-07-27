@@ -72,6 +72,7 @@ function SurveyPage({dispatch}) {
                         className="Survey-checkbox"
                         required
                         type='checkbox'
+                        id="dataProcessingAgreement"
                         label={
                             <span>
                                 Wyrażam zgodę na przekazanie organizatorowi kampanii społecznej OGÓLNOPOLSKI TEST ZDROWIA NEREK

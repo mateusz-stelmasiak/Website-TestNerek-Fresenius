@@ -3,6 +3,7 @@ import "./FreseniusLogo.css"
 export default function FreseniusLogo({onClick}) {
     return (
         <svg
+            aria-label="logo"
             onClick={onClick}
             className='FreseniusLogo'
             width="2560"

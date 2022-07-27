@@ -36,12 +36,13 @@ export default function NavBar() {
 
 
     return (
-        <header className="NavBar-container">
+        <header className="NavBar-container" aria-label="Nagłówek" >
             <div className="NavBar">
 
                 <FreseniusLogo onClick={routeToMain}/>
 
-                <nav className="buttons-container">
+                <nav className="buttons-container" role="navigation"npm run-script start
+                     aria-label="">
                     {menuButtons}
                 </nav>
 
