@@ -7,6 +7,7 @@ import drPiotr from "../../Assets/dr_Piotr_Kozminski.webp"
 import burmistrz from "../../Assets/partners/Mlawa/burmistrz_nidzica.PNG"
 import starostaZur from "../../Assets/partners/Mlawa/starosta_zuromski.png"
 import starostaMlaw from "../../Assets/partners/Mlawa/Starosta_Mławski_Jerzy_Ryszard_Rakowski.png"
+import burmistrzMlaw from "../../Assets/partners/Mlawa/burmistrz_mlawa.png"
 import zoz from "../../Assets/partners/Mlawa/zespol_opieki_zdrowotnej_nidzica.png"
 import zuromin from "../../Assets/partners/Mlawa/herb_zuromin.png"
 import radio7 from "../../Assets/partners/Mlawa/radio_7.png"
@@ -16,8 +17,10 @@ import nowyKurier from "../../Assets/partners/Mlawa/nowy_kurier.png"
 import mlawskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mlawa.png"
 import mazurskitygodnikTelewizyjny from "../../Assets/partners/Mlawa/tygodnik_telewizyjny_mazury.png"
 import stacjaDializ from "../../Assets/mlawa_stacja.webp"
+import gazetaNidzicka from "../../Assets/partners/Mlawa/gazeta_nidzicka.png"
 import {Helmet} from "react-helmet";
 import React from "react";
+import PersonPartner from "../Partners/PersonPartner";
 
 
 export default function Mlawa() {
@@ -41,6 +44,13 @@ export default function Mlawa() {
             desc="Burmistrz Gminy i Miasta Żuromin"
         />,
         <LogoPartner
+            logo={burmistrzMlaw}
+            link="https://bip.mlawa.pl/"
+            name="Sławomir Kowalewski"
+            desc="Burmistrz Miasta Mława"
+        />,
+
+        <LogoPartner
             logo={burmistrz}
             link="https://www.nidzica.pl/"
             name="Jacek Kosmala"
@@ -53,6 +63,14 @@ export default function Mlawa() {
             desc="Dyrektor ZOZ w Nidzicy"
         />,
 
+
+    ]
+
+    const logoles_partners=[
+        <PersonPartner
+            name="Rafał Kuciński"
+            desc="Wójt Gminy Dzierzgowo"
+        />,
     ]
 
     const media_parnters = [
@@ -69,16 +87,21 @@ export default function Mlawa() {
             desc="piszemy jak jest "
         />,
         <LogoPartner
-            logo={nowyKurier}
-            link="https://kuriermlawski.pl/"
-            name="Nowy Kurier Mławski"
-        />,
-        <LogoPartner
             logo={telewizjaMazury}
             link="https://www.telewizjamazury.pl/"
             name="Telewizja Mazury"
             desc="mazury w obiektywie kamery "
         />,
+        <LogoPartner
+            logo={nowyKurier}
+            link="https://kuriermlawski.pl/"
+            name="Nowy Kurier Mławski"
+        />,
+        <LogoPartner
+            logo={gazetaNidzicka}
+            link = ""
+        />,
+
         <LogoPartner
             logo={mlawskitygodnikTelewizyjny}
             link = "https://www.mttv.pl/"
@@ -175,6 +198,7 @@ export default function Mlawa() {
 
             <Partners
                 general={general_partners}
+                logoless={logoles_partners}
                 media={media_parnters}
             />
         </Layout>

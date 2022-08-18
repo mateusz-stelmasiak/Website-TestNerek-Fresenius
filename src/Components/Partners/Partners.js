@@ -1,6 +1,6 @@
 import "./Partners.css"
 
-function Partners({general,media}){
+function Partners({general,logoless,media}){
     return (
         <section className="Partners">
             <h1>Partnerzy projektu:</h1>
@@ -9,6 +9,15 @@ function Partners({general,media}){
             <div className="partners-container">
                 {general}
             </div>
+            }
+            {logoless &&
+                <>
+                    <div id="divider"/>
+                    <div className="partners-container">
+                        {logoless}
+                    </div>
+                </>
+
             }
 
             {media &&

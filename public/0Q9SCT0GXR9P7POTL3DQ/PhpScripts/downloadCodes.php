@@ -10,15 +10,15 @@ $region = $_REQUEST['powiatS'];
 
 //all regions marked by region=-1
 if($region==-1){
-    $sql="SELECT l.PESEL,l.code,p.powiat FROM lab_codes l JOIN powiaty p ON p.powiat_id=l.powiat_id";
+    $sql="SELECT l.name,l.code,p.powiat FROM lab_codes l JOIN powiaty p ON p.powiat_id=l.powiat_id";
     $values=[];
-    $output_headers=array('nr','PESEL','kod','powiat');
+    $output_headers=array('nr','imie i nazwisko','kod','powiat');
 }
 //select from specified region
 else{
-    $sql="SELECT PESEL,code FROM lab_codes WHERE powiat_id = :id";
+    $sql="SELECT name,code FROM lab_codes WHERE powiat_id = :id";
     $values=[':id' => $region];
-    $output_headers=array('nr','PESEL','kod');
+    $output_headers=array('nr','imie i nazwisko','kod');
 }
 
 $db_result = query($sql,$values);

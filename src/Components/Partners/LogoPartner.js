@@ -9,7 +9,7 @@ export default function LogoPartner({logo,link,name,desc}){
     return (
         <div className="LogoPartner">
             <div className="img-container">
-                <img src={logo} alt="logo" onClick={routeToPage}/>
+                <img src={logo} alt={"logo"+name} onClick={routeToPage}/>
             </div>
 
             <PersonPartner

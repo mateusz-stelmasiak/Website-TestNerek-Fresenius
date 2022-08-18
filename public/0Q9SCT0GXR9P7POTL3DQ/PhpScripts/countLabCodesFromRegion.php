@@ -10,12 +10,12 @@ $region = $_REQUEST['region'];
 
 //all regions marked by region=-1
 if($region==-1){
-    $sql="SELECT COUNT(PESEL) as codes FROM lab_codes";
+    $sql="SELECT COUNT(name) as codes FROM lab_codes";
     $values=[];
 }
 //select from specified region
 else{
-    $sql="SELECT COUNT(PESEL) as codes FROM lab_codes WHERE powiat_id = :id";
+    $sql="SELECT COUNT(name) as codes FROM lab_codes WHERE powiat_id = :id";
     $values=[':id' => $region];
 }
 

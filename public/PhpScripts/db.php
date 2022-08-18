@@ -6,7 +6,7 @@ $dbname = "35059720_testnerek";
 
 //Creating a DB connector (Pdo)
 $pdo = NULL;
-$connectionString = 'mysql:host=' . $servername . ';dbname=' . $dbname;
+$connectionString = 'mysql:host=' . $servername . ';dbname=' . $dbname.';charset=utf8';
 
 try
 {

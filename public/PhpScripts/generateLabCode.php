@@ -142,6 +142,10 @@ if($powiat_id==3 || $powiat_id==4 || $powiat_id==5){
 }
 
 //save the code in database
+$sql = "SET names 'utf8'";
+$values = [];
+$result = query_one_row($sql,$values);
+
 $sql= "INSERT INTO lab_codes (name, code, powiat_id) VALUES (:name,:code,:powiat)";
 $values = [':name' => $name,':code' => $new_code,':powiat' => $powiat_id];
 $result= query($sql,$values);

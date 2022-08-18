@@ -7,6 +7,11 @@
     background-color: var(--section-bg-color);
 }
 
+.Partners #divider{
+    height:5rem;
+    width: 100%;
+}
+
 .Partners h1 {
     color: var(--partners-text-color);
     font-size: 2.5rem;
