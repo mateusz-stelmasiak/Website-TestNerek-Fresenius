@@ -15,9 +15,10 @@ if (is_null($result) || !is_array($result)){
    die('{"success":"false"}');
 }
 
-//no longer in wieluń or minsk
-if($result['powiat_id'] == 1 || $result['powiat_id'] ==2){
-die('{"powiat": -1,"success":"false"}');
+//no longer in wieluń or minsk, mława, żuromin and nidzica:(
+$closed_powiats = array(1,2,3,4,5) //all the powiats that are no longer in the event
+if(in_array($result['powiat_id'] ,$closed_powiats)){
+    die('{"powiat": -1,"success":"false"}');
 }
 
 die('{"powiat": "'.$result['powiat_id'].'","success":"true"}');

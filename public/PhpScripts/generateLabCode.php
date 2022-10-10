@@ -108,9 +108,10 @@ if (is_null($powiat_row) || !is_array($powiat_row)){
 //1-wieluń 2-mińsk 3-mława 4-żuromiński 5-nidzicki
 $powiat_id=intval($powiat_row['powiat_id']);
 
-//no longer in wieluń or minsk :(
-if($powiat_id==1 || $powiat_id==2){
-die('{"feedback": "Niestety nie prowadzimy już badań w Pani/Pana rejonie!","success":"false"}');
+//no longer in wieluń or minsk, mława, żuromin and nidzica:(
+$closed_powiats = array(1,2,3,4,5) //all the powiats that are no longer in the event
+if(in_array($powiat_id,$closed_powiats)){
+    die('{"feedback": "Niestety akcja w Pani/Pana rejonie została zakończona!","success":"false"}');
 }
 
 
