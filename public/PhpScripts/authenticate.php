@@ -36,7 +36,7 @@ $_SESSION['username'] = $username;
 $_SESSION['start'] = time();
 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 //redirect to admin panel
-header('Location: https://www.poradnianefrologiczna.pl/0Q9SCT0GXR9P7POTL3DQ/');
+header('Location: https://www.poradnianefrologiczna.pl/Q**************/');
 session_write_close();
 exit();
 ?>
