@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 include '../PhpScripts/db.php';
 
 // If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['SlOAlgiuDdxidSCDxqeD'])) {
+if (!isset($_SESSION['**********'])) {
 	header('Location: /admin');
 	exit;
 }
