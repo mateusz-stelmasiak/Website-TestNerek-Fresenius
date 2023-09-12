@@ -1,8 +1,8 @@
 <?php
-$servername = "serwer2131085.home.pl";
-$username = "35059720_testnerek";
-$password = "9+uphM}~m*B4_3zd";
-$dbname = "35059720_testnerek";
+$servername = "home.pl";
+$username = "";
+$password = "9+********";
+$dbname = "35059720_";
 
 //Creating a DB connector (Pdo)
 $pdo = NULL;
